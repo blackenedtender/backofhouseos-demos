@@ -47,6 +47,12 @@ This demo uses sample data. Real systems may run locally/private.
 - Set Vercel Root Directory to the matching demo folder.
 - Pushes to `main` trigger deployment after initial Vercel setup.
 
+## Archive Handoff
+
+- Brand assets are tracked in `BRAND_ASSET_MANIFEST.md`.
+- Notion update instructions are tracked in `CHATGPT_NOTION_UPDATE_INSTRUCTIONS.md`.
+- Do not add Notion links until the Vercel URL is public, reviewed, and confirmed sample-data only.
+
 ## Vercel Setup Steps
 
 1. Push this repo to GitHub.

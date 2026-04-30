@@ -2,6 +2,8 @@
 
 Scan date: 2026-04-30
 
+Latest re-scan: 2026-04-30 after Inventory Notebook skin, Creative Origin logo asset update, Revenue Desk quote card, and Notion handoff instructions.
+
 Scope: `E:\backofhouseos-demos`, excluding local `.git` internals.
 
 ## Terms Scanned
@@ -51,13 +53,15 @@ Result: none found.
 - No Warner references found.
 - No Bleacher references found.
 - No B/R references found.
-- No BR references found.
-- No TNT references found.
+- No case-sensitive standalone BR references found.
+- No case-sensitive standalone TNT references found.
 - No Integrated Strategy references found.
 - No internal draft references found.
 - No runtime database files found.
 - No environment files found.
 - No local drive paths found inside demo application files.
+- No private branding source paths are referenced by deployed demo files.
+- Public demo logos load from `assets/` PNG files.
 
 ## Final Status
 

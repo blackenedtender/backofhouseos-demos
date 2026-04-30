@@ -1,52 +1,81 @@
 (function () {
-  const details = {
-    "ArchiveOS Demo": {
-      cards: [
-        ["Workflow", "Search -> representative card -> review versions -> add to set -> preflight -> export report."],
-        ["Governance", "The demo keeps originals untouched and shows how approved copies are separated from private or unresolved records."],
-        ["Proof Surface", "Use this page for portfolio screenshots of the memory board, version review, jobs, and export safety loop."]
-      ]
+  const storageKey = "boh-demo-theme";
+  const modes = ["system", "dark", "light"];
+  const root = document.documentElement;
+
+  const configs = {
+    archive: {
+      name: "ArchiveOS Notebook",
+      status: "public mirror",
+      flow: "search -> representative card -> set -> preflight -> export",
+      record: "sample assets",
+      home: "#home",
+      records: "#board",
+      statusAnchor: "#jobs",
+      settings: "#export"
     },
-    "RunnerOS Demo": {
-      cards: [
-        ["Workflow", "Import run -> hold for review -> approve record -> update dashboard and effort history."],
-        ["Governance", "Pending imports stay out of totals until reviewed, preserving a cleaner private archive of effort."],
-        ["Proof Surface", "Use dashboard, weekly trend, review queue, and approved run detail as screenshot anchors."]
-      ]
+    runner: {
+      name: "RunnerOS Notebook",
+      status: "sample run archive",
+      flow: "import -> review -> approve -> history",
+      record: "fake training runs",
+      home: "#dashboard",
+      records: "#runs",
+      statusAnchor: "#review",
+      settings: "#approved"
     },
-    "Inventory OS Demo": {
-      cards: [
-        ["Workflow", "Photo intake -> draft item -> confirm detail -> status history -> usable inventory surface."],
-        ["Governance", "Sample records separate drafts, listed items, available stock, and sold/archive states."],
-        ["Proof Surface", "Use item wall, intake mock, detail view, and history trail as portfolio screenshots."]
-      ]
+    inventory: {
+      name: "Inventory Notebook",
+      status: "public-safe demo",
+      flow: "photo intake -> draft -> detail -> status history",
+      record: "sample item records",
+      home: "#dashboard",
+      records: "#wall",
+      statusAnchor: "#history",
+      settings: "#detail"
     },
-    "Revenue Desk Demo": {
-      cards: [
-        ["Workflow", "RFP intake -> structured record -> checklist review -> internal brief -> approval -> reusable history."],
-        ["Governance", "Read-only source posture, human review, and audit-style status history keep response work controlled."],
-        ["Proof Surface", "Use metrics, review queue, deal record, scoreboard, and safety section for public proof."]
-      ]
+    revenue: {
+      name: "Revenue Desk Notebook",
+      status: "sanitized enterprise lineage",
+      flow: "RFP intake -> structured record -> review -> reusable history",
+      record: "fake opportunities",
+      home: "#home",
+      records: "#library",
+      statusAnchor: "#status",
+      settings: "#settings"
     },
-    "Cookbook OS Demo": {
-      cards: [
-        ["Workflow", "Scan cookbook page -> extract recipe draft -> review -> approve searchable recipe record."],
-        ["Governance", "Future concept only. No private household notes or real scanned pages are included."],
-        ["Proof Surface", "Use this as a placeholder lane until a source-backed prototype exists."]
-      ]
+    church: {
+      name: "Church OS Notebook",
+      status: "sanitized static demo",
+      flow: "public intake -> review -> approval -> service truth",
+      record: "fictional people/services",
+      home: "index.html",
+      records: "review.html",
+      statusAnchor: "service-planner.html",
+      settings: "program.html"
     },
-    "Church OS Demo": {
-      cards: [
-        ["Workflow", "Public intake -> staff review -> approval -> role-aware service and people surfaces."],
-        ["Governance", "Sanitized static demo only. Runtime records, member data, and private church operations stay out."],
-        ["Proof Surface", "Use intake, review, service planner, people, and program pages as screenshot anchors."]
-      ]
+    cookbook: {
+      name: "Cookbook OS Notebook",
+      status: "future concept",
+      flow: "scan -> extract -> review -> recipe record",
+      record: "placeholder sample data",
+      home: "#home",
+      records: "#concept",
+      statusAnchor: "#status",
+      settings: "#future"
     }
   };
 
-  const storageKey = "boh-demo-theme";
-  const modes = ["system", "light", "dark"];
-  const root = document.documentElement;
+  function configForPage() {
+    const title = document.title.toLowerCase();
+    const path = window.location.pathname.toLowerCase();
+    if (title.includes("runner") || path.includes("runner")) return configs.runner;
+    if (title.includes("inventory") || path.includes("inventory")) return configs.inventory;
+    if (title.includes("revenue") || path.includes("revenue")) return configs.revenue;
+    if (title.includes("church") || path.includes("church")) return configs.church;
+    if (title.includes("cookbook") || path.includes("cookbook")) return configs.cookbook;
+    return configs.archive;
+  }
 
   function effectiveTheme(mode) {
     if (mode === "system") {
@@ -64,100 +93,101 @@
     });
   }
 
-  function installThemeDock() {
-    if (document.querySelector(".theme-dock")) return;
-    const dock = document.createElement("div");
-    dock.className = "theme-dock";
-    dock.setAttribute("aria-label", "Theme controls");
-    dock.innerHTML = modes.map((mode) => (
-      `<button type="button" data-theme-choice="${mode}">${mode}</button>`
-    )).join("");
-    dock.addEventListener("click", (event) => {
-      const button = event.target.closest("[data-theme-choice]");
-      if (button) applyTheme(button.dataset.themeChoice);
-    });
-    document.body.appendChild(dock);
+  function logoMarkup() {
+    return `
+      <img class="notebook-logo-black" src="../../assets/tco-logo-black.png" alt="TCO">
+      <img class="notebook-logo-white" src="../../assets/tco-logo-white.png" alt="TCO">
+    `;
   }
 
-  function installLogoLockup() {
-    if (document.querySelector(".tco-logo-lockup")) return;
+  function installLogo() {
+    if (document.querySelector(".notebook-logo-lockup")) return;
     const logo = document.createElement("a");
-    logo.className = "tco-logo-lockup";
+    logo.className = "notebook-logo-lockup";
     logo.href = "#";
     logo.setAttribute("aria-label", "The Creative Origin");
-    logo.innerHTML = `
-      <img class="tco-logo-black" src="../../assets/tco-logo-black.svg" alt="TCO">
-      <img class="tco-logo-white" src="../../assets/tco-logo-white.svg" alt="TCO">
-    `;
+    logo.innerHTML = logoMarkup();
 
     const sidebar = document.querySelector(".sidebar");
-    const brand = sidebar?.querySelector(".brand");
+    const brand = sidebar?.querySelector(".brand, .logo, h1");
     if (sidebar && brand) {
       brand.insertAdjacentElement("afterend", logo);
       return;
     }
 
-    const topbar = document.querySelector(".topbar") || document.querySelector(".shell-header");
+    const topbar = document.querySelector(".topbar") || document.querySelector(".shell-header") || document.querySelector(".workspace-top");
     if (topbar) {
       topbar.appendChild(logo);
       return;
     }
 
-    const main = document.querySelector("main");
+    const main = document.querySelector("main") || document.querySelector(".workspace");
     if (main) main.insertAdjacentElement("afterbegin", logo);
   }
 
-  function installFreshnessBand() {
-    if (document.querySelector(".boh-freshness-band")) return;
-    const isFuture = document.title.includes("Cookbook");
-    const status = isFuture ? "future concept" : "review-ready";
-    const band = document.createElement("section");
-    band.className = "boh-freshness-band";
-    band.setAttribute("aria-label", "Demo freshness");
-    band.innerHTML = `
-      <article class="boh-freshness-item"><span>Data</span><strong>sample only</strong></article>
-      <article class="boh-freshness-item"><span>Theme</span><strong>system / light / dark</strong></article>
-      <article class="boh-freshness-item"><span>Vercel</span><strong>static folder root</strong></article>
-      <article class="boh-freshness-item"><span>Status</span><strong>${status}</strong></article>
+  function installThemeControls() {
+    if (document.querySelector(".notebook-theme-group")) return;
+    const group = document.createElement("div");
+    group.className = "notebook-theme-group";
+    group.setAttribute("role", "group");
+    group.setAttribute("aria-label", "Theme");
+    group.innerHTML = modes.map((mode) => (
+      `<button type="button" data-theme-choice="${mode}">${mode}</button>`
+    )).join("");
+    group.addEventListener("click", (event) => {
+      const button = event.target.closest("[data-theme-choice]");
+      if (button) applyTheme(button.dataset.themeChoice);
+    });
+
+    const target = document.querySelector(".sidebar-note") ||
+      document.querySelector(".sidebar") ||
+      document.querySelector(".topbar") ||
+      document.querySelector(".shell-header") ||
+      document.querySelector(".workspace-top");
+
+    if (target) target.appendChild(group);
+  }
+
+  function installStatusStrip() {
+    if (document.querySelector(".notebook-status-strip")) return;
+    const config = configForPage();
+    const strip = document.createElement("section");
+    strip.className = "notebook-status-strip";
+    strip.setAttribute("aria-label", "Demo status");
+    strip.innerHTML = `
+      <article><span>Notebook</span><strong>${config.name}</strong></article>
+      <article><span>Status</span><strong>${config.status}</strong></article>
+      <article><span>Flow</span><strong>${config.flow}</strong></article>
+      <article><span>Data</span><strong>${config.record}</strong></article>
     `;
-    const detailBand = document.querySelector(".boh-detail-band");
-    if (detailBand) {
-      detailBand.parentNode.insertBefore(band, detailBand);
-    } else {
-      const footer = document.querySelector("footer");
-      if (footer) footer.parentNode.insertBefore(band, footer);
+
+    const main = document.querySelector("main") || document.querySelector(".workspace");
+    if (main) {
+      const afterHero = main.children.length > 1 ? main.children[1] : null;
+      main.insertBefore(strip, afterHero);
     }
   }
 
-  function detailConfig() {
-    const title = document.title;
-    if (title.includes("RunnerOS")) return details["RunnerOS Demo"];
-    if (title.includes("Inventory")) return details["Inventory OS Demo"];
-    if (title.includes("Revenue Desk")) return details["Revenue Desk Demo"];
-    if (title.includes("Cookbook")) return details["Cookbook OS Demo"];
-    if (title.includes("Church")) return details["Church OS Demo"];
-    return details["ArchiveOS Demo"];
+  function installBottomNav() {
+    if (document.querySelector(".notebook-bottom-nav")) return;
+    const config = configForPage();
+    const nav = document.createElement("nav");
+    nav.className = "notebook-bottom-nav";
+    nav.setAttribute("aria-label", "Notebook navigation");
+    nav.innerHTML = `
+      <a href="${config.home}" class="active">Home</a>
+      <a href="${config.records}">Records</a>
+      <a class="notebook-bottom-mark" href="#" aria-label="The Creative Origin">${logoMarkup()}</a>
+      <a href="${config.statusAnchor}">Status</a>
+      <a href="${config.settings}">Settings</a>
+    `;
+    document.body.appendChild(nav);
   }
 
-  function installDetailBand() {
-    if (document.querySelector(".boh-detail-band")) return;
-    const config = detailConfig();
-    const band = document.createElement("section");
-    band.className = "boh-detail-band";
-    band.setAttribute("aria-label", "Demo details");
-    band.innerHTML = config.cards.map(([title, copy]) => `
-      <article class="boh-detail-card">
-        <span>Demo detail</span>
-        <h2>${title}</h2>
-        <p>${copy}</p>
-      </article>
-    `).join("");
-    const footer = document.querySelector("footer");
-    if (footer) {
-      footer.parentNode.insertBefore(band, footer);
-    } else {
-      document.body.appendChild(band);
-    }
+  function markLegacyChrome() {
+    document.body.classList.add("inventory-notebook-skin");
+    document.querySelectorAll(".boh-detail-band,.boh-freshness-band,.theme-dock,.tco-logo-lockup")
+      .forEach((node) => node.remove());
   }
 
   window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
@@ -165,10 +195,11 @@
   });
 
   document.addEventListener("DOMContentLoaded", () => {
-    installLogoLockup();
-    installThemeDock();
-    installDetailBand();
-    installFreshnessBand();
+    markLegacyChrome();
+    installLogo();
+    installThemeControls();
+    installStatusStrip();
+    installBottomNav();
     applyTheme(localStorage.getItem(storageKey) || "system");
   });
 })();
