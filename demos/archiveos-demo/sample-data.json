@@ -1,0 +1,138 @@
+{
+  "demo": {
+    "name": "ArchiveOS Demo",
+    "mode": "public-safe static demo",
+    "disclaimer": "Synthetic sample data only. No real files, drives, paths, databases, or private archive contents are included."
+  },
+  "stats": {
+    "sourcesScanned": 7,
+    "assetsIndexed": 1248,
+    "reviewActions": 38,
+    "approvedForExport": 7
+  },
+  "assets": [
+    {
+      "id": "asset-brooklyn-medal",
+      "title": "Brooklyn medal photo",
+      "kind": "photo",
+      "memory": "Finisher medal on a kitchen table",
+      "status": "Approved",
+      "versions": 4,
+      "color": "#f2b84b",
+      "accent": "#7a4b12",
+      "tags": ["running", "medal", "brooklyn"],
+      "set": true,
+      "privacy": "public-safe demo"
+    },
+    {
+      "id": "asset-arthur-meme",
+      "title": "Arthur meme",
+      "kind": "image",
+      "memory": "Reaction image saved in multiple folders",
+      "status": "Needs Review",
+      "versions": 3,
+      "color": "#5f86d8",
+      "accent": "#1e335c",
+      "tags": ["meme", "image", "duplicate"],
+      "set": false,
+      "privacy": "public-safe demo"
+    },
+    {
+      "id": "asset-sermon-video",
+      "title": "Church sermon video",
+      "kind": "video",
+      "memory": "Sunday message clip with export candidate",
+      "status": "Approved",
+      "versions": 2,
+      "color": "#8c6bd9",
+      "accent": "#34235f",
+      "tags": ["church", "video", "sermon"],
+      "set": true,
+      "privacy": "public-safe demo"
+    },
+    {
+      "id": "asset-old-logo",
+      "title": "Old logo",
+      "kind": "design",
+      "memory": "Earlier mark used in a brand concept",
+      "status": "Canonical",
+      "versions": 4,
+      "color": "#3fbf9f",
+      "accent": "#144c40",
+      "tags": ["brand", "logo", "design"],
+      "set": true,
+      "privacy": "public-safe demo"
+    },
+    {
+      "id": "asset-target-receipt",
+      "title": "Target receipt",
+      "kind": "document",
+      "memory": "Receipt image from an inventory run",
+      "status": "Private",
+      "versions": 1,
+      "color": "#ef5b5b",
+      "accent": "#6d1f1f",
+      "tags": ["receipt", "inventory", "private"],
+      "set": false,
+      "privacy": "blocked from export"
+    },
+    {
+      "id": "asset-running-clip",
+      "title": "Running clip",
+      "kind": "video",
+      "memory": "Short clip from a training route",
+      "status": "Needs Review",
+      "versions": 2,
+      "color": "#5fc1e8",
+      "accent": "#174a5d",
+      "tags": ["running", "video", "training"],
+      "set": false,
+      "privacy": "public-safe demo"
+    },
+    {
+      "id": "asset-inventory-photo",
+      "title": "Inventory item photo",
+      "kind": "photo",
+      "memory": "Product-style photo ready for listing review",
+      "status": "Approved",
+      "versions": 2,
+      "color": "#d884bf",
+      "accent": "#63264f",
+      "tags": ["inventory", "photo", "listing"],
+      "set": true,
+      "privacy": "public-safe demo"
+    }
+  ],
+  "jobs": [
+    {
+      "name": "Scan messy sources",
+      "state": "Complete",
+      "detail": "7 demo sources scanned without touching originals."
+    },
+    {
+      "name": "Build recall index",
+      "state": "Complete",
+      "detail": "1,248 sample assets indexed for memory search."
+    },
+    {
+      "name": "Group visual matches",
+      "state": "Complete",
+      "detail": "Representative cards selected for duplicate clusters."
+    },
+    {
+      "name": "Run export preflight",
+      "state": "Ready",
+      "detail": "Private and unresolved items blocked from export."
+    }
+  ],
+  "exportReport": {
+    "setName": "Portfolio Proof Set",
+    "approvedCopies": 4,
+    "blockedItems": 2,
+    "warnings": [
+      "Target receipt is private and blocked.",
+      "Running clip needs review before export."
+    ],
+    "rule": "Originals stay untouched. Export creates approved copies only."
+  }
+}

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Postmaster | Church OS Demo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <span>Church OS static demo</span>
+        <strong>Grace Fellowship Demo Church</strong>
+        <span>demo_showcase cut</span>
+      </div>
+      <nav class="nav" aria-label="Demo sections">
+        <a href="index.html">This Week</a>
+        <a href="service-planner.html">Service Planner</a>
+        <a href="worship-planner.html">Worship Planner</a>
+        <a href="review.html">Review Queue</a>
+        <a href="people.html">People</a>
+        <a href="program.html">Program</a>
+        <a href="postmaster.html" aria-current="page">Postmaster</a>
+        <a href="archive.html">Archive</a>
+        <a href="builder.html">Builder</a>
+      </nav>
+    </aside>
+    <main class="main">
+      <div class="topbar">
+        <div class="stack">
+          <span class="eyebrow">Postmaster</span>
+          <h1>Communication trail without live sending</h1>
+          <p class="lede">The real runtime can send governed email through configured production credentials. This demo shows the concept only, with no provider calls and no credentials.</p>
+        </div>
+        <span class="badge">disabled demo mode</span>
+      </div>
+
+      <section class="status-strip">
+        <div class="stat">
+          <span class="meta">Provider</span>
+          <h2>Disabled</h2>
+          <p class="muted">Static Vercel output only.</p>
+        </div>
+        <div class="stat">
+          <span class="meta">Last event</span>
+          <h2>Demo queued</h2>
+          <p class="muted">No network request was made.</p>
+        </div>
+        <div class="stat">
+          <span class="meta">Recipients</span>
+          <h2>example.org</h2>
+          <p class="muted">Synthetic addresses only.</p>
+        </div>
+        <div class="stat">
+          <span class="meta">Source of truth</span>
+          <h2>Church OS</h2>
+          <p class="muted">Messages are artifacts, not canon.</p>
+        </div>
+      </section>
+
+      <section class="panel stack">
+        <h2>Demo communication trail</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Template</th>
+              <th>Recipient</th>
+              <th>Status</th>
+              <th>Linked record</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Intake received</td>
+              <td>mika.noel@example.org</td>
+              <td><span class="pill gold">Queued sample</span></td>
+              <td>Review item 102</td>
+            </tr>
+            <tr>
+              <td>Worship packet ready</td>
+              <td>worship-team@example.org</td>
+              <td><span class="pill">Skipped in demo</span></td>
+              <td>Service week 2026-05-03</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

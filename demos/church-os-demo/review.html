@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Review Queue | Church OS Demo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <span>Church OS static demo</span>
+        <strong>Grace Fellowship Demo Church</strong>
+        <span>demo_showcase cut</span>
+      </div>
+      <nav class="nav" aria-label="Demo sections">
+        <a href="index.html">This Week</a>
+        <a href="service-planner.html">Service Planner</a>
+        <a href="worship-planner.html">Worship Planner</a>
+        <a href="review.html" aria-current="page">Review Queue</a>
+        <a href="people.html">People</a>
+        <a href="program.html">Program</a>
+        <a href="postmaster.html">Postmaster</a>
+        <a href="archive.html">Archive</a>
+        <a href="builder.html">Builder</a>
+      </nav>
+    </aside>
+    <main class="main">
+      <div class="topbar">
+        <div class="stack">
+          <span class="eyebrow">Review Queue</span>
+          <h1>Human intent is recorded before anything moves</h1>
+          <p class="lede">This static queue shows the approval lane without changing state. It models review-first intake, candidate songs, and reference archive records.</p>
+        </div>
+        <span class="badge">3 demo items</span>
+      </div>
+
+      <section class="columns">
+        <article class="panel stack">
+          <div class="queue-item stack">
+            <div class="split">
+              <h2>New worship team intake</h2>
+              <span class="pill gold">Needs review</span>
+            </div>
+            <p class="muted">Mika Noel requested worship lead access using mika.noel@example.org and 555-0100.</p>
+            <div class="button-row">
+              <a class="button primary" href="people.html">Approve role sample</a>
+              <a class="button" href="postmaster.html">Preview notice</a>
+            </div>
+          </div>
+          <div class="queue-item stack">
+            <div class="split">
+              <h2>Song submission</h2>
+              <span class="pill">Candidate</span>
+            </div>
+            <p class="muted">Demo Chorus One is synthetic and separate from shared songbook canon.</p>
+          </div>
+          <div class="queue-item stack">
+            <div class="split">
+              <h2>Archive reference</h2>
+              <span class="pill coral">Reference only</span>
+            </div>
+            <p class="muted">A sample service outline is visible here as a reference artifact, not as Sunday truth.</p>
+          </div>
+        </article>
+
+        <aside class="panel stack">
+          <h2>Governance guardrails</h2>
+          <p>Agents execute bounded tasks only.</p>
+          <p>State changes pass through the governed state machine.</p>
+          <p>Review decisions record human intent only.</p>
+          <p>No promotion execution is shown in this public demo.</p>
+        </aside>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

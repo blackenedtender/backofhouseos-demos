@@ -1,0 +1,110 @@
+{
+  "demo": {
+    "name": "Revenue Desk Demo",
+    "parent": "BackOfHouseOS / TCO",
+    "mode": "public-safe static demo",
+    "disclaimer": "This demo uses sample data. It does not contain private, client, employer, or production information."
+  },
+  "metrics": {
+    "incoming_rfps": 5,
+    "average_cycle_time": "3.4 days",
+    "checklist_pass_rate": "86%",
+    "reuse_rate": "42%",
+    "pending_reviews": 2,
+    "response_velocity": "+31%"
+  },
+  "opportunities": [
+    {
+      "id": "opp-001",
+      "client_name": "Northstar Brands",
+      "opportunity_name": "Q4 Streaming Sponsorship Package",
+      "deal_value": "$420,000",
+      "due_date": "2026-05-14",
+      "vertical": "Consumer Goods",
+      "requested_assets": ["streaming sponsorship", "social extensions", "measurement recap"],
+      "intake_status": "structured",
+      "review_status": "approved",
+      "owner": "Proposal Operator",
+      "checklist_score": 94,
+      "reuse_candidates": ["Q3 launch brief", "measurement language", "brand safety response"],
+      "missing_fields": [],
+      "generated_brief_summary": "A reviewed sponsorship opportunity with clear deliverables, due date, reusable proof language, and response-ready sections.",
+      "timeline": ["source received", "fields extracted", "checklist passed", "brief approved"]
+    },
+    {
+      "id": "opp-002",
+      "client_name": "Summit Retail Group",
+      "opportunity_name": "Regional Sports Activation",
+      "deal_value": "$185,000",
+      "due_date": "2026-05-08",
+      "vertical": "Retail",
+      "requested_assets": ["regional media plan", "event presence", "recap deck"],
+      "intake_status": "needs fields",
+      "review_status": "pending review",
+      "owner": "Sales Strategy Team",
+      "checklist_score": 72,
+      "reuse_candidates": ["regional activation checklist", "event staffing note"],
+      "missing_fields": ["final market list", "approval contact"],
+      "generated_brief_summary": "A promising activation request with strong source material, pending final market and approval-owner confirmation.",
+      "timeline": ["source received", "fields extracted", "missing fields flagged"]
+    },
+    {
+      "id": "opp-003",
+      "client_name": "Riverline Media",
+      "opportunity_name": "Launch Campaign Media Plan",
+      "deal_value": "$260,000",
+      "due_date": "2026-05-21",
+      "vertical": "Entertainment",
+      "requested_assets": ["media plan", "audience rationale", "creative options"],
+      "intake_status": "structured",
+      "review_status": "approved",
+      "owner": "GTM Team",
+      "checklist_score": 88,
+      "reuse_candidates": ["launch plan outline", "audience positioning", "creative menu"],
+      "missing_fields": [],
+      "generated_brief_summary": "A launch campaign request converted into a clean response brief with reusable audience and creative modules.",
+      "timeline": ["source received", "fields extracted", "review notes added", "brief approved"]
+    },
+    {
+      "id": "opp-004",
+      "client_name": "Atlas Fitness",
+      "opportunity_name": "Brand Partnership Proposal",
+      "deal_value": "$310,000",
+      "due_date": "2026-05-29",
+      "vertical": "Health and Fitness",
+      "requested_assets": ["partnership overview", "talent options", "performance forecast"],
+      "intake_status": "draft record",
+      "review_status": "pending review",
+      "owner": "Revenue Team",
+      "checklist_score": 66,
+      "reuse_candidates": ["partnership proposal shell"],
+      "missing_fields": ["audience target", "forecast assumptions", "legal constraint notes"],
+      "generated_brief_summary": "A draft partnership request that needs audience, forecast, and constraint review before response work begins.",
+      "timeline": ["source received", "draft created", "review required"]
+    },
+    {
+      "id": "opp-005",
+      "client_name": "Blue Harbor Foods",
+      "opportunity_name": "Event Sponsorship RFP",
+      "deal_value": "$145,000",
+      "due_date": "2026-06-03",
+      "vertical": "Food and Beverage",
+      "requested_assets": ["sponsorship package", "on-site activation", "post-event report"],
+      "intake_status": "structured",
+      "review_status": "ready for approval",
+      "owner": "Governance Admin",
+      "checklist_score": 81,
+      "reuse_candidates": ["event recap template", "activation checklist", "sponsorship package outline"],
+      "missing_fields": ["final budget approval"],
+      "generated_brief_summary": "An event sponsorship RFP with most required fields complete and one budget approval item pending.",
+      "timeline": ["source received", "fields extracted", "checklist reviewed", "approval pending"]
+    }
+  ],
+  "governance": [
+    "Read-only source posture",
+    "Human review required",
+    "Audit log for status changes",
+    "No autonomous submission",
+    "Synthetic public demo data only"
+  ]
+}

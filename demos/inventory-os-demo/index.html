@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Public-safe Inventory OS static demo using sample item data only.">
+    <title>Inventory OS Demo</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#dashboard" aria-label="Inventory OS dashboard">
+        <span class="brand-mark">I</span>
+        <span>
+          <strong>Inventory OS</strong>
+          <small id="status-label">Static demo</small>
+        </span>
+      </a>
+      <nav class="nav" aria-label="Demo screens">
+        <a href="#dashboard">Dashboard</a>
+        <a href="#wall">Item wall</a>
+        <a href="#intake">Intake</a>
+        <a href="#detail">Detail</a>
+        <a href="#history">History</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="dashboard">
+        <div>
+          <p class="eyebrow">Public-safe portfolio demo</p>
+          <h1>Turn loose items into structured inventory.</h1>
+          <p class="lede">
+            Inventory OS takes messy item photos and turns them into reviewable records:
+            title, category, condition, status, notes, and update history.
+          </p>
+        </div>
+        <aside class="intake-card">
+          <span>Intake mock</span>
+          <strong id="drafts-created">0 drafts</strong>
+          <p id="intake-message">Loading sample intake flow.</p>
+        </aside>
+      </section>
+
+      <section class="stats" aria-label="Inventory dashboard stats">
+        <article>
+          <span>Total items</span>
+          <strong id="total-items">0</strong>
+        </article>
+        <article>
+          <span>Available</span>
+          <strong id="available-count">0</strong>
+        </article>
+        <article>
+          <span>Listed</span>
+          <strong id="listed-count">0</strong>
+        </article>
+        <article>
+          <span>Needs review</span>
+          <strong id="draft-count">0</strong>
+        </article>
+      </section>
+
+      <section class="section-heading" id="wall">
+        <div>
+          <p class="eyebrow">Item wall</p>
+          <h2>Sample inventory records</h2>
+        </div>
+        <label class="filter">
+          <span>Category</span>
+          <select id="category-filter">
+            <option value="all">All categories</option>
+          </select>
+        </label>
+      </section>
+
+      <section class="item-wall" id="item-wall" aria-live="polite"></section>
+
+      <section class="split" id="intake">
+        <div class="panel upload-mock">
+          <p class="eyebrow">Upload / intake mock</p>
+          <h2>Photos become drafts</h2>
+          <p>
+            This static demo does not upload files. It shows the public-safe flow:
+            photo intake, draft creation, detail confirmation, inventory status.
+          </p>
+          <div class="drop-zone" aria-label="Upload mock">
+            <span>6 sample photos</span>
+            <strong>No real upload</strong>
+          </div>
+        </div>
+        <div class="panel status-panel" id="history">
+          <p class="eyebrow">Status / history</p>
+          <h2>Every item keeps a trail</h2>
+          <div id="history-list" class="history-list"></div>
+        </div>
+      </section>
+
+      <section class="detail" id="detail">
+        <div>
+          <p class="eyebrow">Item detail</p>
+          <h2 id="detail-title">Select an item</h2>
+          <p id="detail-notes" class="lede compact">The first sample item is loaded by default.</p>
+        </div>
+        <div class="detail-card">
+          <div class="placeholder" id="detail-placeholder" aria-hidden="true">
+            <span id="detail-initials">ITM</span>
+          </div>
+          <dl>
+            <div>
+              <dt>Category</dt>
+              <dd id="detail-category">-</dd>
+            </div>
+            <div>
+              <dt>Status</dt>
+              <dd id="detail-status">-</dd>
+            </div>
+            <div>
+              <dt>Condition</dt>
+              <dd id="detail-condition">-</dd>
+            </div>
+            <div>
+              <dt>Last updated</dt>
+              <dd id="detail-updated">-</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>Inventory OS demo uses synthetic sample data only.</span>
+      <span>No private inventory, production DB, secrets, or personal information are included.</span>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+{
+  "demo": {
+    "name": "Cookbook OS Demo",
+    "status": "future concept",
+    "disclaimer": "This demo uses sample data. Real systems may run locally/private."
+  },
+  "concept": {
+    "summary": "Cookbook OS is a future module for turning scanned cookbook pages into reviewed, searchable recipe records.",
+    "workflow": [
+      "scan cookbook page",
+      "extract recipe draft",
+      "review ingredients and steps",
+      "approve searchable recipe record",
+      "recall for meal planning"
+    ]
+  },
+  "sample_recipe": {
+    "title": "Demo Weeknight Tomato Pasta",
+    "source": "sample cookbook page",
+    "review_status": "future concept",
+    "ingredients": [
+      "sample tomatoes",
+      "sample pasta",
+      "sample olive oil",
+      "sample herbs"
+    ],
+    "notes": "Placeholder recipe only. No private household notes or real scanned pages are included."
+  }
+}

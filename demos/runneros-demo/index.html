@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Public-safe RunnerOS static demo using fake running data only.">
+    <title>RunnerOS Demo</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="shell-header">
+      <a class="brand" href="#dashboard" aria-label="RunnerOS dashboard">
+        <span class="brand-mark">R</span>
+        <span>
+          <strong>RunnerOS</strong>
+          <small>private archive of effort</small>
+        </span>
+      </a>
+      <nav class="nav" aria-label="Demo screens">
+        <a href="#dashboard">Dashboard</a>
+        <a href="#imports">Imports</a>
+        <a href="#runs">Runs</a>
+        <a href="#review">Review</a>
+        <a href="#detail">Detail</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="dashboard">
+        <div class="hero-copy">
+          <p class="eyebrow">RunnerOS demo</p>
+          <h1>Preserve the story of effort.</h1>
+          <p class="lede">
+            A personal running archive where raw imports stay reviewable, approved runs become
+            canonical, and the dashboard remembers more than numbers.
+          </p>
+        </div>
+        <aside class="today-card">
+          <span>Recent approved run</span>
+          <strong id="recent-title">Loading</strong>
+          <p id="recent-meta">Loading sample run data</p>
+        </aside>
+      </section>
+
+      <section class="metrics" aria-label="RunnerOS sample metrics">
+        <article>
+          <span>Total miles</span>
+          <strong id="total-miles">0.0</strong>
+        </article>
+        <article>
+          <span>Longest run</span>
+          <strong id="longest-run">0.0</strong>
+        </article>
+        <article>
+          <span>Pending review</span>
+          <strong id="pending-count">0</strong>
+        </article>
+        <article>
+          <span>Approved records</span>
+          <strong id="approved-count">0</strong>
+        </article>
+      </section>
+
+      <section class="panel trend-panel">
+        <div class="section-title">
+          <p class="eyebrow">Weekly trend</p>
+          <h2>Small efforts, remembered clearly</h2>
+        </div>
+        <div class="trend" id="trend" aria-label="Weekly mileage trend"></div>
+      </section>
+
+      <section class="split" id="imports">
+        <div class="panel">
+          <div class="section-title">
+            <p class="eyebrow">Imports</p>
+            <h2>Raw runs enter review first</h2>
+          </div>
+          <p class="muted">
+            Imported records do not affect dashboard truth until they are reviewed and approved.
+          </p>
+          <div class="import-list" id="import-list"></div>
+        </div>
+        <div class="panel archive-note">
+          <p class="eyebrow">Archive rule</p>
+          <h2>Private by default</h2>
+          <p>
+            This demo uses fake data only. A real RunnerOS archive would keep health exports,
+            routes, and source files private unless the owner chooses what to share.
+          </p>
+        </div>
+      </section>
+
+      <section class="panel" id="runs">
+        <div class="section-title inline">
+          <div>
+            <p class="eyebrow">Runs</p>
+            <h2>Approved training record</h2>
+          </div>
+          <label class="filter">
+            <span>Filter</span>
+            <select id="run-filter">
+              <option value="all">All approved</option>
+              <option value="training">Training only</option>
+              <option value="race">Race only</option>
+            </select>
+          </label>
+        </div>
+        <div class="run-grid" id="run-grid"></div>
+      </section>
+
+      <section class="panel review-panel" id="review">
+        <div class="section-title">
+          <p class="eyebrow">Review queue</p>
+          <h2>Pending imports stay out of truth</h2>
+        </div>
+        <div class="review-list" id="review-list"></div>
+      </section>
+
+      <section class="approved-detail" id="detail">
+        <div>
+          <p class="eyebrow">Approved run detail</p>
+          <h2 id="detail-title">Brooklyn Half</h2>
+          <p id="detail-notes" class="lede compact">Loading approved run notes.</p>
+        </div>
+        <div class="detail-grid">
+          <article>
+            <span>Distance</span>
+            <strong id="detail-distance">0.0 mi</strong>
+          </article>
+          <article>
+            <span>Duration</span>
+            <strong id="detail-duration">00:00:00</strong>
+          </article>
+          <article>
+            <span>Pace</span>
+            <strong id="detail-pace">0:00</strong>
+          </article>
+          <article>
+            <span>Elevation</span>
+            <strong id="detail-elevation">0 ft</strong>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>RunnerOS demo uses synthetic sample data only.</span>
+      <span>No real health data, GPS route data, private names, or personal records are included.</span>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>

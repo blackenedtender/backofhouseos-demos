@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Revenue Desk public-safe BackOfHouseOS demo with synthetic opportunity data only.">
+    <title>Revenue Desk Demo</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#dashboard" aria-label="Revenue Desk dashboard">
+        <span class="brand-mark">RD</span>
+        <span>
+          <strong>Revenue Desk</strong>
+          <small>BackOfHouseOS / TCO</small>
+        </span>
+      </a>
+      <nav class="nav" aria-label="Demo sections">
+        <a href="#dashboard">Dashboard</a>
+        <a href="#intake">Intake</a>
+        <a href="#review">Review</a>
+        <a href="#record">Deal Record</a>
+        <a href="#scoreboard">Scoreboard</a>
+        <a href="#governance">Safety</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="dashboard">
+        <div>
+          <p class="eyebrow">Governed intake for revenue workflows</p>
+          <h1>Turn scattered RFPs into reviewable deal records.</h1>
+          <p class="lede">
+            Revenue Desk turns fragmented RFP and opportunity intake into structured,
+            reviewable revenue workflow records.
+          </p>
+        </div>
+        <aside class="hero-panel">
+          <span>Current demo flow</span>
+          <strong>Intake. Review. Reuse.</strong>
+          <p>Sample opportunities move from raw request to reviewed brief to reusable workflow history.</p>
+        </aside>
+      </section>
+
+      <section class="metrics" aria-label="Revenue Desk dashboard metrics">
+        <article>
+          <span>Incoming RFPs</span>
+          <strong id="incoming-rfps">0</strong>
+        </article>
+        <article>
+          <span>Average cycle time</span>
+          <strong id="cycle-time">0 days</strong>
+        </article>
+        <article>
+          <span>Checklist pass rate</span>
+          <strong id="pass-rate">0%</strong>
+        </article>
+        <article>
+          <span>Pending reviews</span>
+          <strong id="pending-reviews">0</strong>
+        </article>
+      </section>
+
+      <section class="split" id="intake">
+        <div class="panel">
+          <p class="eyebrow">Opportunity Intake</p>
+          <h2>Drop in a request, create a record</h2>
+          <p>
+            This static demo does not upload files. It shows the intake shape:
+            source request, required fields, checklist readiness, and review owner.
+          </p>
+          <div class="dropzone" aria-label="Upload mock">
+            <span>Client RFP / opportunity request</span>
+            <strong>Sample dropzone</strong>
+          </div>
+        </div>
+        <div class="panel checklist">
+          <p class="eyebrow">Required field checklist</p>
+          <h2>Review-ready before response work</h2>
+          <ul>
+            <li>Client and opportunity name</li>
+            <li>Deal value and due date</li>
+            <li>Requested assets</li>
+            <li>Owner and review status</li>
+            <li>Reusable history candidates</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="panel" id="review">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Review Queue</p>
+            <h2>Records awaiting review</h2>
+          </div>
+          <label class="filter">
+            <span>Status</span>
+            <select id="status-filter">
+              <option value="all">All opportunities</option>
+              <option value="pending review">Pending review</option>
+              <option value="approved">Approved</option>
+              <option value="ready for approval">Ready for approval</option>
+            </select>
+          </label>
+        </div>
+        <div class="opportunity-grid" id="opportunity-grid"></div>
+      </section>
+
+      <section class="deal-record" id="record">
+        <div>
+          <p class="eyebrow">Deal Record</p>
+          <h2 id="record-title">Structured opportunity summary</h2>
+          <p id="record-summary" class="lede compact">Select a sample opportunity to inspect the reviewed brief.</p>
+        </div>
+        <div class="record-card">
+          <dl>
+            <div>
+              <dt>Client</dt>
+              <dd id="record-client">-</dd>
+            </div>
+            <div>
+              <dt>Deal value</dt>
+              <dd id="record-value">-</dd>
+            </div>
+            <div>
+              <dt>Due date</dt>
+              <dd id="record-due">-</dd>
+            </div>
+            <div>
+              <dt>Owner</dt>
+              <dd id="record-owner">-</dd>
+            </div>
+            <div>
+              <dt>Checklist</dt>
+              <dd id="record-score">-</dd>
+            </div>
+          </dl>
+          <div class="subpanel">
+            <strong>Source inputs</strong>
+            <ul id="record-assets"></ul>
+          </div>
+          <div class="subpanel">
+            <strong>Status timeline</strong>
+            <ul id="record-timeline"></ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="scoreboard" id="scoreboard">
+        <div>
+          <p class="eyebrow">Scoreboard</p>
+          <h2>Response velocity without losing control</h2>
+        </div>
+        <div class="score-grid">
+          <article>
+            <span>Adoption</span>
+            <strong>5 active sample records</strong>
+          </article>
+          <article>
+            <span>Cycle-time target</span>
+            <strong>under 4 days</strong>
+          </article>
+          <article>
+            <span>Reuse rate</span>
+            <strong id="reuse-rate">0%</strong>
+          </article>
+          <article>
+            <span>Response velocity</span>
+            <strong id="velocity">0%</strong>
+          </article>
+        </div>
+      </section>
+
+      <section class="split" id="governance">
+        <div class="panel">
+          <p class="eyebrow">Governance / Safety</p>
+          <h2>Human review stays in the loop</h2>
+          <div class="governance-list" id="governance-list"></div>
+        </div>
+        <div class="panel fit">
+          <p class="eyebrow">Why it fits BackOfHouseOS</p>
+          <h2>Same pattern, revenue domain</h2>
+          <p>
+            Revenue Desk follows the same BackOfHouseOS pattern:
+            messy input -> preserved source -> structured record -> review -> authority -> recall -> action.
+          </p>
+          <p>
+            In this domain, the messy input is an RFP or opportunity request.
+            The trusted record is a reviewed revenue workflow brief.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>Revenue Desk demo uses synthetic data only.</span>
+      <span>No private, client, employer, or production information is included.</span>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Service Planner | Church OS Demo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <span>Church OS static demo</span>
+        <strong>Grace Fellowship Demo Church</strong>
+        <span>demo_showcase cut</span>
+      </div>
+      <nav class="nav" aria-label="Demo sections">
+        <a href="index.html">This Week</a>
+        <a href="service-planner.html" aria-current="page">Service Planner</a>
+        <a href="worship-planner.html">Worship Planner</a>
+        <a href="review.html">Review Queue</a>
+        <a href="people.html">People</a>
+        <a href="program.html">Program</a>
+        <a href="postmaster.html">Postmaster</a>
+        <a href="archive.html">Archive</a>
+        <a href="builder.html">Builder</a>
+      </nav>
+    </aside>
+    <main class="main">
+      <div class="topbar">
+        <div class="stack">
+          <span class="eyebrow">Service Planner</span>
+          <h1>Sunday order with explicit dependencies</h1>
+          <p class="lede">Service items own the weekly shape. Readiness comes from owners, notes, worship slots, and linked assets rather than guessed status.</p>
+        </div>
+        <span class="badge">local Sunday use</span>
+      </div>
+
+      <section class="columns">
+        <article class="panel stack">
+          <div class="split">
+            <h2>Order of service</h2>
+            <span class="pill gold">1 blocker</span>
+          </div>
+          <div class="service-board">
+            <div class="service-row">
+              <strong>10:00</strong>
+              <div>
+                <h3>Welcome and call to worship</h3>
+                <p class="muted">Owner: Ari Joseph. Public program copy approved.</p>
+              </div>
+              <span class="pill green">Ready</span>
+            </div>
+            <div class="service-row">
+              <strong>10:08</strong>
+              <div>
+                <h3>Opening hymn reference</h3>
+                <p class="muted">Owner: Mika Noel. Songbook link resolved.</p>
+              </div>
+              <span class="pill green">Ready</span>
+            </div>
+            <div class="service-row">
+              <strong>10:32</strong>
+              <div>
+                <h3>Scripture reference and sermon</h3>
+                <p class="muted">Owner: Sam Rivera. Sermon title needs approval.</p>
+              </div>
+              <span class="pill gold">Review</span>
+            </div>
+          </div>
+        </article>
+
+        <aside class="panel stack">
+          <h2>Derived outputs</h2>
+          <div class="program-block stack">
+            <span class="meta">Worship packet</span>
+            <p>Published for worship roles after service approval.</p>
+            <div class="meter"><span style="width: 82%"></span></div>
+          </div>
+          <div class="program-block stack">
+            <span class="meta">Digital program</span>
+            <p>Public-facing projection from approved service items.</p>
+            <div class="meter"><span style="width: 76%"></span></div>
+          </div>
+          <div class="program-block stack">
+            <span class="meta">Physical bulletin</span>
+            <p>Projection helper only; polished print production is outside this demo.</p>
+            <div class="meter"><span style="width: 60%"></span></div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="grid">
+        <article class="card stack">
+          <span class="pill">Routing</span>
+          <h3>One governed root</h3>
+          <p class="muted">The service planner does not redefine lifecycle truth, routing, triage, or scheduler meaning.</p>
+        </article>
+        <article class="card stack">
+          <span class="pill green">Preview</span>
+          <h3>Before commit</h3>
+          <p class="muted">Generated outputs stay previewable before they become Sunday-facing artifacts.</p>
+        </article>
+        <article class="card stack">
+          <span class="pill coral">Boundary</span>
+          <h3>No autonomous promotion</h3>
+          <p class="muted">Review decisions record human intent only.</p>
+        </article>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

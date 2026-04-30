@@ -1,0 +1,136 @@
+{
+  "demo": {
+    "name": "Inventory OS Demo",
+    "mode": "public-safe static demo",
+    "status_label": "Static demo / sample data only",
+    "disclaimer": "Synthetic sample inventory only. No real user data, private inventory, production database, secrets, or personal information are included."
+  },
+  "items": [
+    {
+      "item_id": "demo-jacket-001",
+      "title": "Navy field jacket",
+      "category": "jackets",
+      "status": "available",
+      "condition": "very good",
+      "price": 48,
+      "notes": "Structured jacket with light wear at cuffs. Ready for listing photos.",
+      "last_updated": "2026-04-21",
+      "color": "#2f5368",
+      "history": ["photo intake", "draft created", "condition verified", "marked available"]
+    },
+    {
+      "item_id": "demo-jacket-002",
+      "title": "Quilted liner jacket",
+      "category": "jackets",
+      "status": "draft",
+      "condition": "good",
+      "price": 36,
+      "notes": "Needs size confirmation before it can move to available.",
+      "last_updated": "2026-04-22",
+      "color": "#6f8a5f",
+      "history": ["photo intake", "draft created", "pending size check"]
+    },
+    {
+      "item_id": "demo-shoe-001",
+      "title": "White leather sneakers",
+      "category": "shoes",
+      "status": "listed",
+      "condition": "good",
+      "price": 42,
+      "notes": "Cleaned and photographed. Listing copy approved.",
+      "last_updated": "2026-04-19",
+      "color": "#d8d4ca",
+      "history": ["photo intake", "draft created", "cleaned", "listed"]
+    },
+    {
+      "item_id": "demo-shoe-002",
+      "title": "Trail running shoes",
+      "category": "shoes",
+      "status": "available",
+      "condition": "fair",
+      "price": 28,
+      "notes": "Visible sole wear. Best positioned as budget training pair.",
+      "last_updated": "2026-04-18",
+      "color": "#c46d45",
+      "history": ["photo intake", "condition verified", "marked available"]
+    },
+    {
+      "item_id": "demo-electronics-001",
+      "title": "Portable audio recorder",
+      "category": "electronics",
+      "status": "available",
+      "condition": "excellent",
+      "price": 64,
+      "notes": "Tested with sample batteries. Includes foam case in demo record.",
+      "last_updated": "2026-04-23",
+      "color": "#4d5662",
+      "history": ["photo intake", "function check", "accessories verified", "marked available"]
+    },
+    {
+      "item_id": "demo-electronics-002",
+      "title": "Compact desk lamp",
+      "category": "electronics",
+      "status": "sold",
+      "condition": "very good",
+      "price": 22,
+      "notes": "Sold in demo history. Kept for status timeline proof.",
+      "last_updated": "2026-04-15",
+      "color": "#e2b85d",
+      "history": ["photo intake", "listed", "sold", "archived"]
+    },
+    {
+      "item_id": "demo-collectible-001",
+      "title": "Vintage enamel pin set",
+      "category": "collectibles",
+      "status": "available",
+      "condition": "good",
+      "price": 31,
+      "notes": "Small collectible lot grouped as one inventory record.",
+      "last_updated": "2026-04-20",
+      "color": "#b7658f",
+      "history": ["photo intake", "grouped into set", "marked available"]
+    },
+    {
+      "item_id": "demo-collectible-002",
+      "title": "Commemorative mug",
+      "category": "collectibles",
+      "status": "draft",
+      "condition": "excellent",
+      "price": 18,
+      "notes": "Needs final category review before listing.",
+      "last_updated": "2026-04-24",
+      "color": "#7bb0a3",
+      "history": ["photo intake", "draft created", "category review needed"]
+    },
+    {
+      "item_id": "demo-home-001",
+      "title": "Walnut picture frame",
+      "category": "home items",
+      "status": "listed",
+      "condition": "very good",
+      "price": 26,
+      "notes": "Dimensions confirmed. Listed as home decor sample item.",
+      "last_updated": "2026-04-17",
+      "color": "#8a5d3b",
+      "history": ["photo intake", "dimensions confirmed", "listed"]
+    },
+    {
+      "item_id": "demo-home-002",
+      "title": "Ceramic planter",
+      "category": "home items",
+      "status": "available",
+      "condition": "excellent",
+      "price": 24,
+      "notes": "No chips in demo inspection. Ready for sale.",
+      "last_updated": "2026-04-23",
+      "color": "#d9896b",
+      "history": ["photo intake", "condition verified", "marked available"]
+    }
+  ],
+  "intakeMock": {
+    "uploadedPhotos": 6,
+    "draftsCreated": 4,
+    "needsReview": 2,
+    "message": "Upload photos, create item drafts, confirm details, then move records into usable inventory truth."
+  }
+}

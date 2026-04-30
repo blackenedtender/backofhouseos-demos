@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Builder | Church OS Demo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <span>Church OS static demo</span>
+        <strong>Grace Fellowship Demo Church</strong>
+        <span>demo_showcase cut</span>
+      </div>
+      <nav class="nav" aria-label="Demo sections">
+        <a href="index.html">This Week</a>
+        <a href="service-planner.html">Service Planner</a>
+        <a href="worship-planner.html">Worship Planner</a>
+        <a href="review.html">Review Queue</a>
+        <a href="people.html">People</a>
+        <a href="program.html">Program</a>
+        <a href="postmaster.html">Postmaster</a>
+        <a href="archive.html">Archive</a>
+        <a href="builder.html" aria-current="page">Builder</a>
+      </nav>
+    </aside>
+    <main class="main">
+      <div class="topbar">
+        <div class="stack">
+          <span class="eyebrow">Builder orientation</span>
+          <h1>One governed core, multiple domain adapters</h1>
+          <p class="lede">This page frames the demo for builders without exposing the live runtime. It shows what can be presented publicly while the real Flask app remains controlled.</p>
+        </div>
+        <span class="badge">static showcase</span>
+      </div>
+
+      <section class="flow">
+        <div class="step stack">
+          <span class="pill">Layer 2 loop</span>
+          <h3>Runnable operations</h3>
+          <p class="muted">Service, worship, people, review, and communications share one governed root.</p>
+        </div>
+        <div class="step stack">
+          <span class="pill gold">Adapters</span>
+          <h3>Domain surfaces</h3>
+          <p class="muted">Church OS is an adapter over the governed core, not a separate canon.</p>
+        </div>
+        <div class="step stack">
+          <span class="pill green">Fixtures</span>
+          <h3>Synthetic data</h3>
+          <p class="muted">The showcase uses invented people, invented schedule details, and example.org addresses.</p>
+        </div>
+        <div class="step stack">
+          <span class="pill coral">Deployment split</span>
+          <h3>Runtime vs demo</h3>
+          <p class="muted">Render may run the real pilot. Vercel hosts this static presentation only.</p>
+        </div>
+      </section>
+
+      <section class="panel stack">
+        <h2>Builder-safe surfaces</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Surface</th>
+              <th>Public demo purpose</th>
+              <th>Runtime boundary</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Service Planner</td>
+              <td>Show explicit dependencies</td>
+              <td>No writes in static demo</td>
+            </tr>
+            <tr>
+              <td>Worship Planner</td>
+              <td>Show packet projection</td>
+              <td>No live role session</td>
+            </tr>
+            <tr>
+              <td>Postmaster</td>
+              <td>Show communication trail concept</td>
+              <td>No credentials or sending</td>
+            </tr>
+            <tr>
+              <td>Archive</td>
+              <td>Show reference-only boundary</td>
+              <td>No source archive export</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

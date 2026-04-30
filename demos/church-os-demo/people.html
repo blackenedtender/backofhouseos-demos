@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>People | Church OS Demo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <span>Church OS static demo</span>
+        <strong>Grace Fellowship Demo Church</strong>
+        <span>demo_showcase cut</span>
+      </div>
+      <nav class="nav" aria-label="Demo sections">
+        <a href="index.html">This Week</a>
+        <a href="service-planner.html">Service Planner</a>
+        <a href="worship-planner.html">Worship Planner</a>
+        <a href="review.html">Review Queue</a>
+        <a href="people.html" aria-current="page">People</a>
+        <a href="program.html">Program</a>
+        <a href="postmaster.html">Postmaster</a>
+        <a href="archive.html">Archive</a>
+        <a href="builder.html">Builder</a>
+      </nav>
+    </aside>
+    <main class="main">
+      <div class="topbar">
+        <div class="stack">
+          <span class="eyebrow">People</span>
+          <h1>Role-safe surfaces from synthetic people</h1>
+          <p class="lede">All names, addresses, and numbers here are demo fixtures. People data is separated from role access and Sunday assignment details.</p>
+        </div>
+        <span class="badge">example.org only</span>
+      </div>
+
+      <section class="grid">
+        <article class="person stack">
+          <span class="pill">Worship lead</span>
+          <h2>Mika Noel</h2>
+          <p class="muted">mika.noel@example.org</p>
+          <p class="muted">555-0100</p>
+          <p>Approved for worship packet access after review.</p>
+        </article>
+        <article class="person stack">
+          <span class="pill gold">Secretary</span>
+          <h2>Ari Joseph</h2>
+          <p class="muted">ari.joseph@example.org</p>
+          <p class="muted">555-0101</p>
+          <p>Coordinates service items and review queue samples.</p>
+        </article>
+        <article class="person stack">
+          <span class="pill green">Pastor</span>
+          <h2>Sam Rivera</h2>
+          <p class="muted">sam.rivera@example.org</p>
+          <p class="muted">555-0102</p>
+          <p>Approves sermon and worship packet publication.</p>
+        </article>
+      </section>
+
+      <section class="panel stack">
+        <h2>Access model</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Role</th>
+              <th>Demo surface</th>
+              <th>Hidden from public output</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Public visitor</td>
+              <td>Program and intake</td>
+              <td>Review queue and internal notes</td>
+            </tr>
+            <tr>
+              <td>Worship team</td>
+              <td>Published worship packet</td>
+              <td>Admin configuration and unresolved records</td>
+            </tr>
+            <tr>
+              <td>Admin</td>
+              <td>Diagnostics and role management</td>
+              <td>Nothing extra is exposed on public pages</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,88 @@
+{
+  "church": "Grace Fellowship Demo Church",
+  "serviceWeek": {
+    "date": "2026-05-03",
+    "title": "First Sunday Demo Service",
+    "theme": "Stewardship and welcome",
+    "workspaceCut": "demo_showcase"
+  },
+  "people": [
+    {
+      "name": "Mika Noel",
+      "role": "Worship lead",
+      "email": "mika.noel@example.org",
+      "phone": "555-0100"
+    },
+    {
+      "name": "Ari Joseph",
+      "role": "Secretary",
+      "email": "ari.joseph@example.org",
+      "phone": "555-0101"
+    },
+    {
+      "name": "Sam Rivera",
+      "role": "Pastor",
+      "email": "sam.rivera@example.org",
+      "phone": "555-0102"
+    }
+  ],
+  "reviewQueue": [
+    {
+      "item": "New worship team intake",
+      "state": "Needs review",
+      "next": "Approve role access"
+    },
+    {
+      "item": "Song submission",
+      "state": "Candidate",
+      "next": "Resolve against songbook canon"
+    },
+    {
+      "item": "Archive reference",
+      "state": "Reference only",
+      "next": "Keep outside Sunday packet"
+    }
+  ],
+  "serviceItems": [
+    {
+      "time": "10:00",
+      "title": "Welcome and call to worship",
+      "owner": "Ari Joseph",
+      "status": "Ready"
+    },
+    {
+      "time": "10:08",
+      "title": "Opening hymn reference",
+      "owner": "Mika Noel",
+      "status": "Ready"
+    },
+    {
+      "time": "10:32",
+      "title": "Scripture reference and sermon",
+      "owner": "Sam Rivera",
+      "status": "Needs approval"
+    }
+  ],
+  "songs": [
+    {
+      "title": "Amazing Grace",
+      "status": "Shared canon reference",
+      "use": "Local Sunday slot"
+    },
+    {
+      "title": "Doxology",
+      "status": "Shared canon reference",
+      "use": "Offering response"
+    },
+    {
+      "title": "Demo Chorus One",
+      "status": "Local candidate",
+      "use": "Review sample"
+    }
+  ],
+  "postmaster": {
+    "provider": "Disabled in static demo",
+    "lastEvent": "Demo message queued",
+    "trail": "Communication artifact only"
+  }
+}
