@@ -110,6 +110,24 @@ function renderGovernance() {
     .join("");
 }
 
+function renderReviewQueue() {
+  const queue = document.getElementById("review-queue");
+  if (!queue) return;
+  const reviewItems = state.data.opportunities.filter((opportunity) => opportunity.review_status !== "approved");
+  queue.innerHTML = reviewItems.map((opportunity) => {
+    const missing = opportunity.missing_fields.length
+      ? opportunity.missing_fields.join(", ")
+      : "final approval only";
+    return `
+      <article class="review-item">
+        <span class="pill ${statusClass(opportunity.review_status)}">${opportunity.review_status}</span>
+        <strong>${opportunity.opportunity_name}</strong>
+        <p>${missing}</p>
+      </article>
+    `;
+  }).join("");
+}
+
 function generateSummary() {
   const opportunity = state.selected || state.data.opportunities[0];
   const missing = opportunity.missing_fields.length
@@ -163,6 +181,7 @@ function renderAll() {
   renderOpportunities();
   renderLibrary();
   renderGovernance();
+  renderReviewQueue();
   renderRecord(state.data.opportunities[0]);
   generateSummary();
 }

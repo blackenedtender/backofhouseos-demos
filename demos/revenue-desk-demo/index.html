@@ -9,290 +9,212 @@
     <link rel="stylesheet" href="theme.css">
   </head>
   <body>
-    <div class="app-shell">
-      <aside class="sidebar" aria-label="Revenue Desk navigation">
-        <a class="brand" href="#home" aria-label="Revenue Desk home">
-          <span class="brand-mark">RD</span>
-          <span>
-            <strong>Revenue Desk</strong>
-            <small>BackOfHouseOS / TCO</small>
-          </span>
-        </a>
+    <header class="topbar">
+      <a class="brand" href="#home" aria-label="Revenue Desk home">
+        <span class="brand-mark">RD</span>
+        <span>
+          <strong>Revenue Desk</strong>
+          <small>BackOfHouseOS / TCO</small>
+        </span>
+      </a>
+      <nav class="nav" aria-label="Revenue Desk demo sections">
+        <a href="#loop">Proof loop</a>
+        <a href="#records">Records</a>
+        <a href="#review">Review</a>
+        <a href="#scoreboard">Scoreboard</a>
+        <a href="#guardrails">Guardrails</a>
+      </nav>
+    </header>
 
-        <nav class="side-nav">
-          <a href="#projects">Projects</a>
-          <a href="#tools">Tools</a>
-          <a href="#sources">Source Hub</a>
-          <a href="#next">What's Next?</a>
-          <a href="#intake">RFP Intake Demo</a>
-          <a href="#library">RFP Library</a>
-          <a href="#analytics">Analytics</a>
-          <a href="#reports">Reports</a>
-          <a href="#settings">Settings</a>
-          <a href="#help">Help</a>
-          <a href="#status">Status</a>
-          <a href="#dev">Dev</a>
-        </nav>
-
-        <div class="sidebar-note">
-          <strong>Sample-data demo</strong>
-          <span>Real systems may run locally/private.</span>
-        </div>
-      </aside>
-
-      <main class="workspace">
-        <header class="workspace-top" id="home">
-          <div>
-            <p class="eyebrow">Governed intake for revenue workflows</p>
-            <h1>Revenue Desk — Opportunity Workflow System</h1>
-            <p>
-              Revenue Desk turns fragmented RFP and opportunity intake into structured,
-              reviewable revenue workflow records.
-            </p>
-          </div>
-          <div class="status-pill">Public-safe demo</div>
-        </header>
-
-        <section class="home-grid">
-          <article class="command-card">
-            <span>What it is</span>
-            <h2>A workflow layer for revenue teams</h2>
-            <ul>
-              <li>Ingests RFPs and opportunity requests as sample source inputs.</li>
-              <li>Drafts structured summaries, key asks, owners, dates, and deliverables.</li>
-              <li>Links briefs, reusable language, checklists, and response history.</li>
-              <li>Presents a clean operating view for sales, strategy, proposal, and GTM teams.</li>
-            </ul>
-          </article>
-          <article class="command-card accent">
-            <span>What it achieves</span>
-            <h2>Cleaner response work</h2>
-            <ul>
-              <li>Faster time to first structured brief.</li>
-              <li>Clear ownership and review status for every opportunity.</li>
-              <li>Reusable workflow history instead of repeated searching.</li>
-              <li>Human-reviewed records before response action.</li>
-            </ul>
-          </article>
-          <article class="command-card quote-card">
-            <span>Operator note</span>
-            <h2>You miss 100% of the shots you don't take.</h2>
-            <p>
-              The point of the demo is not hype. It is a clean first pass at turning
-              scattered opportunity work into a repeatable review surface.
-            </p>
-            <small>Wayne Gretzky quote, kept as historical product flavor.</small>
-          </article>
-        </section>
-
-        <section class="metric-strip" aria-label="Revenue Desk dashboard metrics">
-          <article>
-            <span>Incoming RFPs</span>
-            <strong id="incoming-rfps">0</strong>
-          </article>
-          <article>
-            <span>Average cycle time</span>
-            <strong id="cycle-time">0 days</strong>
-          </article>
-          <article>
-            <span>Checklist pass rate</span>
-            <strong id="pass-rate">0%</strong>
-          </article>
-          <article>
-            <span>Reuse rate</span>
-            <strong id="reuse-rate">0%</strong>
-          </article>
-        </section>
-
-        <section class="workspace-section" id="projects">
-          <div class="section-heading">
-            <div>
-              <p class="eyebrow">Projects</p>
-              <h2>Opportunity board</h2>
-            </div>
-            <label class="filter">
-              <span>Review status</span>
-              <select id="status-filter">
-                <option value="all">All opportunities</option>
-                <option value="pending review">Pending review</option>
-                <option value="approved">Approved</option>
-                <option value="ready for approval">Ready for approval</option>
-              </select>
-            </label>
-          </div>
-          <div class="opportunity-grid" id="opportunity-grid"></div>
-        </section>
-
-        <section class="workspace-section two-column" id="tools">
-          <article class="panel">
-            <p class="eyebrow">Tools</p>
-            <h2>Quick operators</h2>
-            <div class="tool-grid">
-              <button type="button">Cycle-time check</button>
-              <button type="button">Checklist preview</button>
-              <button type="button">Reuse finder</button>
-              <button type="button">Brief outline</button>
-            </div>
-          </article>
-          <article class="panel" id="sources">
-            <p class="eyebrow">Source Hub</p>
-            <h2>Read-only sample inputs</h2>
-            <p>
-              Source material is represented as mock records only. No live documents,
-              private storage, customer data, or employer systems are connected.
-            </p>
-          </article>
-        </section>
-
-        <section class="workspace-section intake-shell" id="intake">
-          <div class="section-heading">
-            <div>
-              <p class="eyebrow">RFP Intake Demo</p>
-              <h2>From request paste to reviewed brief</h2>
-            </div>
-            <span class="status-pill">Deterministic mock</span>
-          </div>
-          <div class="intake-grid">
-            <article class="step-card">
-              <span>Step 1</span>
-              <h3>Pick an example</h3>
-              <div class="sample-buttons" id="sample-buttons"></div>
-            </article>
-            <article class="step-card tall">
-              <span>Step 2</span>
-              <h3>Paste your RFP</h3>
-              <textarea id="rfp-text" aria-label="Sample RFP input"></textarea>
-            </article>
-            <article class="step-card">
-              <span>Step 3</span>
-              <h3>Auto-summarize mock</h3>
-              <button class="primary-action" id="generate-summary" type="button">Generate Draft Summary</button>
-            </article>
-            <article class="step-card tall">
-              <span>Step 4</span>
-              <h3>Draft summary</h3>
-              <div class="draft-output" id="draft-output">Pick an example to populate the draft brief.</div>
-            </article>
-            <article class="step-card">
-              <span>Step 5</span>
-              <h3>Save to Projects</h3>
-              <button class="primary-action secondary" id="save-project" type="button">Save demo record</button>
-            </article>
-          </div>
-        </section>
-
-        <section class="workspace-section deal-record" id="record">
-          <div>
-            <p class="eyebrow">Deal Record</p>
-            <h2 id="record-title">Structured opportunity summary</h2>
-            <p id="record-summary">Select a sample opportunity to inspect the reviewed brief.</p>
-          </div>
-          <div class="record-card">
-            <dl>
-              <div><dt>Client</dt><dd id="record-client">-</dd></div>
-              <div><dt>Deal value</dt><dd id="record-value">-</dd></div>
-              <div><dt>Due date</dt><dd id="record-due">-</dd></div>
-              <div><dt>Owner</dt><dd id="record-owner">-</dd></div>
-              <div><dt>Checklist</dt><dd id="record-score">-</dd></div>
-            </dl>
-            <div class="subpanel">
-              <strong>Source inputs</strong>
-              <ul id="record-assets"></ul>
-            </div>
-            <div class="subpanel">
-              <strong>Reusable history candidates</strong>
-              <ul id="record-reuse"></ul>
-            </div>
-            <div class="subpanel">
-              <strong>Status timeline</strong>
-              <ul id="record-timeline"></ul>
-            </div>
-          </div>
-        </section>
-
-        <section class="workspace-section" id="library">
-          <div class="section-heading">
-            <div>
-              <p class="eyebrow">RFP Library</p>
-              <h2>Reusable opportunity history</h2>
-            </div>
-          </div>
-          <div class="library-table" id="library-table"></div>
-        </section>
-
-        <section class="workspace-section two-column" id="analytics">
-          <article class="panel">
-            <p class="eyebrow">Analytics</p>
-            <h2>Response velocity</h2>
-            <div class="score-grid">
-              <article><span>Adoption</span><strong>5 sample records</strong></article>
-              <article><span>Cycle target</span><strong>under 4 days</strong></article>
-              <article><span>Velocity</span><strong id="velocity">0%</strong></article>
-              <article><span>Pending reviews</span><strong id="pending-reviews">0</strong></article>
-            </div>
-          </article>
-          <article class="panel" id="reports">
-            <p class="eyebrow">Reports</p>
-            <h2>Weekly operator report</h2>
-            <p>
-              Five sample opportunities are tracked. Two need review, one is ready for approval,
-              and reusable response logic is attached to every record.
-            </p>
-          </article>
-        </section>
-
-        <section class="workspace-section two-column" id="settings">
-          <article class="panel">
-            <p class="eyebrow">Settings</p>
-            <h2>Demo boundaries</h2>
-            <ul class="plain-list">
-              <li>Sample data only.</li>
-              <li>No external calls.</li>
-              <li>No autonomous submission.</li>
-              <li>No private storage connection.</li>
-            </ul>
-          </article>
-          <article class="panel" id="help">
-            <p class="eyebrow">Help</p>
-            <h2>How to read this demo</h2>
-            <p>
-              Use the sidebar like a product workspace. The intake demo shows the workflow,
-              Projects show records, Library shows recall, and Analytics/Reports show operating proof.
-            </p>
-          </article>
-        </section>
-
-        <section class="workspace-section two-column" id="status">
-          <article class="panel">
-            <p class="eyebrow">Status</p>
-            <h2>Demo runtime</h2>
-            <div class="governance-list" id="governance-list"></div>
-          </article>
-          <article class="panel" id="next">
-            <p class="eyebrow">What's Next?</p>
-            <h2>Public-safe next steps</h2>
-            <p>
-              Connect this static demo to Vercel, capture screenshots, and link only the confirmed
-              public URL in Notion after review.
-            </p>
-          </article>
-        </section>
-
-        <section class="workspace-section" id="dev">
-          <p class="eyebrow">Dev</p>
-          <h2>Navigation Manager</h2>
-          <p>
-            Sidebar links are visible for the public demo. Theme controls are available in the lower corner
-            and persist to localStorage.
+    <main>
+      <section class="hero revenue-hero" id="home">
+        <div class="hero-copy">
+          <p class="eyebrow">Governed intake for revenue workflows</p>
+          <h1>Revenue Desk</h1>
+          <p class="lede">
+            Revenue Desk turns fragmented RFP and opportunity intake into structured,
+            reviewable revenue workflow records.
           </p>
-        </section>
+          <div class="action-row">
+            <a class="button primary" href="#records">View sample records</a>
+            <a class="button" href="#loop">See the proof loop</a>
+          </div>
+        </div>
+        <aside class="intake-card proof-card">
+          <span>Current sample state</span>
+          <strong id="incoming-rfps">0</strong>
+          <p>incoming opportunities are held as sample data, structured records, and review states.</p>
+        </aside>
+      </section>
 
-        <footer class="footer">
-          <span>Revenue Desk demo uses synthetic data only.</span>
-          <span>No private, client, employer, or production information is included.</span>
-        </footer>
-      </main>
-    </div>
+      <section class="home-grid" id="what-it-is">
+        <article class="command-card">
+          <span>What it is</span>
+          <h2>A revenue workflow notebook</h2>
+          <p>
+            A public-safe surface for showing how opportunity requests become records:
+            required fields, checklist readiness, source inputs, owners, and reusable response history.
+          </p>
+        </article>
+        <article class="command-card">
+          <span>Operator note</span>
+          <h2>You miss 100% of the shots you don't take.</h2>
+          <p>
+            The point is a clean first pass: preserve the request, structure the ask,
+            review the record, then reuse what the team already knows.
+          </p>
+          <small>Historical product flavor retained without private context.</small>
+        </article>
+      </section>
+
+      <section class="proof-loop" id="loop" aria-label="Revenue Desk proof loop">
+        <article>
+          <span>1</span>
+          <strong>RFP intake</strong>
+          <p>Sample request enters as source text.</p>
+        </article>
+        <article>
+          <span>2</span>
+          <strong>Structured record</strong>
+          <p>Required fields, owner, value, due date, and assets are made reviewable.</p>
+        </article>
+        <article>
+          <span>3</span>
+          <strong>Checklist review</strong>
+          <p>Missing fields and readiness are visible before response work.</p>
+        </article>
+        <article>
+          <span>4</span>
+          <strong>Reusable history</strong>
+          <p>Prior language and response logic stay attached to the record.</p>
+        </article>
+      </section>
+
+      <section class="metrics" id="scoreboard" aria-label="Revenue Desk scoreboard">
+        <article>
+          <span>Average cycle time</span>
+          <strong id="cycle-time">0 days</strong>
+        </article>
+        <article>
+          <span>Checklist pass rate</span>
+          <strong id="pass-rate">0%</strong>
+        </article>
+        <article>
+          <span>Reuse rate</span>
+          <strong id="reuse-rate">0%</strong>
+        </article>
+        <article>
+          <span>Response velocity</span>
+          <strong id="velocity">0%</strong>
+        </article>
+      </section>
+
+      <section class="section-heading" id="records">
+        <div>
+          <p class="eyebrow">Sample opportunity records</p>
+          <h2>Records, not scattered requests</h2>
+        </div>
+        <label class="filter">
+          <span>Review status</span>
+          <select id="status-filter">
+            <option value="all">All opportunities</option>
+            <option value="pending review">Pending review</option>
+            <option value="approved">Approved</option>
+            <option value="ready for approval">Ready for approval</option>
+          </select>
+        </label>
+      </section>
+
+      <section class="opportunity-grid" id="opportunity-grid" aria-live="polite"></section>
+
+      <section class="split" id="review">
+        <article class="panel intake-shell">
+          <p class="eyebrow">Intake demo</p>
+          <h2>Turn a request into a draft brief</h2>
+          <div class="sample-buttons" id="sample-buttons"></div>
+          <label class="textarea-label">
+            <span>Sample source request</span>
+            <textarea id="rfp-text" aria-label="Sample RFP input"></textarea>
+          </label>
+          <div class="action-row">
+            <button class="primary-action" id="generate-summary" type="button">Generate draft summary</button>
+            <button class="primary-action secondary" id="save-project" type="button">Save demo record</button>
+          </div>
+          <div class="draft-output" id="draft-output">Pick an example to populate the draft brief.</div>
+        </article>
+
+        <article class="panel">
+          <p class="eyebrow">Review queue</p>
+          <h2>Pending records stay visible</h2>
+          <p class="muted">Records that need fields or approval stay in review instead of becoming trusted workflow history.</p>
+          <div class="review-queue" id="review-queue"></div>
+          <div class="pending-note">
+            <span>Pending reviews</span>
+            <strong id="pending-reviews">0</strong>
+          </div>
+        </article>
+      </section>
+
+      <section class="deal-record" id="record">
+        <div>
+          <p class="eyebrow">Deal record</p>
+          <h2 id="record-title">Structured opportunity summary</h2>
+          <p id="record-summary">Select a sample opportunity to inspect the reviewed brief.</p>
+        </div>
+        <div class="record-card">
+          <dl>
+            <div><dt>Client</dt><dd id="record-client">-</dd></div>
+            <div><dt>Deal value</dt><dd id="record-value">-</dd></div>
+            <div><dt>Due date</dt><dd id="record-due">-</dd></div>
+            <div><dt>Owner</dt><dd id="record-owner">-</dd></div>
+            <div><dt>Checklist</dt><dd id="record-score">-</dd></div>
+          </dl>
+          <div class="subpanel">
+            <strong>Source inputs</strong>
+            <ul id="record-assets"></ul>
+          </div>
+          <div class="subpanel">
+            <strong>Reusable response logic</strong>
+            <ul id="record-reuse"></ul>
+          </div>
+          <div class="subpanel">
+            <strong>Status timeline</strong>
+            <ul id="record-timeline"></ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="library">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Source / reuse history</p>
+            <h2>Reusable opportunity memory</h2>
+          </div>
+        </div>
+        <div class="library-table" id="library-table"></div>
+      </section>
+
+      <section class="split" id="guardrails">
+        <article class="panel">
+          <p class="eyebrow">Guardrails</p>
+          <h2>No autonomous submission</h2>
+          <div class="governance-list" id="governance-list"></div>
+        </article>
+        <article class="panel">
+          <p class="eyebrow">What it proves</p>
+          <h2>Messy request to governed record</h2>
+          <p>
+            Revenue Desk proves the BackOfHouseOS pattern in a revenue operations context:
+            scattered inputs become preserved, structured, reviewed, and reusable workflow truth.
+          </p>
+        </article>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>Revenue Desk demo uses synthetic data only.</span>
+      <span>No private, client, employer, or production information is included.</span>
+    </footer>
 
     <script src="app.js"></script>
     <script src="theme.js"></script>

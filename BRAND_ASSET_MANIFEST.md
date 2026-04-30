@@ -17,3 +17,7 @@ This repo uses public demo-safe Creative Origin logo assets.
 - Do not reference private drive paths in public demo code.
 - Do not include PSD working files in this repo.
 - Keep source design files in the private branding archive.
+
+## Vercel Folder Deploy Rule
+
+Each demo folder also contains its own `assets/` copy of the logo files. This is intentional. Vercel projects use each demo folder as the Root Directory, so demo pages must reference local paths such as `assets/tco-logo-web.png` instead of repo-root paths.
