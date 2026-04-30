@@ -2,6 +2,8 @@
 
 This folder contains a sanitized static demo surface for Church OS.
 
+This demo uses sample data. Real systems may run locally/private.
+
 It is not the private local Church OS runtime. It does not include a live database, secrets, uploaded documents, real member data, source archives, provider credentials, or private church records.
 
 ## What It Shows

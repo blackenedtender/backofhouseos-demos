@@ -6,9 +6,7 @@ const state = {
 
 async function loadData() {
   const response = await fetch("sample-data.json", { cache: "no-store" });
-  if (!response.ok) {
-    throw new Error("Unable to load sample-data.json");
-  }
+  if (!response.ok) throw new Error("Unable to load sample-data.json");
   return response.json();
 }
 
@@ -24,6 +22,10 @@ function statusClass(status) {
 function filteredOpportunities() {
   if (state.status === "all") return state.data.opportunities;
   return state.data.opportunities.filter((opportunity) => opportunity.review_status === state.status);
+}
+
+function rfpText(opportunity) {
+  return `Context: ${opportunity.client_name} is requesting ${opportunity.opportunity_name}. Vertical: ${opportunity.vertical}. Value: ${opportunity.deal_value}. Due: ${opportunity.due_date}. Asks: ${opportunity.requested_assets.join("; ")}.`;
 }
 
 function renderMetrics() {
@@ -69,15 +71,56 @@ function renderRecord(opportunity) {
     .map((asset) => `<li>${asset}</li>`)
     .join("");
 
+  document.getElementById("record-reuse").innerHTML = opportunity.reuse_candidates
+    .map((item) => `<li>${item}</li>`)
+    .join("");
+
   document.getElementById("record-timeline").innerHTML = opportunity.timeline
     .map((event) => `<li>${event}</li>`)
     .join("");
+
+  document.getElementById("rfp-text").value = rfpText(opportunity);
+  renderSampleButtons();
+}
+
+function renderSampleButtons() {
+  const holder = document.getElementById("sample-buttons");
+  holder.innerHTML = state.data.opportunities.map((opportunity) => `
+    <button type="button" data-sample="${opportunity.id}" aria-pressed="${state.selected?.id === opportunity.id}">
+      ${opportunity.opportunity_name}
+    </button>
+  `).join("");
+}
+
+function renderLibrary() {
+  const table = document.getElementById("library-table");
+  table.innerHTML = state.data.opportunities.map((opportunity) => `
+    <div class="library-row">
+      <strong>${opportunity.opportunity_name}</strong>
+      <span>${opportunity.client_name}</span>
+      <span>${opportunity.review_status}</span>
+      <span>${opportunity.reuse_candidates.length} reuse links</span>
+    </div>
+  `).join("");
 }
 
 function renderGovernance() {
   document.getElementById("governance-list").innerHTML = state.data.governance
     .map((item) => `<div class="governance-item">${item}</div>`)
     .join("");
+}
+
+function generateSummary() {
+  const opportunity = state.selected || state.data.opportunities[0];
+  const missing = opportunity.missing_fields.length
+    ? `Missing fields: ${opportunity.missing_fields.join(", ")}.`
+    : "No required fields are missing.";
+
+  document.getElementById("draft-output").innerHTML = `
+    <strong>${opportunity.opportunity_name}</strong><br>
+    ${opportunity.generated_brief_summary}<br><br>
+    Owner: ${opportunity.owner}. Checklist: ${opportunity.checklist_score}%. ${missing}
+  `;
 }
 
 function bindEvents() {
@@ -101,13 +144,27 @@ function bindEvents() {
     const opportunity = state.data.opportunities.find((item) => item.id === card.dataset.opportunity);
     if (opportunity) renderRecord(opportunity);
   });
+
+  document.getElementById("sample-buttons").addEventListener("click", (event) => {
+    const button = event.target.closest("[data-sample]");
+    if (!button) return;
+    const opportunity = state.data.opportunities.find((item) => item.id === button.dataset.sample);
+    if (opportunity) renderRecord(opportunity);
+  });
+
+  document.getElementById("generate-summary").addEventListener("click", generateSummary);
+  document.getElementById("save-project").addEventListener("click", () => {
+    document.getElementById("draft-output").innerHTML += "<br><br><strong>Saved to sample Projects board.</strong>";
+  });
 }
 
 function renderAll() {
   renderMetrics();
   renderOpportunities();
-  renderRecord(state.data.opportunities[0]);
+  renderLibrary();
   renderGovernance();
+  renderRecord(state.data.opportunities[0]);
+  generateSummary();
 }
 
 loadData()

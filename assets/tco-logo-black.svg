@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 120" role="img" aria-labelledby="title desc">
+  <title id="title">TCO logo black</title>
+  <desc id="desc">The Creative Origin TCO wordmark in black.</desc>
+  <rect width="360" height="120" fill="none"/>
+  <g fill="#111111">
+    <path d="M38 27h94v18H94v58H76V45H38V27Z"/>
+    <path d="M156 27h78v18h-60v40h60v18h-78c-5 0-9-4-9-9V36c0-5 4-9 9-9Z"/>
+    <path d="M279 25c30 0 51 18 51 40s-21 40-51 40-51-18-51-40 21-40 51-40Zm0 18c-19 0-32 9-32 22s13 22 32 22 32-9 32-22-13-22-32-22Z"/>
+    <path d="M39 18h292v4H39v-4Zm0 80h292v4H39v-4Z" opacity=".55"/>
+  </g>
+</svg>

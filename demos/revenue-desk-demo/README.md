@@ -107,4 +107,4 @@ Do not deploy until the demo is visually reviewed.
 - Do not add secrets.
 - Do not add local file paths.
 - Do not add actual people, client, team, company, channel, pipeline, or production identifiers.
-- 
+- Keep the demo framed as a BackOfHouseOS / TCO public product demo.

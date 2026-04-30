@@ -2,6 +2,8 @@
 
 This folder is a sanitized static demo surface for ArchiveOS.
 
+This demo uses sample data. Real systems may run locally/private.
+
 It is not the real local ArchiveOS app. It does not include the local database, real files, real thumbnails, real drives, real local paths, logs, private previews, or source archive content.
 
 ## What It Shows

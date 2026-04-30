@@ -82,4 +82,4 @@ Do not deploy until the demo is visually reviewed.
 - Do not add raw imports.
 - Do not add SQLite databases.
 - Do not add local file paths.
-- Keep the demo honest: this is a static pu
+- Keep the demo honest: this is a static public demo of the RunnerOS workflow, not the private local runtime.

@@ -96,4 +96,4 @@ Do not deploy until the demo is visually reviewed.
 - Do not add secrets.
 - Do not add personal information.
 - Do not add local file paths.
-- Keep the demo honest: this is a static public
+- Keep the demo honest: this is a static public demo of the Inventory OS workflow, not the private local runtime.
