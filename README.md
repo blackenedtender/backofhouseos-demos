@@ -2,9 +2,10 @@
 
 Public-safe demo surfaces for the BackOfHouseOS product family.
 
-The repo now includes a root Demo Studio homepage that acts as the TCO /
-BackOfHouseOS public command layer. It wraps the existing demo rooms without
-changing their private boundaries or turning them into live systems.
+The repo includes a root Demo Studio homepage that acts as the TCO /
+BackOfHouseOS public command layer. It wraps the existing demo rooms as
+inspectable system rooms without changing their private boundaries or turning
+them into live systems.
 
 These demos show the shape of the systems without exposing private runtime data.
 
