@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="The Creative Origin public command layer for BackOfHouseOS demo rooms. Static public-safe workflow mirrors using sample data only."
+    >
+    <title>TCO Demo Studio - BackOfHouseOS Public Command Layer</title>
+    <link rel="icon" href="assets/tco-logo-web.png">
+    <link rel="stylesheet" href="studio.css">
+  </head>
+  <body>
+    <div class="studio-shell">
+      <header class="studio-header">
+        <a class="brand-lockup" href="#top" aria-label="The Creative Origin Demo Studio home">
+          <span class="brand-mark">
+            <img src="assets/tco-logo-web.png" alt="" aria-hidden="true">
+          </span>
+          <span>
+            <strong>The Creative Origin</strong>
+            <small>BackOfHouseOS public node</small>
+          </span>
+        </a>
+        <nav class="studio-nav" aria-label="Studio navigation">
+          <a href="#status">Status</a>
+          <a href="#inspection-path">Inspection path</a>
+          <a href="#systems">System rooms</a>
+          <a href="#boundary">Boundary</a>
+        </nav>
+      </header>
+
+      <main id="top">
+        <section class="hero-grid" aria-labelledby="studio-title">
+          <div class="hero-copy">
+            <p class="eyebrow">TCO public command layer</p>
+            <h1 id="studio-title">BackOfHouseOS Demo Studio</h1>
+            <p class="hero-lede">
+              A public operator surface for inspecting how messy work becomes structured
+              systems: intake, source preservation, review, handoff, and evidence trail.
+            </p>
+            <p class="hero-note">
+              The rooms are static. The data is sample-only. Private systems stay sealed.
+            </p>
+            <div class="hero-actions" aria-label="Primary studio actions">
+              <a class="command-button primary" href="#systems">Select system to inspect</a>
+              <a class="command-button" href="#inspection-path">Start guided path</a>
+            </div>
+          </div>
+
+          <aside class="boot-panel" id="status" aria-label="Studio boot status">
+            <div class="boot-panel-head">
+              <span>BOOT SEQUENCE</span>
+              <strong>PUBLIC NODE</strong>
+            </div>
+            <ul class="boot-list">
+              <li><span class="signal online"></span><b>TCO NETWORK ONLINE</b></li>
+              <li><span class="signal online"></span><b>BACKOFHOUSEOS PUBLIC NODE ACTIVE</b></li>
+              <li><span class="signal online"></span><b>CANON REGISTRY VERIFIED</b></li>
+              <li><span class="signal online"></span><b>PUBLIC-SAFE DEMO ROOMS DETECTED</b></li>
+              <li><span class="signal sealed"></span><b>PRIVATE SYSTEMS SEALED</b></li>
+              <li><span class="signal ready"></span><b>SELECT SYSTEM TO INSPECT</b></li>
+            </ul>
+          </aside>
+        </section>
+
+        <section class="telemetry-strip" aria-label="Studio telemetry">
+          <span>NODE: PUBLIC</span>
+          <span>ROOMS: 06</span>
+          <span>DATA: SAMPLE ONLY</span>
+          <span>RUNTIME: STATIC</span>
+          <span>PRIVATE SYSTEMS: SEALED</span>
+        </section>
+
+        <section class="section-grid" id="inspection-path" aria-labelledby="path-title">
+          <div class="section-intro">
+            <p class="eyebrow">Guided inspection path</p>
+            <h2 id="path-title">Start with four.</h2>
+            <p>
+              This is the fastest route through the studio if you are screening for AI Ops,
+              business systems, revenue systems, internal tools, or product operations.
+            </p>
+          </div>
+          <div class="inspection-steps" aria-label="Recommended inspection order">
+            <a class="inspection-step" href="demos/revenue-desk-demo/">
+              <span>01</span>
+              <strong>RevenueDeskOS</strong>
+              <small>Revenue workflow, RFP intake, bid velocity.</small>
+            </a>
+            <a class="inspection-step" href="demos/archiveos-demo/">
+              <span>02</span>
+              <strong>ArchiveOS</strong>
+              <small>Source preserved, recall enabled, review required.</small>
+            </a>
+            <a class="inspection-step" href="demos/church-os-demo/">
+              <span>03</span>
+              <strong>ChurchOS</strong>
+              <small>Sensitive operations, handoff, continuity.</small>
+            </a>
+            <a class="inspection-step" href="demos/inventory-os-demo/">
+              <span>04</span>
+              <strong>InventoryOS</strong>
+              <small>Operator workflow from item intake to readiness.</small>
+            </a>
+          </div>
+        </section>
+
+        <section class="pattern-band" aria-labelledby="pattern-title">
+          <div>
+            <p class="eyebrow">Operating pattern</p>
+            <h2 id="pattern-title">One loop under every room.</h2>
+          </div>
+          <ol class="pattern-flow">
+            <li>Messy input</li>
+            <li>Source preserved</li>
+            <li>Structured record</li>
+            <li>Review required</li>
+            <li>Operator surface</li>
+            <li>Evidence trail</li>
+          </ol>
+        </section>
+
+        <section class="systems-section" id="systems" aria-labelledby="systems-title">
+          <div class="section-intro narrow">
+            <p class="eyebrow">System rooms</p>
+            <h2 id="systems-title">Select a room to inspect.</h2>
+            <p>
+              Each room is a public-safe workflow mirror. Walk opens the demo surface.
+              Implementation detail is held unless a safe public page exists.
+            </p>
+          </div>
+
+          <div class="node-grid">
+            <article class="system-node priority">
+              <div class="node-topline">
+                <span>Revenue workflow</span>
+                <b>ACTIVE</b>
+              </div>
+              <h3>RevenueDeskOS</h3>
+              <p>
+                Turns RFP and opportunity intake into structured records with required
+                fields, review state, and reusable context.
+              </p>
+              <dl class="node-telemetry">
+                <div><dt>Input</dt><dd>RFP request</dd></div>
+                <div><dt>Surface</dt><dd>Bid workbench</dd></div>
+                <div><dt>Boundary</dt><dd>Sample data</dd></div>
+              </dl>
+              <div class="node-actions">
+                <a class="node-action primary" href="demos/revenue-desk-demo/">Walk</a>
+                <span class="node-action disabled" aria-disabled="true">Implementation held</span>
+              </div>
+            </article>
+
+            <article class="system-node priority">
+              <div class="node-topline">
+                <span>Archive layer</span>
+                <b>ACTIVE</b>
+              </div>
+              <h3>ArchiveOS</h3>
+              <p>
+                Keeps source material preserved while index, recall, set review, and
+                approved export behavior remain inspectable.
+              </p>
+              <dl class="node-telemetry">
+                <div><dt>Input</dt><dd>Loose source</dd></div>
+                <div><dt>Surface</dt><dd>Memory board</dd></div>
+                <div><dt>Boundary</dt><dd>No source files</dd></div>
+              </dl>
+              <div class="node-actions">
+                <a class="node-action primary" href="demos/archiveos-demo/">Walk</a>
+                <span class="node-action disabled" aria-disabled="true">Implementation held</span>
+              </div>
+            </article>
+
+            <article class="system-node">
+              <div class="node-topline">
+                <span>Community operations</span>
+                <b>ACTIVE</b>
+              </div>
+              <h3>ChurchOS</h3>
+              <p>
+                Shows service planning, request intake, role-aware handoff, review
+                lanes, and continuity without exposing a live organization.
+              </p>
+              <dl class="node-telemetry">
+                <div><dt>Input</dt><dd>Service request</dd></div>
+                <div><dt>Surface</dt><dd>Sunday board</dd></div>
+                <div><dt>Boundary</dt><dd>Synthetic org</dd></div>
+              </dl>
+              <div class="node-actions">
+                <a class="node-action primary" href="demos/church-os-demo/">Walk</a>
+                <span class="node-action disabled" aria-disabled="true">Implementation held</span>
+              </div>
+            </article>
+
+            <article class="system-node">
+              <div class="node-topline">
+                <span>Inventory workflow</span>
+                <b>ACTIVE</b>
+              </div>
+              <h3>InventoryOS</h3>
+              <p>
+                Converts loose item intake into reviewable inventory records with
+                condition, status, history, and marketplace readiness.
+              </p>
+              <dl class="node-telemetry">
+                <div><dt>Input</dt><dd>Item photo</dd></div>
+                <div><dt>Surface</dt><dd>Item wall</dd></div>
+                <div><dt>Boundary</dt><dd>Sample items</dd></div>
+              </dl>
+              <div class="node-actions">
+                <a class="node-action primary" href="demos/inventory-os-demo/">Walk</a>
+                <span class="node-action disabled" aria-disabled="true">Implementation held</span>
+              </div>
+            </article>
+
+            <article class="system-node">
+              <div class="node-topline">
+                <span>Personal archive</span>
+                <b>ACTIVE</b>
+              </div>
+              <h3>RunnerOS</h3>
+              <p>
+                Preserves runs, imports, review state, gear, notes, and effort memory
+                while health and route details stay private.
+              </p>
+              <dl class="node-telemetry">
+                <div><dt>Input</dt><dd>Run import</dd></div>
+                <div><dt>Surface</dt><dd>Training archive</dd></div>
+                <div><dt>Boundary</dt><dd>Fake runs</dd></div>
+              </dl>
+              <div class="node-actions">
+                <a class="node-action primary" href="demos/runneros-demo/">Walk</a>
+                <span class="node-action disabled" aria-disabled="true">Implementation held</span>
+              </div>
+            </article>
+
+            <article class="system-node">
+              <div class="node-topline">
+                <span>Source to canon</span>
+                <b>CONCEPT</b>
+              </div>
+              <h3>CookbookOS</h3>
+              <p>
+                Frames the source-to-canon loop for scanned recipe pages: preserve,
+                extract, review, approve, and recall.
+              </p>
+              <dl class="node-telemetry">
+                <div><dt>Input</dt><dd>Recipe page</dd></div>
+                <div><dt>Surface</dt><dd>Canon draft</dd></div>
+                <div><dt>Boundary</dt><dd>Concept only</dd></div>
+              </dl>
+              <div class="node-actions">
+                <a class="node-action primary" href="demos/cookbook-os-demo/">Walk</a>
+                <span class="node-action disabled" aria-disabled="true">Implementation held</span>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="read-section" id="implementation-register" aria-labelledby="read-title">
+          <div>
+            <p class="eyebrow">How to read this surface</p>
+            <h2 id="read-title">Walk first. Ask implementation second.</h2>
+          </div>
+          <div class="read-grid">
+            <article>
+              <strong>Walk</strong>
+              <p>Opens the public demo room and shows the workflow as a static surface.</p>
+            </article>
+            <article>
+              <strong>Implementation</strong>
+              <p>Held when there is no safe public implementation page. Details can be discussed without exposing private systems.</p>
+            </article>
+            <article>
+              <strong>Boundary</strong>
+              <p>Every room uses sample data or synthetic framing. No live private runtime is linked.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="boundary-panel" id="boundary" aria-labelledby="boundary-title">
+          <p class="eyebrow">Public/private boundary</p>
+          <h2 id="boundary-title">The public node shows structure, not private operation.</h2>
+          <p>
+            These pages show workflow patterns, interface surfaces, and proof of system
+            thinking. They do not expose private records, databases, local paths,
+            credentials, live apps, employer/client data, church/member data, or private
+            architecture.
+          </p>
+        </section>
+      </main>
+
+      <footer class="studio-footer">
+        <span>&copy; The Creative Origin</span>
+        <span>Built by Phil Baptiste</span>
+        <span>Public node active</span>
+        <span>Sample data only</span>
+        <span>Private systems sealed</span>
+      </footer>
+    </div>
+  </body>
+</html>

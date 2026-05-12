@@ -2,6 +2,10 @@
 
 Public-safe demo surfaces for the BackOfHouseOS product family.
 
+The repo now includes a root Demo Studio homepage that acts as the TCO /
+BackOfHouseOS public command layer. It wraps the existing demo rooms without
+changing their private boundaries or turning them into live systems.
+
 These demos show the shape of the systems without exposing private runtime data.
 
 ## Systems
@@ -68,7 +72,7 @@ This demo uses sample data. Real systems may run locally/private.
 
 ## Local Preview
 
-From any demo folder:
+From the repo root or any demo folder:
 
 ```powershell
 python -m http.server 4170
