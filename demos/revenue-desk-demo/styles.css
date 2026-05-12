@@ -1,314 +1,100 @@
-:root {
-  color-scheme: light;
+/* RevenueDeskOS room-specific layout.
+   Operating-index shell is provided by ../../shared/room.css. */
+
+body.boh-room .opportunity-grid {
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
 }
 
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  min-width: 320px;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-button,
-select,
-textarea {
-  font: inherit;
-}
-
-.action-row,
-.sample-buttons,
-.pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.65rem;
-}
-
-.proof-card p {
-  margin-bottom: 0;
-}
-
-.home-grid,
-.split,
-.deal-record {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-  margin-bottom: 4rem;
-}
-
-.command-card,
-.panel,
-.deal-record {
-  padding: clamp(1rem, 3vw, 1.5rem);
-}
-
-.command-card small {
-  color: var(--boh-muted, #697270);
-  font-weight: 750;
-}
-
-.proof-loop {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.8rem;
-  margin: 1rem 0 4rem;
-}
-
-.proof-loop article {
-  display: grid;
-  gap: 0.55rem;
-  min-height: 190px;
-  padding: 1rem;
-  border: 1px solid var(--boh-line, rgba(31, 37, 36, 0.12));
-  border-radius: var(--boh-radius, 22px);
-  background: var(--boh-card, rgba(255, 255, 255, 0.78));
-  box-shadow: var(--boh-shadow, 0 22px 70px rgba(51, 42, 27, 0.13));
-}
-
-.proof-loop span {
-  display: grid;
-  width: 2rem;
-  height: 2rem;
-  place-items: center;
-  border-radius: 999px;
-  background: var(--boh-green-dark, #1f4f3d);
-  color: #fffaf2;
-  font-weight: 900;
-}
-
-.proof-loop strong {
-  color: var(--boh-ink, #1f2524);
-  font-size: 1.05rem;
-}
-
-.filter,
-.textarea-label {
-  display: grid;
-  gap: 0.4rem;
-  color: var(--boh-muted, #697270);
-  font-size: 0.88rem;
-}
-
-.filter {
-  min-width: 220px;
-}
-
-.filter select {
-  min-height: 2.7rem;
-  padding: 0.55rem 0.7rem;
-}
-
-.opportunity-grid {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 1rem;
-  margin-bottom: 4rem;
-}
-
-.opportunity-card {
-  grid-column: span 4;
-  display: grid;
-  gap: 1rem;
-  min-height: 285px;
-  padding: 1rem;
+body.boh-room .opportunity-card {
   cursor: pointer;
 }
 
-.opportunity-card h3 {
-  margin: 0.75rem 0 0.35rem;
-  font-size: 1.45rem;
+body.boh-room .opportunity-card h3 {
+  margin: 4px 0 2px;
+  font-size: 1.05rem;
 }
 
-.pill,
-.status-pill {
-  display: inline-flex;
-  align-items: center;
+body.boh-room .pill,
+body.boh-room .status-pill {
+  align-self: flex-start;
   width: fit-content;
-  min-height: 1.75rem;
-  padding: 0.3rem 0.6rem;
-  border: 1px solid rgba(31, 79, 61, 0.18);
-  background: rgba(79, 135, 111, 0.12);
-  color: var(--boh-green-dark, #1f4f3d);
-  font-size: 0.78rem;
-  font-weight: 850;
 }
 
-.pill.pending-review {
-  border-color: rgba(216, 168, 79, 0.36);
-  background: rgba(216, 168, 79, 0.16);
+body.boh-room .pill.pending-review {
+  border-color: var(--gold);
+  color: var(--gold);
 }
 
-.pill.ready-for-approval {
-  border-color: rgba(80, 111, 146, 0.28);
-  background: rgba(80, 111, 146, 0.14);
+body.boh-room .pill.ready-for-approval {
+  border-color: var(--amber);
+  color: var(--amber);
 }
 
-.intake-shell {
+body.boh-room .pill.approved {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+body.boh-room .intake-shell {
   display: grid;
-  gap: 1rem;
+  gap: 14px;
 }
 
-.sample-buttons button {
-  padding: 0.65rem 0.8rem;
+body.boh-room .sample-buttons button[aria-pressed="true"] {
+  border-color: var(--accent) !important;
+  background: var(--accent) !important;
+  color: #0a0e0c !important;
 }
 
-.sample-buttons button[aria-pressed="true"] {
-  border-color: rgba(31, 79, 61, 0.24) !important;
-  background: var(--boh-green-dark, #1f4f3d) !important;
-  color: #fffaf2 !important;
-}
-
-textarea {
-  width: 100%;
-  min-height: 150px;
-  padding: 0.9rem;
-  resize: vertical;
-}
-
-.primary-action {
-  padding: 0.72rem 1rem;
-}
-
-.primary-action.secondary {
-  background: rgba(255, 255, 255, 0.62) !important;
-  color: var(--boh-ink, #1f2524) !important;
-}
-
-.draft-output {
-  min-height: 150px;
-  padding: 1rem;
-  color: var(--boh-muted, #697270);
-  line-height: 1.6;
-}
-
-.review-queue {
+body.boh-room .record-card {
   display: grid;
-  gap: 0.75rem;
+  gap: 14px;
 }
 
-.review-item,
-.library-row,
-.governance-item {
-  padding: 0.85rem;
-  border: 1px solid var(--boh-line, rgba(31, 37, 36, 0.12));
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.56);
-}
-
-.review-item {
-  display: grid;
-  gap: 0.35rem;
-}
-
-.pending-note {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  align-items: center;
-  margin-top: 1rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--boh-line, rgba(31, 37, 36, 0.12));
-}
-
-.pending-note span {
-  color: var(--boh-muted, #697270);
-}
-
-.pending-note strong {
-  font-size: 2rem;
-}
-
-.record-card {
-  display: grid;
-  gap: 1rem;
-  padding: 1rem;
-}
-
-.record-card dl {
+body.boh-room .record-card dl {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.75rem;
+  gap: 8px;
   margin: 0;
 }
 
-.record-card dl div {
+body.boh-room .record-card dl > div {
   display: grid;
-  gap: 0.2rem;
+  gap: 2px;
+  padding: 0;
+  border: 0;
 }
 
-dt {
-  color: var(--boh-muted, #697270);
-  font-size: 0.78rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+body.boh-room .record-card dd {
+  text-align: left;
+  font-weight: 700;
 }
 
-dd {
-  margin: 0;
-  color: var(--boh-ink, #1f2524);
-  font-weight: 800;
+body.boh-room .library-table {
+  gap: 1px;
 }
 
-.subpanel {
-  padding: 1rem;
-}
-
-.subpanel ul {
-  display: grid;
-  gap: 0.45rem;
-  margin-bottom: 0;
-  padding-left: 1.1rem;
-}
-
-.library-table {
-  display: grid;
-  gap: 0.65rem;
-}
-
-.library-row {
+body.boh-room .library-row {
   display: grid;
   grid-template-columns: 1.4fr 0.9fr 0.8fr 0.8fr;
-  gap: 0.75rem;
+  gap: 12px;
   align-items: center;
 }
 
-.governance-list {
+body.boh-room .review-item,
+body.boh-room .governance-list > li,
+body.boh-room .governance-list > div {
   display: grid;
-  gap: 0.65rem;
-}
-
-@media (max-width: 980px) {
-  .proof-loop {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .opportunity-card {
-    grid-column: span 6;
-  }
+  gap: 4px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--field);
 }
 
 @media (max-width: 720px) {
-  .proof-loop,
-  .home-grid,
-  .split,
-  .deal-record,
-  .record-card dl,
-  .library-row {
+  body.boh-room .record-card dl,
+  body.boh-room .library-row {
     grid-template-columns: 1fr;
-  }
-
-  .opportunity-card {
-    grid-column: 1 / -1;
   }
 }

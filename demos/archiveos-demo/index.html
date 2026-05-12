@@ -3,153 +3,157 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Public-safe ArchiveOS static demo using synthetic data only.">
-    <title>ArchiveOS Demo</title>
+    <meta name="description" content="ArchiveOS public-safe BackOfHouseOS room. Synthetic preservation and recall surface only.">
+    <title>ArchiveOS - BackOfHouseOS room</title>
+    <link rel="icon" href="../../assets/tco-logo-web.png">
+    <link rel="stylesheet" href="../../shared/room.css">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="theme.css">
+    <script src="../../shared/room.js" defer></script>
+    <script src="app.js" defer></script>
   </head>
-  <body>
-    <header class="topbar">
-      <a class="brand" href="#home" aria-label="ArchiveOS demo home">
-        <span class="brand-mark">A</span>
-        <span>
-          <strong>ArchiveOS</strong>
-          <small>public-safe demo</small>
-        </span>
-      </a>
-      <nav class="nav" aria-label="Demo sections">
-        <a href="#board">Recall</a>
-        <a href="#set">Set</a>
-        <a href="#jobs">Jobs</a>
-        <a href="#export">Export</a>
-      </nav>
-    </header>
+  <body class="boh-room" data-room="archiveos" data-status="LIVE">
+    <div class="room-shell">
+      <header class="room-top">
+        <a class="room-identity" href="#home" aria-label="ArchiveOS room home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="room-identity-text">
+            <strong>ArchiveOS</strong>
+            <small>Preservation / recall layer</small>
+          </span>
+        </a>
+        <nav class="room-nav" aria-label="ArchiveOS sections">
+          <a href="#board">Recall</a>
+          <a href="#set">Set</a>
+          <a href="#jobs">Jobs</a>
+          <a href="#export">Export</a>
+        </nav>
+      </header>
 
-    <main>
-      <section class="hero" id="home">
-        <div class="hero-copy">
-          <p class="eyebrow">Private archive engine, public-safe demo surface</p>
-          <h1>What do you want to do?</h1>
-          <p class="lede">
-            Scan messy sources, search what you remember, review representative cards,
-            assemble approved sets, and export copies while originals stay untouched.
-          </p>
-          <div class="action-row" aria-label="Primary demo actions">
-            <a class="button primary" href="#board">Search memory board</a>
-            <a class="button" href="#export">See export report</a>
+      <main>
+        <section class="hero" id="home">
+          <div class="hero-copy">
+            <p class="eyebrow">Preservation, review, recall</p>
+            <h1>Source preserved. Truth reviewed. Recall earned.</h1>
+            <p class="lede">
+              ArchiveOS keeps original source material intact while structure, review state,
+              and recall surfaces become usable. Originals stay untouched; approved copies
+              are what move forward.
+            </p>
+            <div class="action-row" aria-label="Primary demo actions">
+              <a class="button primary" href="#board">Search memory board</a>
+              <a class="button" href="#export">See export report</a>
+            </div>
           </div>
-        </div>
-        <aside class="loop-card" aria-label="ArchiveOS product loop">
-          <div class="loop-step active">Scan messy sources</div>
-          <div class="loop-step">Index and recall</div>
-          <div class="loop-step">Review versions</div>
-          <div class="loop-step">Approve sets</div>
-          <div class="loop-step">Export copies</div>
-        </aside>
-      </section>
+          <aside class="loop-card" aria-label="ArchiveOS product loop">
+            <div>Preservation loop</div>
+            <div class="loop-step active">Scan messy sources</div>
+            <div class="loop-step">Index and recall</div>
+            <div class="loop-step">Review versions</div>
+            <div class="loop-step">Approve sets</div>
+            <div class="loop-step">Export copies</div>
+          </aside>
+        </section>
 
-      <section class="metrics" aria-label="Demo archive metrics">
-        <article>
-          <strong id="metric-sources">0</strong>
-          <span>sample sources</span>
-        </article>
-        <article>
-          <strong id="metric-assets">0</strong>
-          <span>assets indexed</span>
-        </article>
-        <article>
-          <strong id="metric-reviews">0</strong>
-          <span>review actions</span>
-        </article>
-        <article>
-          <strong id="metric-approved">0</strong>
-          <span>approved exports</span>
-        </article>
-      </section>
-
-      <section class="section-header" id="board">
-        <div>
-          <p class="eyebrow">Visual memory board</p>
-          <h2>Search what you remember</h2>
-        </div>
-        <label class="search-box">
-          <span>Recall search</span>
-          <input id="search" type="search" placeholder="Try running, church, logo, receipt">
-        </label>
-      </section>
-
-      <section class="board" id="asset-board" aria-live="polite"></section>
-
-      <section class="split-section" id="set">
-        <div class="panel">
-          <p class="eyebrow">Content set</p>
-          <h2>Publishing queue</h2>
-          <p>
-            Selected assets move into a reviewable set before export. Private or unresolved
-            records stay blocked until a human approves them.
-          </p>
-          <div id="queue" class="queue"></div>
-        </div>
-        <div class="panel preflight">
-          <p class="eyebrow">Safety preflight</p>
-          <h2>Approved copies only</h2>
-          <ul id="preflight-list"></ul>
-          <button class="button primary" id="run-preflight" type="button">Run preflight mock</button>
-        </div>
-      </section>
-
-      <section class="split-section" id="jobs">
-        <div class="panel wide">
-          <p class="eyebrow">Process monitor</p>
-          <h2>Jobs stay visible</h2>
-          <div id="jobs-list" class="jobs-list"></div>
-        </div>
-      </section>
-
-      <section class="export-report" id="export">
-        <div>
-          <p class="eyebrow">Export report mock</p>
-          <h2>Originals stay untouched</h2>
-          <p id="export-rule">
-            Export creates approved copies only.
-          </p>
-        </div>
-        <div class="report-grid">
+        <section class="metrics" aria-label="ArchiveOS sample metrics">
           <article>
-            <strong id="approved-count">0</strong>
-            <span>approved copies</span>
+            <span>Sample sources</span>
+            <strong id="metric-sources">0</strong>
           </article>
           <article>
-            <strong id="blocked-count">0</strong>
-            <span>blocked items</span>
+            <span>Assets indexed</span>
+            <strong id="metric-assets">0</strong>
           </article>
-        </div>
-        <ul id="warnings" class="warnings"></ul>
-      </section>
-    </main>
+          <article>
+            <span>Review actions</span>
+            <strong id="metric-reviews">0</strong>
+          </article>
+          <article>
+            <span>Approved exports</span>
+            <strong id="metric-approved">0</strong>
+          </article>
+        </section>
 
-    <div class="modal-backdrop" id="modal" hidden>
-      <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-        <button class="icon-button" id="close-modal" type="button" aria-label="Close resolve versions modal">x</button>
-        <p class="eyebrow">Resolve versions</p>
-        <h2 id="modal-title">4 versions found</h2>
-        <p id="modal-copy">
-          ArchiveOS keeps originals untouched and lets the human choose the representative version.
-        </p>
-        <div class="version-list" id="version-list"></div>
-        <div class="modal-actions">
-          <button class="button primary" id="mark-canonical" type="button">Mark demo canonical</button>
-          <button class="button" id="keep-reviewing" type="button">Keep reviewing</button>
-        </div>
-      </section>
+        <section class="section-header" id="board">
+          <div>
+            <p class="eyebrow">Visual memory board</p>
+            <h2>Search what you remember.</h2>
+          </div>
+          <label class="search-box">
+            <span>Recall search</span>
+            <input id="search" type="search" placeholder="Try running, church, logo, receipt">
+          </label>
+        </section>
+
+        <section class="board" id="asset-board" aria-live="polite"></section>
+
+        <section class="split-section" id="set">
+          <div class="panel">
+            <p class="eyebrow">Content set</p>
+            <h2>Publishing queue.</h2>
+            <p>
+              Selected assets move into a reviewable set before export. Private or unresolved
+              records stay blocked until a human approves them.
+            </p>
+            <div id="queue" class="queue"></div>
+          </div>
+          <div class="panel preflight">
+            <p class="eyebrow">Safety preflight</p>
+            <h2>Approved copies only.</h2>
+            <ul id="preflight-list"></ul>
+            <button class="button primary" id="run-preflight" type="button">Run preflight mock</button>
+          </div>
+        </section>
+
+        <section class="split-section" id="jobs">
+          <div class="panel wide">
+            <p class="eyebrow">Process monitor</p>
+            <h2>Jobs stay visible.</h2>
+            <div id="jobs-list" class="jobs-list"></div>
+          </div>
+        </section>
+
+        <section class="export-report" id="export">
+          <div>
+            <p class="eyebrow">Export report mock</p>
+            <h2>Originals stay untouched.</h2>
+            <p id="export-rule">
+              Export creates approved copies only.
+            </p>
+          </div>
+          <div class="report-grid">
+            <article>
+              <span>Approved copies</span>
+              <strong id="approved-count">0</strong>
+            </article>
+            <article>
+              <span>Blocked items</span>
+              <strong id="blocked-count">0</strong>
+            </article>
+          </div>
+          <ul id="warnings" class="warnings"></ul>
+        </section>
+      </main>
+
+      <div class="modal-backdrop" id="modal" hidden>
+        <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+          <button class="icon-button" id="close-modal" type="button" aria-label="Close resolve versions modal">×</button>
+          <p class="eyebrow">Resolve versions</p>
+          <h2 id="modal-title">4 versions found</h2>
+          <p id="modal-copy">
+            ArchiveOS keeps originals untouched and lets the human choose the representative version.
+          </p>
+          <div class="version-list" id="version-list"></div>
+          <div class="modal-actions">
+            <button class="button primary" id="mark-canonical" type="button">Mark demo canonical</button>
+            <button class="button" id="keep-reviewing" type="button">Keep reviewing</button>
+          </div>
+        </section>
+      </div>
+
+      <footer class="footer">
+        <span>ArchiveOS demo uses synthetic sample data only.</span>
+        <span>No real files, drives, databases, local paths, or private previews are included.</span>
+      </footer>
     </div>
-
-    <footer class="footer">
-      <span>ArchiveOS demo uses synthetic sample data only.</span>
-      <span>No real files, drives, databases, local paths, or private previews are included.</span>
-    </footer>
-
-    <script src="app.js"></script>
-    <script src="theme.js"></script>
   </body>
 </html>

@@ -3,44 +3,142 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Cookbook OS future concept demo with sample data only.">
-    <title>Cookbook OS Demo</title>
+    <meta name="description" content="CookbookOS public-safe BackOfHouseOS room. Archival manuscript workflow with sample recipe sources only.">
+    <title>CookbookOS - BackOfHouseOS room</title>
+    <link rel="icon" href="../../assets/tco-logo-web.png">
+    <link rel="stylesheet" href="../../shared/room.css">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="theme.css">
+    <script src="../../shared/room.js" defer></script>
   </head>
-  <body>
-    <main class="shell">
-      <section class="hero" id="home">
-        <p class="eyebrow">Future BackOfHouseOS module</p>
-        <h1>Cookbook OS</h1>
-        <p>
-          Cookbook OS is a future module for turning scanned cookbook pages into
-          reviewed, searchable recipe records.
-        </p>
-      </section>
+  <body class="boh-room" data-room="cookbookos" data-status="ARCHIVE">
+    <div class="room-shell">
+      <header class="room-top">
+        <a class="room-identity" href="#home" aria-label="CookbookOS room home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="room-identity-text">
+            <strong>CookbookOS</strong>
+            <small>Manuscript / canonization layer</small>
+          </span>
+        </a>
+        <nav class="room-nav" aria-label="CookbookOS sections">
+          <a href="#source">Source</a>
+          <a href="#review">Review</a>
+          <a href="#canon">Canon</a>
+          <a href="#boundary">Boundary</a>
+        </nav>
+      </header>
 
-      <section class="panel" id="status">
-        <h2>Demo status</h2>
-        <p>This demo uses sample data. Real systems may run locally/private.</p>
-        <p>No real recipe notes, household data, scanned pages, or private archive material are included.</p>
-      </section>
+      <main>
+        <section class="hero" id="home">
+          <div class="hero-copy">
+            <p class="eyebrow">Manuscript workbench · archival cut</p>
+            <h1>Scanned recipe pages, reviewed into canon.</h1>
+            <p class="lede">
+              CookbookOS preserves original recipe source material and moves draft interpretation
+              through human review before any record becomes canonical. Source pages stay intact;
+              canon records carry a traceable evidence trail.
+            </p>
+            <div class="action-row">
+              <a class="button primary" href="#review">See review workbench</a>
+              <a class="button" href="#canon">View canon record</a>
+            </div>
+          </div>
+          <aside class="intake-card" aria-label="Manuscript state">
+            <span>Sample manuscript</span>
+            <strong>Family pages, 1972</strong>
+            <p>One reference scan held as preserved source. Draft and canon records derive from it after review.</p>
+          </aside>
+        </section>
 
-      <section class="panel" id="concept">
-        <h2>Future workflow</h2>
-        <ol>
-          <li>Scan cookbook page</li>
-          <li>Extract recipe draft</li>
-          <li>Review ingredients and steps</li>
-          <li>Approve searchable recipe record</li>
-          <li>Recall for meal planning</li>
-        </ol>
-      </section>
+        <section class="proof-loop" id="source" aria-label="CookbookOS proof loop">
+          <article>
+            <span>1</span>
+            <strong>Scan source</strong>
+            <p>Original cookbook page is preserved as-is.</p>
+          </article>
+          <article>
+            <span>2</span>
+            <strong>Extract draft</strong>
+            <p>OCR and structuring produce a draft, never canon.</p>
+          </article>
+          <article>
+            <span>3</span>
+            <strong>Human review</strong>
+            <p>Ingredients, steps, and notes are reviewed against source.</p>
+          </article>
+          <article>
+            <span>4</span>
+            <strong>Approve canon</strong>
+            <p>Approved recipe enters the searchable canon with receipt.</p>
+          </article>
+        </section>
 
-      <section class="panel" id="future">
-        <h2>Boundaries</h2>
-        <p>Future concept only. No approved implementation claims are made in this demo.</p>
-      </section>
-    </main>
-    <script src="theme.js"></script>
+        <section class="split" id="review">
+          <article class="panel">
+            <p class="eyebrow">Source / draft pair</p>
+            <h2>Side-by-side review.</h2>
+            <p>
+              The source page and the draft interpretation are held next to each other.
+              Disagreements stay visible; the draft does not promote itself to canon.
+            </p>
+            <ul class="evidence-list">
+              <li><strong>Source line</strong><span>"1 tsp baking powder, sifted"</span></li>
+              <li><strong>Draft line</strong><span>"1 tsp baking powder, sifted"</span></li>
+              <li><strong>OCR confidence</strong><span>0.94 — held for human read</span></li>
+            </ul>
+          </article>
+          <article class="panel">
+            <p class="eyebrow">Review queue</p>
+            <h2>Drafts waiting on human read.</h2>
+            <ul class="review-list">
+              <li>
+                <strong>Apple cake, page 14</strong>
+                <p class="muted">3 draft lines flagged. Awaiting reviewer.</p>
+              </li>
+              <li>
+                <strong>Pickled onions, page 22</strong>
+                <p class="muted">OCR uncertainty on quantity. Held.</p>
+              </li>
+              <li>
+                <strong>Cornbread, page 38</strong>
+                <p class="muted">Ready for human approval.</p>
+              </li>
+            </ul>
+          </article>
+        </section>
+
+        <section class="panel" id="canon">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Canon record</p>
+              <h2>Approved recipe with receipt.</h2>
+            </div>
+            <span class="pill green">Approved sample</span>
+          </div>
+          <dl>
+            <div><dt>Title</dt><dd>Sour cherry cobbler</dd></div>
+            <div><dt>Source</dt><dd>Family pages, 1972, page 9</dd></div>
+            <div><dt>Reviewer</dt><dd>Sample reviewer</dd></div>
+            <div><dt>Approved</dt><dd>2026-04-12</dd></div>
+            <div><dt>Evidence</dt><dd>Source scan + draft diff + reviewer note</dd></div>
+          </dl>
+        </section>
+
+        <section class="boundary-section" id="boundary">
+          <p class="eyebrow">Boundary</p>
+          <h2>Source-to-canon, never silent promotion.</h2>
+          <p>
+            CookbookOS is a future-shaped module shown here as an archival workbench.
+            Private source pages, family records, OCR uncertainty logs, and original
+            archive details remain sealed unless reviewed.
+          </p>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <span>CookbookOS demo uses synthetic source material only.</span>
+        <span>No private recipes, family records, or scanned archives are included.</span>
+      </footer>
+    </div>
   </body>
 </html>

@@ -1,40 +1,52 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Archive | Church OS Demo</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <div class="shell">
-    <aside class="sidebar">
-      <div class="brand">
-        <span>Church OS static demo</span>
-        <strong>Grace Fellowship Demo Church</strong>
-        <span>demo_showcase cut</span>
-      </div>
-      <nav class="nav" aria-label="Demo sections">
-        <a href="index.html">This Week</a>
-        <a href="service-planner.html">Service Planner</a>
-        <a href="worship-planner.html">Worship Planner</a>
-        <a href="review.html">Review Queue</a>
-        <a href="people.html">People</a>
-        <a href="program.html">Program</a>
-        <a href="postmaster.html">Postmaster</a>
-        <a href="archive.html" aria-current="page">Archive</a>
-        <a href="builder.html">Builder</a>
-      </nav>
-    </aside>
-    <main class="main">
-      <div class="topbar">
-        <div class="stack">
-          <span class="eyebrow">Archive</span>
-          <h1>Reference material does not become Sunday truth by accident</h1>
-          <p class="lede">Archive examples are synthetic and marked reference-only. They can inform review, but they do not redefine service state, issue models, routing, or triage.</p>
-        </div>
-        <span class="badge">reference-only</span>
-      </div>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="ChurchOS archive sub-page. Public-safe BackOfHouseOS room. Sample data only.">
+    <title>ChurchOS · Archive</title>
+    <link rel="icon" href="../../assets/tco-logo-web.png">
+    <link rel="stylesheet" href="../../shared/room.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="../../shared/room.js" defer></script>
+  </head>
+  <body class="boh-room" data-room="churchos" data-status="SEALED">
+    <div class="room-shell">
+      <header class="room-top">
+        <a class="room-identity" href="index.html" aria-label="ChurchOS room home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="room-identity-text">
+            <strong>ChurchOS</strong>
+            <small>Community operations layer</small>
+          </span>
+        </a>
+        <nav class="room-nav" aria-label="ChurchOS sections">
+          <a href="index.html">Sunday</a>
+          <a href="service-planner.html">Service</a>
+          <a href="worship-planner.html">Worship</a>
+          <a href="review.html">Review</a>
+          <a href="people.html">People</a>
+          <a href="program.html">Program</a>
+          <a href="postmaster.html">Postmaster</a>
+          <a href="archive.html" aria-current="page">Archive</a>
+          <a href="builder.html">Builder</a>
+        </nav>
+      </header>
+
+      <main class="main">
+        <section class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow">Archive</p>
+            <h1>Reference material does not become Sunday truth by accident</h1>
+            <p class="lede">Archive examples are synthetic and marked reference-only. They can inform review, but they do not redefine service state, issue models, routing, or triage.</p>
+          </div>
+          <aside class="today-card" aria-label="Archive state">
+            <span>Surface</span>
+            <strong>Archive</strong>
+            <p>reference-only. All records here are synthetic fixtures.</p>
+          </aside>
+        </section>
+      
 
       <section class="grid">
         <article class="card stack">
@@ -83,7 +95,7 @@
           </tbody>
         </table>
       </section>
-    </main>
-  </div>
-</body>
+      </main>
+    </div>
+  </body>
 </html>

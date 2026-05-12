@@ -3,220 +3,203 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Revenue Desk public-safe BackOfHouseOS demo with synthetic opportunity data only.">
-    <title>Revenue Desk Demo</title>
+    <meta name="description" content="RevenueDeskOS public-safe BackOfHouseOS room. Synthetic opportunity data only.">
+    <title>RevenueDeskOS - BackOfHouseOS room</title>
+    <link rel="icon" href="../../assets/tco-logo-web.png">
+    <link rel="stylesheet" href="../../shared/room.css">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="theme.css">
+    <script src="../../shared/room.js" defer></script>
+    <script src="app.js" defer></script>
   </head>
-  <body>
-    <header class="topbar">
-      <a class="brand" href="#home" aria-label="Revenue Desk home">
-        <span class="brand-mark">RD</span>
-        <span>
-          <strong>Revenue Desk</strong>
-          <small>BackOfHouseOS / TCO</small>
-        </span>
-      </a>
-      <nav class="nav" aria-label="Revenue Desk demo sections">
-        <a href="#loop">Proof loop</a>
-        <a href="#records">Records</a>
-        <a href="#review">Review</a>
-        <a href="#scoreboard">Scoreboard</a>
-        <a href="#guardrails">Guardrails</a>
-      </nav>
-    </header>
+  <body class="boh-room" data-room="revenuedeskos" data-status="LIVE">
+    <div class="room-shell">
+      <header class="room-top">
+        <a class="room-identity" href="#home" aria-label="RevenueDeskOS room home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="room-identity-text">
+            <strong>RevenueDeskOS</strong>
+            <small>Revenue workflow layer</small>
+          </span>
+        </a>
+        <nav class="room-nav" aria-label="RevenueDeskOS sections">
+          <a href="#loop">Loop</a>
+          <a href="#records">Records</a>
+          <a href="#review">Review</a>
+          <a href="#scoreboard">Scoreboard</a>
+          <a href="#guardrails">Guardrails</a>
+        </nav>
+      </header>
 
-    <main>
-      <section class="hero revenue-hero" id="home">
-        <div class="hero-copy">
-          <p class="eyebrow">Governed intake for revenue workflows</p>
-          <h1>Revenue Desk</h1>
-          <p class="lede">
-            Revenue Desk turns fragmented RFP and opportunity intake into structured,
-            reviewable revenue workflow records.
-          </p>
-          <div class="action-row">
-            <a class="button primary" href="#records">View sample records</a>
-            <a class="button" href="#loop">See the proof loop</a>
+      <main>
+        <section class="hero revenue-hero" id="home">
+          <div class="hero-copy">
+            <p class="eyebrow">Governed revenue workflow</p>
+            <h1>Bid work, structured before response.</h1>
+            <p class="lede">
+              RevenueDeskOS turns scattered RFP and opportunity intake into reviewable
+              revenue records: required fields, reuse history, owner, and a guarded
+              path to response.
+            </p>
+            <div class="action-row">
+              <a class="button primary" href="#records">Inspect sample records</a>
+              <a class="button" href="#loop">See the proof loop</a>
+            </div>
           </div>
-        </div>
-        <aside class="intake-card proof-card">
-          <span>Current sample state</span>
-          <strong id="incoming-rfps">0</strong>
-          <p>incoming opportunities are held as sample data, structured records, and review states.</p>
-        </aside>
-      </section>
+          <aside class="intake-card proof-card" aria-label="Current sample state">
+            <span>Sample intake state</span>
+            <strong id="incoming-rfps">0</strong>
+            <p>incoming opportunities held as sample records with review states attached.</p>
+          </aside>
+        </section>
 
-      <section class="home-grid" id="what-it-is">
-        <article class="command-card">
-          <span>What it is</span>
-          <h2>A revenue workflow notebook</h2>
-          <p>
-            A public-safe surface for showing how opportunity requests become records:
-            required fields, checklist readiness, source inputs, owners, and reusable response history.
-          </p>
-        </article>
-        <article class="command-card">
-          <span>Operator note</span>
-          <h2>You miss 100% of the shots you don't take.</h2>
-          <p>
-            The point is a clean first pass: preserve the request, structure the ask,
-            review the record, then reuse what the team already knows.
-          </p>
-          <small>Historical product flavor retained without private context.</small>
-        </article>
-      </section>
+        <section class="proof-loop" id="loop" aria-label="RevenueDeskOS proof loop">
+          <article>
+            <span>1</span>
+            <strong>Intake</strong>
+            <p>Sample request enters as preserved source text.</p>
+          </article>
+          <article>
+            <span>2</span>
+            <strong>Structured record</strong>
+            <p>Required fields, owner, value, due date, and assets become reviewable.</p>
+          </article>
+          <article>
+            <span>3</span>
+            <strong>Checklist review</strong>
+            <p>Missing fields and readiness are visible before any response work.</p>
+          </article>
+          <article>
+            <span>4</span>
+            <strong>Reusable history</strong>
+            <p>Prior language and response logic stays attached to the record.</p>
+          </article>
+        </section>
 
-      <section class="proof-loop" id="loop" aria-label="Revenue Desk proof loop">
-        <article>
-          <span>1</span>
-          <strong>RFP intake</strong>
-          <p>Sample request enters as source text.</p>
-        </article>
-        <article>
-          <span>2</span>
-          <strong>Structured record</strong>
-          <p>Required fields, owner, value, due date, and assets are made reviewable.</p>
-        </article>
-        <article>
-          <span>3</span>
-          <strong>Checklist review</strong>
-          <p>Missing fields and readiness are visible before response work.</p>
-        </article>
-        <article>
-          <span>4</span>
-          <strong>Reusable history</strong>
-          <p>Prior language and response logic stay attached to the record.</p>
-        </article>
-      </section>
+        <section class="metrics" id="scoreboard" aria-label="RevenueDeskOS scoreboard">
+          <article>
+            <span>Average cycle time</span>
+            <strong id="cycle-time">0 days</strong>
+          </article>
+          <article>
+            <span>Checklist pass rate</span>
+            <strong id="pass-rate">0%</strong>
+          </article>
+          <article>
+            <span>Reuse rate</span>
+            <strong id="reuse-rate">0%</strong>
+          </article>
+          <article>
+            <span>Response velocity</span>
+            <strong id="velocity">0%</strong>
+          </article>
+        </section>
 
-      <section class="metrics" id="scoreboard" aria-label="Revenue Desk scoreboard">
-        <article>
-          <span>Average cycle time</span>
-          <strong id="cycle-time">0 days</strong>
-        </article>
-        <article>
-          <span>Checklist pass rate</span>
-          <strong id="pass-rate">0%</strong>
-        </article>
-        <article>
-          <span>Reuse rate</span>
-          <strong id="reuse-rate">0%</strong>
-        </article>
-        <article>
-          <span>Response velocity</span>
-          <strong id="velocity">0%</strong>
-        </article>
-      </section>
-
-      <section class="section-heading" id="records">
-        <div>
-          <p class="eyebrow">Sample opportunity records</p>
-          <h2>Records, not scattered requests</h2>
-        </div>
-        <label class="filter">
-          <span>Review status</span>
-          <select id="status-filter">
-            <option value="all">All opportunities</option>
-            <option value="pending review">Pending review</option>
-            <option value="approved">Approved</option>
-            <option value="ready for approval">Ready for approval</option>
-          </select>
-        </label>
-      </section>
-
-      <section class="opportunity-grid" id="opportunity-grid" aria-live="polite"></section>
-
-      <section class="split" id="review">
-        <article class="panel intake-shell">
-          <p class="eyebrow">Intake demo</p>
-          <h2>Turn a request into a draft brief</h2>
-          <div class="sample-buttons" id="sample-buttons"></div>
-          <label class="textarea-label">
-            <span>Sample source request</span>
-            <textarea id="rfp-text" aria-label="Sample RFP input"></textarea>
-          </label>
-          <div class="action-row">
-            <button class="primary-action" id="generate-summary" type="button">Generate draft summary</button>
-            <button class="primary-action secondary" id="save-project" type="button">Save demo record</button>
-          </div>
-          <div class="draft-output" id="draft-output">Pick an example to populate the draft brief.</div>
-        </article>
-
-        <article class="panel">
-          <p class="eyebrow">Review queue</p>
-          <h2>Pending records stay visible</h2>
-          <p class="muted">Records that need fields or approval stay in review instead of becoming trusted workflow history.</p>
-          <div class="review-queue" id="review-queue"></div>
-          <div class="pending-note">
-            <span>Pending reviews</span>
-            <strong id="pending-reviews">0</strong>
-          </div>
-        </article>
-      </section>
-
-      <section class="deal-record" id="record">
-        <div>
-          <p class="eyebrow">Deal record</p>
-          <h2 id="record-title">Structured opportunity summary</h2>
-          <p id="record-summary">Select a sample opportunity to inspect the reviewed brief.</p>
-        </div>
-        <div class="record-card">
-          <dl>
-            <div><dt>Client</dt><dd id="record-client">-</dd></div>
-            <div><dt>Deal value</dt><dd id="record-value">-</dd></div>
-            <div><dt>Due date</dt><dd id="record-due">-</dd></div>
-            <div><dt>Owner</dt><dd id="record-owner">-</dd></div>
-            <div><dt>Checklist</dt><dd id="record-score">-</dd></div>
-          </dl>
-          <div class="subpanel">
-            <strong>Source inputs</strong>
-            <ul id="record-assets"></ul>
-          </div>
-          <div class="subpanel">
-            <strong>Reusable response logic</strong>
-            <ul id="record-reuse"></ul>
-          </div>
-          <div class="subpanel">
-            <strong>Status timeline</strong>
-            <ul id="record-timeline"></ul>
-          </div>
-        </div>
-      </section>
-
-      <section class="panel" id="library">
-        <div class="section-heading">
+        <section class="section-heading" id="records">
           <div>
-            <p class="eyebrow">Source / reuse history</p>
-            <h2>Reusable opportunity memory</h2>
+            <p class="eyebrow">Sample opportunity records</p>
+            <h2>Records, not scattered requests.</h2>
           </div>
-        </div>
-        <div class="library-table" id="library-table"></div>
-      </section>
+          <label class="filter">
+            <span>Review status</span>
+            <select id="status-filter">
+              <option value="all">All opportunities</option>
+              <option value="pending review">Pending review</option>
+              <option value="approved">Approved</option>
+              <option value="ready for approval">Ready for approval</option>
+            </select>
+          </label>
+        </section>
 
-      <section class="split" id="guardrails">
-        <article class="panel">
-          <p class="eyebrow">Guardrails</p>
-          <h2>No autonomous submission</h2>
-          <div class="governance-list" id="governance-list"></div>
-        </article>
-        <article class="panel">
-          <p class="eyebrow">What it proves</p>
-          <h2>Messy request to governed record</h2>
-          <p>
-            Revenue Desk proves the BackOfHouseOS pattern in a revenue operations context:
-            scattered inputs become preserved, structured, reviewed, and reusable workflow truth.
-          </p>
-        </article>
-      </section>
-    </main>
+        <section class="opportunity-grid" id="opportunity-grid" aria-live="polite"></section>
 
-    <footer class="footer">
-      <span>Revenue Desk demo uses synthetic data only.</span>
-      <span>No private, client, employer, or production information is included.</span>
-    </footer>
+        <section class="split" id="review">
+          <article class="panel intake-shell">
+            <p class="eyebrow">Intake demo</p>
+            <h2>Turn a request into a draft brief.</h2>
+            <div class="sample-buttons" id="sample-buttons"></div>
+            <label class="textarea-label">
+              <span>Sample source request</span>
+              <textarea id="rfp-text" aria-label="Sample RFP input"></textarea>
+            </label>
+            <div class="action-row">
+              <button class="primary-action" id="generate-summary" type="button">Generate draft summary</button>
+              <button class="primary-action secondary" id="save-project" type="button">Save demo record</button>
+            </div>
+            <div class="draft-output" id="draft-output">Pick an example to populate the draft brief.</div>
+          </article>
 
-    <script src="app.js"></script>
-    <script src="theme.js"></script>
+          <article class="panel">
+            <p class="eyebrow">Review queue</p>
+            <h2>Pending records stay visible.</h2>
+            <p class="muted">Records that need fields or approval stay in review instead of becoming trusted workflow history.</p>
+            <div class="review-queue" id="review-queue"></div>
+            <div class="pending-note">
+              <span>Pending reviews</span>
+              <strong id="pending-reviews">0</strong>
+            </div>
+          </article>
+        </section>
+
+        <section class="deal-record" id="record">
+          <div>
+            <p class="eyebrow">Deal record</p>
+            <h2 id="record-title">Structured opportunity summary</h2>
+            <p id="record-summary">Select a sample opportunity to inspect the reviewed brief.</p>
+          </div>
+          <div class="record-card">
+            <dl>
+              <div><dt>Client</dt><dd id="record-client">-</dd></div>
+              <div><dt>Deal value</dt><dd id="record-value">-</dd></div>
+              <div><dt>Due date</dt><dd id="record-due">-</dd></div>
+              <div><dt>Owner</dt><dd id="record-owner">-</dd></div>
+              <div><dt>Checklist</dt><dd id="record-score">-</dd></div>
+            </dl>
+            <div class="subpanel">
+              <strong>Source inputs</strong>
+              <ul id="record-assets"></ul>
+            </div>
+            <div class="subpanel">
+              <strong>Reusable response logic</strong>
+              <ul id="record-reuse"></ul>
+            </div>
+            <div class="subpanel">
+              <strong>Status timeline</strong>
+              <ul id="record-timeline"></ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel" id="library">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Source / reuse history</p>
+              <h2>Reusable opportunity memory.</h2>
+            </div>
+          </div>
+          <div class="library-table" id="library-table"></div>
+        </section>
+
+        <section class="split" id="guardrails">
+          <article class="panel">
+            <p class="eyebrow">Guardrails</p>
+            <h2>No autonomous submission.</h2>
+            <div class="governance-list" id="governance-list"></div>
+          </article>
+          <article class="panel">
+            <p class="eyebrow">What it proves</p>
+            <h2>Messy request to governed record.</h2>
+            <p>
+              RevenueDeskOS proves the BackOfHouseOS pattern in a revenue operations context:
+              scattered inputs become preserved, structured, reviewed, and reusable workflow truth.
+            </p>
+          </article>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <span>RevenueDeskOS demo uses synthetic data only.</span>
+        <span>No private, client, employer, or production information is included.</span>
+      </footer>
+    </div>
   </body>
 </html>

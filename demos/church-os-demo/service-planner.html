@@ -1,40 +1,52 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Service Planner | Church OS Demo</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <div class="shell">
-    <aside class="sidebar">
-      <div class="brand">
-        <span>Church OS static demo</span>
-        <strong>Grace Fellowship Demo Church</strong>
-        <span>demo_showcase cut</span>
-      </div>
-      <nav class="nav" aria-label="Demo sections">
-        <a href="index.html">This Week</a>
-        <a href="service-planner.html" aria-current="page">Service Planner</a>
-        <a href="worship-planner.html">Worship Planner</a>
-        <a href="review.html">Review Queue</a>
-        <a href="people.html">People</a>
-        <a href="program.html">Program</a>
-        <a href="postmaster.html">Postmaster</a>
-        <a href="archive.html">Archive</a>
-        <a href="builder.html">Builder</a>
-      </nav>
-    </aside>
-    <main class="main">
-      <div class="topbar">
-        <div class="stack">
-          <span class="eyebrow">Service Planner</span>
-          <h1>Sunday order with explicit dependencies</h1>
-          <p class="lede">Service items own the weekly shape. Readiness comes from owners, notes, worship slots, and linked assets rather than guessed status.</p>
-        </div>
-        <span class="badge">local Sunday use</span>
-      </div>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="ChurchOS service planner sub-page. Public-safe BackOfHouseOS room. Sample data only.">
+    <title>ChurchOS · Service Planner</title>
+    <link rel="icon" href="../../assets/tco-logo-web.png">
+    <link rel="stylesheet" href="../../shared/room.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="../../shared/room.js" defer></script>
+  </head>
+  <body class="boh-room" data-room="churchos" data-status="SEALED">
+    <div class="room-shell">
+      <header class="room-top">
+        <a class="room-identity" href="index.html" aria-label="ChurchOS room home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="room-identity-text">
+            <strong>ChurchOS</strong>
+            <small>Community operations layer</small>
+          </span>
+        </a>
+        <nav class="room-nav" aria-label="ChurchOS sections">
+          <a href="index.html">Sunday</a>
+          <a href="service-planner.html" aria-current="page">Service</a>
+          <a href="worship-planner.html">Worship</a>
+          <a href="review.html">Review</a>
+          <a href="people.html">People</a>
+          <a href="program.html">Program</a>
+          <a href="postmaster.html">Postmaster</a>
+          <a href="archive.html">Archive</a>
+          <a href="builder.html">Builder</a>
+        </nav>
+      </header>
+
+      <main class="main">
+        <section class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow">Service Planner</p>
+            <h1>Sunday order with explicit dependencies</h1>
+            <p class="lede">Service items own the weekly shape. Readiness comes from owners, notes, worship slots, and linked assets rather than guessed status.</p>
+          </div>
+          <aside class="today-card" aria-label="Service Planner state">
+            <span>Surface</span>
+            <strong>Service Planner</strong>
+            <p>local Sunday use. All records here are synthetic fixtures.</p>
+          </aside>
+        </section>
+      
 
       <section class="columns">
         <article class="panel stack">
@@ -107,7 +119,7 @@
           <p class="muted">Review decisions record human intent only.</p>
         </article>
       </section>
-    </main>
-  </div>
-</body>
+      </main>
+    </div>
+  </body>
 </html>
