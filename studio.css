@@ -20,7 +20,11 @@
   --accent: var(--green);
   --accent-glow: rgba(164, 189, 166, 0.22);
 
-  --font: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-display: "Druk Wide", "Druk", "Helvetica Neue Condensed", HelveticaNeue-CondensedBold, "Arial Narrow", Impact, sans-serif;
+  --font-ui: Inter, "Helvetica Neue", Helvetica, Arial, ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "SFMono-Regular", "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  --font: var(--font-ui);
+
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
   --loop-progress: 0%;
 }
@@ -46,10 +50,12 @@ body {
   overflow-x: hidden;
   background: var(--bg);
   color: var(--ink);
-  font-family: var(--font);
+  font-family: var(--font-ui);
   font-size: 16px;
   line-height: 1.55;
   letter-spacing: 0;
+  font-synthesis: none;
+  font-feature-settings: "kern" 1, "ss01" 1, "cv11" 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -108,13 +114,17 @@ button, input, select, textarea { font: inherit; color: inherit; }
 
 .brand-lockup strong {
   color: var(--paper);
-  font-size: 0.92rem;
+  font-family: var(--font-display);
+  font-size: 0.94rem;
   font-weight: 500;
+  letter-spacing: 0.005em;
 }
 
 .brand-lockup small {
   color: var(--dim);
-  font-size: 0.74rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
 }
 
 .studio-nav {
@@ -130,7 +140,9 @@ button, input, select, textarea { font: inherit; color: inherit; }
   align-items: center;
   padding: 6px 10px;
   color: var(--muted);
-  font-size: 0.84rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
   transition: color 220ms var(--ease);
 }
 
@@ -146,23 +158,26 @@ main { padding: 76px 0 56px; }
 h1, h2, h3, p { margin-top: 0; }
 
 h1 {
-  max-width: 18ch;
+  max-width: 20ch;
   margin-bottom: 22px;
   color: var(--paper);
-  font-size: clamp(2.2rem, 6vw, 4.6rem);
-  font-weight: 500;
-  line-height: 1.02;
-  letter-spacing: -0.014em;
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 6.8vw, 5.2rem);
+  font-weight: 600;
+  line-height: 0.98;
+  letter-spacing: -0.022em;
+  text-transform: none;
 }
 
 h2 {
-  max-width: 30ch;
+  max-width: 32ch;
   margin-bottom: 14px;
   color: var(--paper);
-  font-size: clamp(1.45rem, 2.6vw, 2.1rem);
-  font-weight: 500;
-  line-height: 1.16;
-  letter-spacing: -0.008em;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
 }
 
 h3 {
@@ -176,9 +191,10 @@ h3 {
 .eyebrow {
   margin: 0 0 22px;
   color: var(--muted);
-  font-size: 0.82rem;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
   font-weight: 400;
-  letter-spacing: 0;
+  letter-spacing: 0.02em;
   text-transform: none;
 }
 
@@ -299,7 +315,8 @@ h3 {
 
 .loop-num {
   color: var(--dim);
-  font-size: 0.7rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
   font-weight: 500;
   letter-spacing: 0.04em;
   transition: color 360ms var(--ease);
@@ -309,9 +326,10 @@ h3 {
 
 .loop-name {
   color: var(--muted);
-  font-size: 0.84rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
   font-weight: 500;
-  letter-spacing: -0.005em;
+  letter-spacing: 0.02em;
   transition: color 360ms var(--ease);
 }
 
@@ -417,6 +435,7 @@ h3 {
 
 .module-rank {
   color: var(--dim);
+  font-family: var(--font-mono);
   font-size: 0.72rem;
   font-weight: 500;
   letter-spacing: 0.04em;
@@ -425,9 +444,10 @@ h3 {
 .module-status,
 .preview-status {
   color: var(--dim);
+  font-family: var(--font-mono);
   font-size: 0.74rem;
   font-weight: 500;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
   text-transform: none;
 }
 
@@ -444,9 +464,11 @@ h3 {
 
 .module-title {
   color: var(--paper);
-  font-size: clamp(1.15rem, 1.8vw, 1.45rem);
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.3vw, 1.95rem);
   font-weight: 500;
-  letter-spacing: -0.005em;
+  line-height: 1.05;
+  letter-spacing: -0.012em;
   transition: color 280ms var(--ease);
 }
 
@@ -481,7 +503,8 @@ h3 {
 
 .preview-head h2 {
   margin: 0 0 4px;
-  font-size: clamp(1.25rem, 1.8vw, 1.6rem);
+  font-size: clamp(1.35rem, 2.1vw, 1.85rem);
+  letter-spacing: -0.015em;
 }
 
 #preview-subtitle {
@@ -526,6 +549,7 @@ h3 {
 
 .evidence-trail .trail-num {
   color: var(--dim);
+  font-family: var(--font-mono);
   font-size: 0.74rem;
   font-weight: 500;
   letter-spacing: 0.04em;
@@ -535,15 +559,17 @@ h3 {
 
 .evidence-trail strong {
   color: var(--paper);
-  font-size: 0.92rem;
+  font-family: var(--font-mono);
+  font-size: 0.86rem;
   font-weight: 500;
-  letter-spacing: -0.005em;
+  letter-spacing: 0.02em;
 }
 
 .evidence-trail em {
   color: var(--muted);
+  font-family: var(--font-ui);
   font-style: normal;
-  font-size: 0.92rem;
+  font-size: 0.94rem;
   line-height: 1.55;
 }
 
@@ -572,9 +598,10 @@ h3 {
 .governance-mini dt {
   margin: 0;
   color: var(--muted);
-  font-size: 0.78rem;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
   font-weight: 500;
-  letter-spacing: 0;
+  letter-spacing: 0.04em;
 }
 
 .governance-mini dd {
@@ -608,6 +635,7 @@ h3 {
 
 .gov-step .gov-num {
   color: var(--dim);
+  font-family: var(--font-mono);
   font-size: 0.72rem;
   font-weight: 500;
   letter-spacing: 0.04em;
@@ -615,8 +643,10 @@ h3 {
 
 .gov-step strong {
   color: var(--paper);
-  font-size: 1rem;
+  font-family: var(--font-display);
+  font-size: 1.18rem;
   font-weight: 500;
+  letter-spacing: -0.01em;
 }
 
 .gov-step em {
@@ -668,8 +698,10 @@ h3 {
 
 .studio-footer span {
   color: var(--dim);
-  font-size: 0.76rem;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
   font-weight: 400;
+  letter-spacing: 0.02em;
 }
 
 /* -------------------- Motion: settle on enter -------------------- */
