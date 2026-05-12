@@ -8,20 +8,19 @@ Taste standard: quiet enough to feel serious, distinct enough to be remembered, 
 
 ## What changed
 
-- Reworked the root homepage from a module showcase into a BOH public command ingress.
-- Tightened the first screen around an already-running node: status, ingress, telemetry, and selected actions.
-- Reduced explanatory copy and moved detail into compact system-room readouts.
-- Reframed demo links as inspection routes instead of portfolio cards.
-- Kept implementation detail in a safe held state where no public-safe implementation page exists.
-- Added CSS-only environmental texture, restrained load settling, and subtle hover/focus acknowledgement.
-- Added node activation behavior: small lift, stronger border, quiet status marker pulse, and inspect-link underline draw.
-- Replaced generic active labels with grounded BOH status states for the rooms that exist in this repo.
-- Tightened mobile behavior so the command layer remains readable at small widths instead of feeling like a compressed desktop.
-- Added `prefers-reduced-motion` handling for all motion.
+- Rebuilt the root homepage around a synthesis of the design tests: Direction C atmosphere, Direction A usability, and Direction B editorial structure.
+- Reframed the studio as an operating index with interactive proof previews instead of a flat module showcase.
+- Added a guided inspection path that updates the proof preview before the visitor enters a room.
+- Added keyboard/focus-driven module inspection so hover is not required.
+- Expanded the index to include the real module names that matter to the BackOfHouseOS surface, with held states where this repo has no public room route.
+- Reduced dashboard clutter and removed equal-weight status widgets in favor of typography, pacing, and one quiet status line.
+- Kept the public/private boundary visible without repeating it as dashboard noise.
+- Preserved route integrity: existing room routes link; missing implementation routes are held non-links.
+- Kept mobile discipline, comfortable tap targets, and `prefers-reduced-motion` handling.
 
 ## Why it reads more like a command layer
 
-The page now opens with an operational state instead of a marketing pitch. The visitor enters through a public node, sees that the registry is verified, sees private systems sealed, and then chooses a system room to inspect. The interface is intentionally quiet: low-contrast borders, grid texture, short labels, and spacious panels carry the atmosphere without fake terminal behavior or invented capabilities.
+The page now opens as an editorial operating index rather than a marketing pitch. The visitor can inspect a module record, see what the public room proves, see what remains sealed, and then enter the real demo route. The interface is intentionally quiet: restrained dark atmosphere, sparse dividers, strong pacing, and a single proof preview carry the experience without fake terminal behavior or invented capabilities.
 
 ## Status meanings
 
@@ -39,8 +38,12 @@ The page now opens with an operational state instead of a marketing pitch. The v
 - ChurchOS: SEALED.
 - RunnerOS: STANDBY.
 - CookbookOS: ARCHIVE.
+- ManillaOS: REVIEW.
+- CanonOS: SEALED.
+- JobRadarOS: SEALED.
+- MediaOS: STANDBY.
 
-ManillaOS, CanonOS, JobRadarOS, and MediaOS are not shown as system nodes in this repo because no matching public room exists here.
+ManillaOS, CanonOS, JobRadarOS, and MediaOS are shown as held records because no matching public room route exists in this repo.
 
 ## Mobile discipline
 
@@ -57,6 +60,7 @@ ManillaOS, CanonOS, JobRadarOS, and MediaOS are not shown as system nodes in thi
 - The individual demo rooms were not redesigned in this pass.
 - REVIEW status is documented but not currently assigned to a visible room in this repo.
 - No live telemetry, APIs, auth, analytics, or database-backed surfaces were added.
-- No custom domain or Vercel project settings were changed in this design pass.
+- The design tests remain archived under `design-tests/` and are not linked from the production homepage.
+- No custom domain or Vercel project settings should be changed as part of design iteration.
 
 Do not ship until the homepage feels like a polished public command interface, not a themed portfolio page.

@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta
       name="description"
-      content="The Creative Origin public command layer for BackOfHouseOS demo rooms. Static public-safe workflow mirrors using sample data only."
+      content="The Creative Origin public operating index for BackOfHouseOS proof surfaces. Static public-safe demo rooms using sample data only."
     >
-    <title>TCO Demo Studio - BackOfHouseOS Public Command Layer</title>
+    <title>TCO Demo Studio - BackOfHouseOS Operating Index</title>
     <link rel="icon" href="assets/tco-logo-web.png">
     <link rel="stylesheet" href="studio.css">
+    <script src="studio.js" defer></script>
   </head>
   <body>
     <div class="studio-shell">
@@ -20,241 +21,350 @@
           </span>
           <span>
             <strong>The Creative Origin</strong>
-            <small>BOH public node</small>
+            <small>BackOfHouseOS operating index</small>
           </span>
         </a>
         <nav class="studio-nav" aria-label="Studio navigation">
-          <a href="#status">Status</a>
-          <a href="#inspection-path">Path</a>
-          <a href="#systems">Rooms</a>
+          <a href="#path">Path</a>
+          <a href="#index">Index</a>
+          <a href="#preview">Preview</a>
           <a href="#boundary">Boundary</a>
         </nav>
       </header>
 
       <main id="ingress">
-        <section class="ingress-grid" aria-labelledby="studio-title">
-          <div class="ingress-panel">
-            <div class="coordinate-line" aria-hidden="true">
-              <span>BACKOFHOUSEOS INTERFACE</span>
-              <span>PUBLIC NODE ACTIVE</span>
-            </div>
-            <p class="eyebrow">CANON REGISTRY VERIFIED</p>
-            <h1 id="studio-title">BackOfHouseOS command layer.</h1>
-            <p class="ingress-copy">
-              Inspect public-safe rooms. Walk routes show evidence surfaces.
-              Private systems remain sealed.
+        <section class="hero-section" aria-labelledby="studio-title">
+          <p class="system-line">Public proof surface. Sample data only. Private systems sealed.</p>
+          <h1 id="studio-title">BackOfHouseOS operating index.</h1>
+          <p class="hero-copy">
+            A public command layer for inspecting how BackOfHouseOS modules turn messy work
+            into source-preserved, reviewable, usable proof surfaces.
+          </p>
+          <div class="hero-actions" aria-label="Primary studio actions">
+            <a class="text-action primary" href="#index">Inspect module index</a>
+            <a class="text-action" href="#path">Start guided inspection</a>
+          </div>
+        </section>
+
+        <section class="status-line" aria-label="Studio boundary">
+          <span>Operating index</span>
+          <span>Public-safe rooms</span>
+          <span>Review required</span>
+          <span>Private systems sealed</span>
+        </section>
+
+        <section class="guided-section" id="path" aria-labelledby="path-title">
+          <div class="section-heading">
+            <p class="eyebrow">Guided inspection</p>
+            <h2 id="path-title">Start with the clearest proof trail.</h2>
+            <p>
+              Step through the recommended rooms without leaving the index. The preview updates
+              first; enter the room only when you want the full walk route.
             </p>
-            <div class="ingress-actions" aria-label="Primary studio actions">
-              <a class="command-button primary" href="#systems">Select system to inspect</a>
-              <a class="command-button" href="#inspection-path">Open inspection path</a>
+          </div>
+
+          <div class="guided-controls" aria-label="Recommended inspection path">
+            <button class="path-step is-active" type="button" data-module="revenuedeskos">
+              <span>01</span>
+              <strong>RevenueDeskOS</strong>
+              <small>Revenue workflow</small>
+            </button>
+            <button class="path-step" type="button" data-module="archiveos">
+              <span>02</span>
+              <strong>ArchiveOS</strong>
+              <small>Preservation / recall</small>
+            </button>
+            <button class="path-step" type="button" data-module="inventoryos">
+              <span>03</span>
+              <strong>InventoryOS</strong>
+              <small>Operator review</small>
+            </button>
+            <button class="path-step" type="button" data-module="churchos">
+              <span>04</span>
+              <strong>ChurchOS</strong>
+              <small>Sensitive operations</small>
+            </button>
+          </div>
+        </section>
+
+        <section class="index-preview-grid" id="index" aria-labelledby="index-title">
+          <div class="module-index">
+            <div class="section-heading">
+              <p class="eyebrow">Module index</p>
+              <h2 id="index-title">Inspect a proof record before entering the room.</h2>
+            </div>
+
+            <div class="module-list" aria-label="BackOfHouseOS modules">
+              <button
+                class="module-entry is-active status-live"
+                type="button"
+                data-module="revenuedeskos"
+                data-name="RevenueDeskOS"
+                data-layer="Revenue workflow layer"
+                data-status="LIVE"
+                data-route="demos/revenue-desk-demo/"
+                data-proves="RFP and opportunity intake becomes structured, reviewable bid work."
+                data-private="Employer/client records, private RFP documents, stakeholder details, and original source artifacts remain sealed."
+                data-proof-one="Intake: scattered requests become structured records."
+                data-proof-two="Review: human review happens before response."
+                data-proof-three="Evidence: bid context, KPI framing, and receipt trail stay visible."
+              >
+                <span class="module-status">LIVE</span>
+                <span class="module-title">RevenueDeskOS</span>
+                <span class="module-layer">Revenue workflow layer</span>
+                <span class="module-purpose">RFP intake, bid velocity, and reviewable revenue work.</span>
+              </button>
+
+              <button
+                class="module-entry status-live"
+                type="button"
+                data-module="archiveos"
+                data-name="ArchiveOS"
+                data-layer="Preservation / recall layer"
+                data-status="LIVE"
+                data-route="demos/archiveos-demo/"
+                data-proves="Source material stays preserved while structure, review state, and recall become usable."
+                data-private="Private filenames, local paths, source manifests, personal archives, and private media stay out of the public room."
+                data-proof-one="Intake: source material is preserved before interpretation."
+                data-proof-two="Review: unresolved records stay separate from approved truth."
+                data-proof-three="Recall: search and packets surface what can be used next."
+              >
+                <span class="module-status">LIVE</span>
+                <span class="module-title">ArchiveOS</span>
+                <span class="module-layer">Preservation / recall layer</span>
+                <span class="module-purpose">Source custody, review state, recall, and evidence packets.</span>
+              </button>
+
+              <button
+                class="module-entry status-sealed"
+                type="button"
+                data-module="churchos"
+                data-name="ChurchOS"
+                data-layer="Community operations layer"
+                data-status="SEALED"
+                data-route="demos/church-os-demo/"
+                data-proves="Sensitive service planning can be made structured, role-aware, and continuous without exposing real people."
+                data-private="Live church identity, member records, operational details, database paths, and access details remain sealed."
+                data-proof-one="Intake: requests move into a planning surface."
+                data-proof-two="Review: role-aware review protects sensitive work."
+                data-proof-three="Handoff: public-safe output shows continuity without private records."
+              >
+                <span class="module-status">SEALED</span>
+                <span class="module-title">ChurchOS</span>
+                <span class="module-layer">Community operations layer</span>
+                <span class="module-purpose">Service planning, handoff, and continuity with private records sealed.</span>
+              </button>
+
+              <button
+                class="module-entry status-live"
+                type="button"
+                data-module="inventoryos"
+                data-name="InventoryOS"
+                data-layer="Inventory review layer"
+                data-status="LIVE"
+                data-route="demos/inventory-os-demo/"
+                data-proves="Item intake moves through photo review, condition, pricing, status, and listing readiness."
+                data-private="Real operator data, private item photos, marketplace records, and production workflows remain sealed."
+                data-proof-one="Intake: item details enter a clear operator workflow."
+                data-proof-two="Review: condition and pricing stay reviewable."
+                data-proof-three="Routing: listing readiness is visible before publishing."
+              >
+                <span class="module-status">LIVE</span>
+                <span class="module-title">InventoryOS</span>
+                <span class="module-layer">Inventory review layer</span>
+                <span class="module-purpose">Item intake to reviewable listing readiness.</span>
+              </button>
+
+              <button
+                class="module-entry status-standby"
+                type="button"
+                data-module="runneros"
+                data-name="RunnerOS"
+                data-layer="Run archive layer"
+                data-status="STANDBY"
+                data-route="demos/runneros-demo/"
+                data-proves="Run history can become a memory layer without exposing health or location records."
+                data-private="Real GPS routes, health records, training logs, and personal route details remain sealed."
+                data-proof-one="Intake: activity records become reviewable entries."
+                data-proof-two="Boundary: health and location data stay private."
+                data-proof-three="Recall: effort memory becomes easier to revisit."
+              >
+                <span class="module-status">STANDBY</span>
+                <span class="module-title">RunnerOS</span>
+                <span class="module-layer">Run archive layer</span>
+                <span class="module-purpose">Effort memory with health and location boundaries.</span>
+              </button>
+
+              <button
+                class="module-entry status-archive"
+                type="button"
+                data-module="cookbookos"
+                data-name="CookbookOS"
+                data-layer="Manuscript / canonization layer"
+                data-status="ARCHIVE"
+                data-route="demos/cookbook-os-demo/"
+                data-proves="Scanned or preserved recipe source can move through draft, review, canon, and recall."
+                data-private="Private source pages, family records, OCR uncertainty logs, and original archive details remain sealed unless reviewed."
+                data-proof-one="Intake: original source stays preserved."
+                data-proof-two="Review: draft interpretation is not treated as canon."
+                data-proof-three="Canon: approved recipe records can be recalled later."
+              >
+                <span class="module-status">ARCHIVE</span>
+                <span class="module-title">CookbookOS</span>
+                <span class="module-layer">Manuscript / canonization layer</span>
+                <span class="module-purpose">Source recipe pages to reviewed canon records.</span>
+              </button>
+
+              <button
+                class="module-entry status-review"
+                type="button"
+                data-module="manillaos"
+                data-name="ManillaOS"
+                data-layer="Authority review layer"
+                data-status="REVIEW"
+                data-route=""
+                data-proves="Preserved workbook source, draft interpretation, human review, and receipt can be separated cleanly."
+                data-private="Private source workbooks, local files, review notes, and authority records remain sealed."
+                data-proof-one="Source: preserved workbook material stays intact."
+                data-proof-two="Review: interpretation requires human approval."
+                data-proof-three="Receipt: approved records need traceable evidence."
+              >
+                <span class="module-status">REVIEW</span>
+                <span class="module-title">ManillaOS</span>
+                <span class="module-layer">Authority review layer</span>
+                <span class="module-purpose">Preserved source, interpretation, review, and receipt.</span>
+              </button>
+
+              <button
+                class="module-entry status-sealed"
+                type="button"
+                data-module="canonos"
+                data-name="CanonOS"
+                data-layer="Canon / authority layer"
+                data-status="SEALED"
+                data-route=""
+                data-proves="Approved truth can be surfaced without silent mutation or unreviewed authority."
+                data-private="Private authority records, unresolved drafts, source files, and review history remain sealed."
+                data-proof-one="Source: original input remains distinct."
+                data-proof-two="Review: authority requires approval."
+                data-proof-three="Canon: usable records keep an evidence trail."
+              >
+                <span class="module-status">SEALED</span>
+                <span class="module-title">CanonOS</span>
+                <span class="module-layer">Canon / authority layer</span>
+                <span class="module-purpose">Approved records without silent truth mutation.</span>
+              </button>
+
+              <button
+                class="module-entry status-sealed"
+                type="button"
+                data-module="jobradaros"
+                data-name="JobRadarOS"
+                data-layer="Candidate review layer"
+                data-status="SEALED"
+                data-route=""
+                data-proves="A serious job search can run as a decision desk with review, freshness, and proof packets."
+                data-private="Live job-search data, scoring details, personal records, and source databases remain sealed."
+                data-proof-one="Intake: role sightings become reviewable candidates."
+                data-proof-two="Review: decisions stay human-led."
+                data-proof-three="Packet: fit, timing, and evidence can travel together."
+              >
+                <span class="module-status">SEALED</span>
+                <span class="module-title">JobRadarOS</span>
+                <span class="module-layer">Candidate review layer</span>
+                <span class="module-purpose">Decision desk for role review, not an application bot.</span>
+              </button>
+
+              <button
+                class="module-entry status-standby"
+                type="button"
+                data-module="mediaos"
+                data-name="MediaOS"
+                data-layer="Media memory layer"
+                data-status="STANDBY"
+                data-route=""
+                data-proves="Notes, screenshots, and captured fragments can become classified, reviewable memory."
+                data-private="Private captures, media files, voice notes, local folders, and source references remain sealed."
+                data-proof-one="Capture: fragments enter one intake surface."
+                data-proof-two="Review: meaning is classified before reuse."
+                data-proof-three="Recall: usable memory can be surfaced later."
+              >
+                <span class="module-status">STANDBY</span>
+                <span class="module-title">MediaOS</span>
+                <span class="module-layer">Media memory layer</span>
+                <span class="module-purpose">Captured fragments to reviewable memory.</span>
+              </button>
+              <div class="mobile-preview-slot" id="mobile-preview" aria-live="polite" hidden></div>
             </div>
           </div>
 
-          <aside class="status-panel" id="status" aria-label="Public node status">
-            <div class="status-head">
-              <span>STATUS</span>
-              <strong>ONLINE</strong>
+          <aside class="preview-panel" id="preview" aria-labelledby="preview-title" aria-live="polite">
+            <div class="preview-sticky">
+              <p class="eyebrow">Proof preview</p>
+              <div class="preview-head">
+                <div>
+                  <h2 id="preview-title">RevenueDeskOS</h2>
+                  <p id="preview-layer">Revenue workflow layer</p>
+                </div>
+                <span class="preview-status status-live" id="preview-status">LIVE</span>
+              </div>
+              <p class="preview-copy" id="preview-proves">
+                RFP and opportunity intake becomes structured, reviewable bid work.
+              </p>
+
+              <div class="evidence-block" aria-label="Evidence drawer">
+                <h3>Evidence drawer</h3>
+                <ul id="preview-evidence">
+                  <li>Intake: scattered requests become structured records.</li>
+                  <li>Review: human review happens before response.</li>
+                  <li>Evidence: bid context, KPI framing, and receipt trail stay visible.</li>
+                </ul>
+              </div>
+
+              <div class="private-block">
+                <h3>Sealed boundary</h3>
+                <p id="preview-private">
+                  Employer/client records, private RFP documents, stakeholder details,
+                  and original source artifacts remain sealed.
+                </p>
+              </div>
+
+              <div class="preview-actions">
+                <a class="text-action primary" id="preview-link" href="demos/revenue-desk-demo/">Enter room</a>
+                <span class="held-state" id="preview-held" hidden>Implementation held</span>
+              </div>
             </div>
-            <ul class="status-list">
-              <li><span class="signal active"></span><b>PUBLIC NODE ACTIVE</b></li>
-              <li><span class="signal active"></span><b>BACKOFHOUSEOS INTERFACE</b></li>
-              <li><span class="signal active"></span><b>CANON REGISTRY VERIFIED</b></li>
-              <li><span class="signal held"></span><b>PRIVATE SYSTEMS SEALED</b></li>
-              <li><span class="signal ready"></span><b>SELECT SYSTEM TO INSPECT</b></li>
-            </ul>
-            <p class="status-note">Static public node. Sample data only. No live runtime linked.</p>
           </aside>
         </section>
 
-        <section class="telemetry-strip" aria-label="Studio telemetry">
-          <span>NODE / PUBLIC</span>
-          <span>ROOMS / 06</span>
-          <span>DATA / SAMPLE ONLY</span>
-          <span>AUTHORITY / REVIEW REQUIRED</span>
-          <span>PRIVATE / SEALED</span>
-        </section>
-
-        <section class="inspection-band" id="inspection-path" aria-labelledby="path-title">
-          <div class="section-marker">
-            <p class="eyebrow">INSPECTION PATH</p>
-            <h2 id="path-title">Start with live rooms.</h2>
-          </div>
-          <div class="inspection-rail" aria-label="Recommended inspection order">
-            <a class="inspection-step" href="demos/revenue-desk-demo/">
-              <span>01</span>
-              <strong>RevenueDeskOS</strong>
-              <small>RFP intake / bid work</small>
-            </a>
-            <a class="inspection-step" href="demos/archiveos-demo/">
-              <span>02</span>
-              <strong>ArchiveOS</strong>
-              <small>Source preserved / recall</small>
-            </a>
-            <a class="inspection-step" href="demos/church-os-demo/">
-              <span>03</span>
-              <strong>ChurchOS</strong>
-              <small>Operations / handoff</small>
-            </a>
-            <a class="inspection-step" href="demos/inventory-os-demo/">
-              <span>04</span>
-              <strong>InventoryOS</strong>
-              <small>Intake / listing readiness</small>
-            </a>
-          </div>
-        </section>
-
-        <section class="pattern-band" aria-labelledby="pattern-title">
-          <p class="eyebrow">OPERATING PATTERN</p>
-          <h2 id="pattern-title">Source preserved. Review required. Evidence surfaced.</h2>
-          <ol class="pattern-flow">
-            <li>Source preserved</li>
-            <li>Structure extracted</li>
-            <li>Review required</li>
-            <li>Operator surface</li>
-            <li>Evidence trail</li>
+        <section class="pattern-section" aria-labelledby="pattern-title">
+          <p class="eyebrow">Operating pattern</p>
+          <h2 id="pattern-title">Messy input becomes usable work only after review.</h2>
+          <ol class="pattern-list">
+            <li><span>01</span>Source preserved</li>
+            <li><span>02</span>Structure extracted</li>
+            <li><span>03</span>Review required</li>
+            <li><span>04</span>Operator surface</li>
+            <li><span>05</span>Evidence trail</li>
           </ol>
         </section>
 
-        <section class="systems-section" id="systems" aria-labelledby="systems-title">
-          <div class="section-marker rooms-marker">
-            <p class="eyebrow">SYSTEM ROOMS</p>
-            <h2 id="systems-title">Discovered public surfaces.</h2>
-            <p>Only existing rooms are listed. Status labels describe public readiness.</p>
-          </div>
-
-          <div class="node-grid">
-            <article class="system-node status-live">
-              <div class="node-topline">
-                <span>ROOM 01</span>
-                <b>LIVE</b>
-              </div>
-              <h3>RevenueDeskOS</h3>
-              <p class="node-layer">Revenue workflow layer</p>
-              <p>Scattered RFP intake becomes structured, reviewable revenue work.</p>
-              <dl class="node-readout">
-                <div><dt>Source</dt><dd>Opportunity request</dd></div>
-                <div><dt>Control</dt><dd>Review before response</dd></div>
-                <div><dt>Surface</dt><dd>Bid workbench</dd></div>
-              </dl>
-              <div class="node-actions">
-                <a class="node-action primary" href="demos/revenue-desk-demo/">Inspect walk route</a>
-                <span class="node-action held" aria-disabled="true">Implementation held</span>
-              </div>
-            </article>
-
-            <article class="system-node status-live">
-              <div class="node-topline">
-                <span>ROOM 02</span>
-                <b>LIVE</b>
-              </div>
-              <h3>ArchiveOS</h3>
-              <p class="node-layer">Preservation / recall layer</p>
-              <p>Source custody, review state, recall, and approved export behavior.</p>
-              <dl class="node-readout">
-                <div><dt>Source</dt><dd>Loose archive material</dd></div>
-                <div><dt>Control</dt><dd>Originals untouched</dd></div>
-                <div><dt>Surface</dt><dd>Memory board</dd></div>
-              </dl>
-              <div class="node-actions">
-                <a class="node-action primary" href="demos/archiveos-demo/">Inspect walk route</a>
-                <span class="node-action held" aria-disabled="true">Implementation held</span>
-              </div>
-            </article>
-
-            <article class="system-node status-sealed">
-              <div class="node-topline">
-                <span>ROOM 03</span>
-                <b>SEALED</b>
-              </div>
-              <h3>ChurchOS</h3>
-              <p class="node-layer">Community operations layer</p>
-              <p>Sensitive service planning, role-aware handoff, and continuity.</p>
-              <dl class="node-readout">
-                <div><dt>Source</dt><dd>Service request</dd></div>
-                <div><dt>Control</dt><dd>Role-safe review</dd></div>
-                <div><dt>Surface</dt><dd>Sunday board</dd></div>
-              </dl>
-              <div class="node-actions">
-                <a class="node-action primary" href="demos/church-os-demo/">Inspect walk route</a>
-                <span class="node-action held" aria-disabled="true">Implementation held</span>
-              </div>
-            </article>
-
-            <article class="system-node status-live">
-              <div class="node-topline">
-                <span>ROOM 04</span>
-                <b>LIVE</b>
-              </div>
-              <h3>InventoryOS</h3>
-              <p class="node-layer">Inventory review layer</p>
-              <p>Item intake becomes reviewable status, condition, and readiness.</p>
-              <dl class="node-readout">
-                <div><dt>Source</dt><dd>Item photo</dd></div>
-                <div><dt>Control</dt><dd>Operator review</dd></div>
-                <div><dt>Surface</dt><dd>Item wall</dd></div>
-              </dl>
-              <div class="node-actions">
-                <a class="node-action primary" href="demos/inventory-os-demo/">Inspect walk route</a>
-                <span class="node-action held" aria-disabled="true">Implementation held</span>
-              </div>
-            </article>
-
-            <article class="system-node status-standby">
-              <div class="node-topline">
-                <span>ROOM 05</span>
-                <b>STANDBY</b>
-              </div>
-              <h3>RunnerOS</h3>
-              <p class="node-layer">Run archive layer</p>
-              <p>Effort memory with reviewable imports and private health boundaries.</p>
-              <dl class="node-readout">
-                <div><dt>Source</dt><dd>Run import</dd></div>
-                <div><dt>Control</dt><dd>Owner approval</dd></div>
-                <div><dt>Surface</dt><dd>Training archive</dd></div>
-              </dl>
-              <div class="node-actions">
-                <a class="node-action primary" href="demos/runneros-demo/">Inspect walk route</a>
-                <span class="node-action held" aria-disabled="true">Implementation held</span>
-              </div>
-            </article>
-
-            <article class="system-node status-archive">
-              <div class="node-topline">
-                <span>ROOM 06</span>
-                <b>ARCHIVE</b>
-              </div>
-              <h3>CookbookOS</h3>
-              <p class="node-layer">Canon / authority layer</p>
-              <p>Scanned recipe source becomes draft, review, canon, and recall.</p>
-              <dl class="node-readout">
-                <div><dt>Source</dt><dd>Recipe page</dd></div>
-                <div><dt>Control</dt><dd>Human canon</dd></div>
-                <div><dt>Surface</dt><dd>Recipe record</dd></div>
-              </dl>
-              <div class="node-actions">
-                <a class="node-action primary" href="demos/cookbook-os-demo/">Inspect walk route</a>
-                <span class="node-action held" aria-disabled="true">Implementation held</span>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section class="operator-note" aria-labelledby="operator-title">
-          <p class="eyebrow">READING PROTOCOL</p>
-          <h2 id="operator-title">Walk the room. Hold the internals.</h2>
+        <section class="boundary-section" id="boundary" aria-labelledby="boundary-title">
+          <p class="eyebrow">Public / private boundary</p>
+          <h2 id="boundary-title">Walk the proof surface. Hold the internals.</h2>
           <p>
-            The public node shows workflow surfaces and evidence patterns. It does not expose
-            private records, databases, local routes, credentials, employer/client data,
-            church/member data, or live operational systems.
+            This index links only to public-safe static rooms. It does not expose private
+            records, databases, credentials, employer/client material, church/member data,
+            raw source artifacts, local runtime details, or live operational systems.
           </p>
         </section>
       </main>
 
-      <footer class="studio-footer" id="boundary">
+      <footer class="studio-footer">
         <span>The Creative Origin</span>
         <span>Built by Phil Baptiste</span>
+        <span>Operating index</span>
         <span>Sample data only</span>
-        <span>Private systems sealed</span>
       </footer>
     </div>
   </body>

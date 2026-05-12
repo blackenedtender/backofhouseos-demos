@@ -1,33 +1,41 @@
-# BackOfHouseOS Public Demos
+# BackOfHouseOS Demo Studio
 
-Public-safe demo surfaces for the BackOfHouseOS product family.
+Public-safe operating index for BackOfHouseOS proof surfaces.
 
 The repo includes a root Demo Studio homepage that acts as the TCO /
-BackOfHouseOS public command layer. It wraps the existing demo rooms as
-inspectable system rooms without changing their private boundaries or turning
-them into live systems.
+BackOfHouseOS public command layer. It lets visitors inspect module proof
+records before entering public-safe demo rooms, without changing private
+boundaries or turning the rooms into live systems.
 
 These demos show the shape of the systems without exposing private runtime data.
 
-## Systems
+## Systems Referenced By The Index
 
-- Inventory OS
-- RunnerOS
+- RevenueDeskOS
 - ArchiveOS
-- Church OS
-- Revenue Desk
-- Cookbook OS
+- ChurchOS
+- InventoryOS
+- RunnerOS
+- CookbookOS
+- ManillaOS
+- CanonOS
+- JobRadarOS
+- MediaOS
 
 ## Demo List
 
 | System | Folder | Status | Vercel preset |
 |---|---|---|---|
-| Inventory OS | `demos/inventory-os-demo` | public-safe sample demo | Other |
-| RunnerOS | `demos/runneros-demo` | public-safe sample demo | Other |
+| RevenueDeskOS | `demos/revenue-desk-demo` | public-safe sample demo | Other |
 | ArchiveOS | `demos/archiveos-demo` | public-safe sample demo | Other |
-| Church OS | `demos/church-os-demo` | sanitized static demo | Other |
-| Revenue Desk | `demos/revenue-desk-demo` | public-safe sample demo | Other |
-| Cookbook OS | `demos/cookbook-os-demo` | future concept | Other |
+| ChurchOS | `demos/church-os-demo` | sanitized static demo | Other |
+| InventoryOS | `demos/inventory-os-demo` | public-safe sample demo | Other |
+| RunnerOS | `demos/runneros-demo` | public-safe sample demo | Other |
+| CookbookOS | `demos/cookbook-os-demo` | archive/concept demo | Other |
+| ManillaOS | no public route in this repo | implementation held | n/a |
+| CanonOS | no public route in this repo | implementation held | n/a |
+| JobRadarOS | no public route in this repo | implementation held | n/a |
+| MediaOS | no public route in this repo | implementation held | n/a |
 
 ## Privacy Rules
 
@@ -47,10 +55,13 @@ This demo uses sample data. Real systems may run locally/private.
 
 ## Deployment Model
 
-- GitHub repo connected to Vercel.
-- Each folder under `demos/` can be imported as its own Vercel project.
-- Set Vercel Root Directory to the matching demo folder.
-- Pushes to `main` trigger deployment after initial Vercel setup.
+- The root Demo Studio should deploy only to the existing canonical Vercel
+  project for `demos.philbap.com`.
+- Do not create new Vercel projects for the root studio.
+- Individual folders under `demos/` may have their own existing public projects,
+  but should not be deployed from this root pass unless explicitly requested.
+- Pushes to `main` may not auto-promote the canonical studio; verify the linked
+  Vercel project before production deploy.
 
 ## Archive Handoff
 
@@ -58,18 +69,11 @@ This demo uses sample data. Real systems may run locally/private.
 - Notion update instructions are tracked in `CHATGPT_NOTION_UPDATE_INSTRUCTIONS.md`.
 - Do not add Notion links until the Vercel URL is public, reviewed, and confirmed sample-data only.
 
-## Vercel Setup Steps
+## Vercel Safety
 
-1. Push this repo to GitHub.
-2. In Vercel, create a new project.
-3. Import the GitHub repo.
-4. Set Root Directory to one demo folder, for example `demos/inventory-os-demo`.
-5. Use Framework Preset `Other`.
-6. Leave Build Command blank unless a demo status file says otherwise.
-7. Leave Output Directory as `.` for static demos.
-8. Deploy.
-9. Repeat for each demo folder.
-10. Add confirmed public URLs to Notion only after safety review.
+Before deploying the root studio, inspect `.vercel/project.json` and confirm it
+points to the intended existing project. Do not create a new project, change DNS,
+or deploy operator files.
 
 ## Local Preview
 
