@@ -1,6 +1,5 @@
 /* ChurchOS room-specific layout.
-   Operating-index shell is provided by ../../shared/room.css.
-   ChurchOS accent: warm sealed tone (cream/green) — protected community operations. */
+   Domain rhythm: service rows, approval lanes, packets — quiet stewardship. */
 
 body.boh-room .stack {
   display: grid;
@@ -10,26 +9,31 @@ body.boh-room .stack {
 body.boh-room .split {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  gap: 12px;
+  align-items: baseline;
+  gap: 16px;
 }
 
 body.boh-room .grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
+  gap: 36px;
 }
 
 body.boh-room .planner-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
+  gap: 36px;
 }
 
 body.boh-room .role-grid,
 body.boh-room .timeline {
   display: grid;
-  gap: 10px;
+  gap: 0;
+}
+
+body.boh-room .timeline > * {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
 }
 
 body.boh-room .card,
@@ -39,60 +43,56 @@ body.boh-room .queue-item,
 body.boh-room .program-block {
   display: grid;
   gap: 6px;
-  padding: 16px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-sm);
-  background: var(--panel);
+  padding: 0;
+  border: 0;
+  background: transparent;
 }
 
-html[data-theme="light"] body.boh-room .card,
-html[data-theme="light"] body.boh-room .person,
-html[data-theme="light"] body.boh-room .song,
-html[data-theme="light"] body.boh-room .queue-item,
-html[data-theme="light"] body.boh-room .program-block {
-  background: var(--panel-strong);
+body.boh-room .person h2,
+body.boh-room .song h2 {
+  font-size: 1.1rem;
+  font-weight: 500;
 }
 
 body.boh-room .service-board {
   display: grid;
-  gap: 8px;
-  margin-top: 12px;
+  gap: 0;
+  margin-top: 6px;
 }
 
 body.boh-room .service-row {
   display: grid;
-  grid-template-columns: 64px minmax(0, 1fr) auto;
-  align-items: center;
-  gap: 14px;
-  padding: 12px 14px;
-  border: 1px solid var(--line);
-  border-left: 2px solid var(--accent);
-  border-radius: var(--radius-sm);
-  background: var(--field);
+  grid-template-columns: 56px minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 18px;
+  padding: 14px 0;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: transparent;
 }
 
 body.boh-room .service-row strong {
-  color: var(--accent);
-  font-size: 0.94rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
+  color: var(--muted);
+  font-size: 0.86rem;
+  font-weight: 500;
+  letter-spacing: 0;
 }
 
 body.boh-room .service-row h3 {
   margin: 0;
-  font-size: 0.98rem;
+  font-size: 0.96rem;
+  font-weight: 500;
 }
 
 body.boh-room .service-row p {
-  margin: 0;
-  font-size: 0.86rem;
+  margin: 2px 0 0;
+  font-size: 0.88rem;
 }
 
 body.boh-room .meter {
-  height: 4px;
+  height: 1px;
   overflow: hidden;
   background: var(--line);
-  border-radius: 999px;
 }
 
 body.boh-room .meter span {
@@ -102,11 +102,10 @@ body.boh-room .meter span {
 }
 
 body.boh-room .callout {
-  padding: 12px 14px;
-  border: 1px solid var(--line-strong);
-  border-left: 2px solid var(--gold);
-  border-radius: var(--radius-sm);
-  background: var(--field);
+  padding: 14px 0 14px 18px;
+  border: 0;
+  border-left: 1px solid var(--gold);
+  background: transparent;
   color: var(--muted);
 }
 
@@ -119,32 +118,34 @@ body.boh-room .table {
 
 body.boh-room .table th,
 body.boh-room .table td {
-  padding: 10px 8px;
+  padding: 10px 12px 10px 0;
   border-bottom: 1px solid var(--line);
   text-align: left;
   vertical-align: top;
 }
 
 body.boh-room .table th {
-  color: var(--dim);
-  font-size: 0.72rem;
-  font-weight: 850;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
 }
 
 @media (max-width: 720px) {
   body.boh-room .grid,
   body.boh-room .planner-grid {
     grid-template-columns: 1fr;
+    gap: 22px;
   }
 
   body.boh-room .service-row {
     grid-template-columns: 1fr;
-    gap: 6px;
+    gap: 4px;
   }
 
   body.boh-room .split {
     flex-wrap: wrap;
+    gap: 8px;
   }
 }

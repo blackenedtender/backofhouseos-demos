@@ -1,5 +1,5 @@
 /* RevenueDeskOS room-specific layout.
-   Operating-index shell is provided by ../../shared/room.css. */
+   Domain rhythm: structured records, reuse memory, guarded review. */
 
 body.boh-room .opportunity-grid {
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -10,91 +10,59 @@ body.boh-room .opportunity-card {
 }
 
 body.boh-room .opportunity-card h3 {
-  margin: 4px 0 2px;
-  font-size: 1.05rem;
+  margin: 0 0 2px;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
-body.boh-room .pill,
-body.boh-room .status-pill {
-  align-self: flex-start;
-  width: fit-content;
+body.boh-room .opportunity-card p {
+  font-size: 0.88rem;
 }
 
-body.boh-room .pill.pending-review {
-  border-color: var(--gold);
-  color: var(--gold);
-}
-
-body.boh-room .pill.ready-for-approval {
-  border-color: var(--amber);
-  color: var(--amber);
-}
-
-body.boh-room .pill.approved {
-  border-color: var(--accent);
-  color: var(--accent);
-}
+body.boh-room .pill.pending-review     { color: var(--gold); }
+body.boh-room .pill.ready-for-approval { color: var(--accent); }
+body.boh-room .pill.approved           { color: var(--accent); }
 
 body.boh-room .intake-shell {
   display: grid;
   gap: 14px;
 }
 
-body.boh-room .sample-buttons button[aria-pressed="true"] {
-  border-color: var(--accent) !important;
-  background: var(--accent) !important;
-  color: #0a0e0c !important;
-}
-
 body.boh-room .record-card {
   display: grid;
-  gap: 14px;
-}
-
-body.boh-room .record-card dl {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 8px;
-  margin: 0;
-}
-
-body.boh-room .record-card dl > div {
-  display: grid;
-  gap: 2px;
-  padding: 0;
-  border: 0;
-}
-
-body.boh-room .record-card dd {
-  text-align: left;
-  font-weight: 700;
-}
-
-body.boh-room .library-table {
-  gap: 1px;
+  gap: 0;
 }
 
 body.boh-room .library-row {
   display: grid;
-  grid-template-columns: 1.4fr 0.9fr 0.8fr 0.8fr;
-  gap: 12px;
-  align-items: center;
+  grid-template-columns: 1.6fr 0.9fr 0.8fr 0.8fr;
+  gap: 18px;
+  align-items: baseline;
 }
 
-body.boh-room .review-item,
-body.boh-room .governance-list > li,
-body.boh-room .governance-list > div {
+body.boh-room .review-item {
   display: grid;
   gap: 4px;
-  padding: 12px 14px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-sm);
-  background: var(--field);
+  padding: 12px 0;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: transparent;
+}
+
+body.boh-room .review-queue,
+body.boh-room .governance-list {
+  display: grid;
+  gap: 0;
+}
+
+body.boh-room .governance-list > * {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
 }
 
 @media (max-width: 720px) {
-  body.boh-room .record-card dl,
   body.boh-room .library-row {
     grid-template-columns: 1fr;
+    gap: 4px;
   }
 }

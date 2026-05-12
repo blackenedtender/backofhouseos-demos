@@ -1,6 +1,5 @@
 /* RunnerOS room-specific layout.
-   Operating-index shell is provided by ../../shared/room.css.
-   RunnerOS accent: soft blue-green — quiet athletic archive, memory of effort. */
+   Domain rhythm: weekly trend hairline, run rows, quiet detail strip. */
 
 body.boh-room .run-grid {
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -8,120 +7,82 @@ body.boh-room .run-grid {
 
 body.boh-room .run-card {
   display: grid;
-  gap: 6px;
-  min-height: 160px;
+  gap: 4px;
 }
 
 body.boh-room .run-card h3 {
   margin: 0;
   font-size: 0.98rem;
+  font-weight: 500;
 }
 
 body.boh-room .run-card p {
   margin: 0;
-  font-size: 0.86rem;
+  font-size: 0.88rem;
 }
 
 body.boh-room .run-card .meta-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 6px;
+  gap: 14px;
+  margin-top: 4px;
   color: var(--dim);
-  font-size: 0.78rem;
+  font-size: 0.8rem;
 }
 
 body.boh-room .import-list,
 body.boh-room .review-list {
   display: grid;
-  gap: 8px;
+  gap: 0;
   margin-top: 14px;
 }
 
 body.boh-room .import-list > *,
 body.boh-room .review-list > * {
   display: grid;
-  gap: 4px;
-  padding: 12px 14px;
-  border: 1px solid var(--line);
-  border-left: 2px solid var(--accent);
-  border-radius: var(--radius-sm);
-  background: var(--field);
+  gap: 2px;
+  padding: 12px 0;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: transparent;
 }
 
-body.boh-room .archive-note {
-  position: relative;
+body.boh-room .trend {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  align-items: end;
+  gap: 6px;
+  margin-top: 18px;
+  min-height: 56px;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 12px;
 }
 
-body.boh-room .archive-note::before {
-  content: "";
-  position: absolute;
-  top: 22px;
-  right: 22px;
-  width: 8px;
-  height: 8px;
-  border-radius: 999px;
+body.boh-room .trend > * {
   background: var(--accent);
   opacity: 0.6;
 }
 
-body.boh-room .trend {
-  grid-template-columns: repeat(7, minmax(0, 1fr));
-  align-items: end;
-  gap: 6px;
-  margin-top: 14px;
-  min-height: 100px;
-}
-
-body.boh-room .trend > * {
-  height: 30%;
-  background: var(--accent-soft);
-  border-bottom: 2px solid var(--accent);
-  border-radius: 2px 2px 0 0;
-}
-
-body.boh-room .detail-grid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1px;
-  border: 1px solid var(--line);
-  background: var(--line);
-}
-
-body.boh-room .detail-grid article {
-  padding: 14px;
-  background: var(--bg);
-  border: 0;
-  border-radius: 0;
-}
-
-html[data-theme="light"] body.boh-room .detail-grid article {
-  background: rgba(255, 252, 244, 0.84);
-}
-
 body.boh-room .detail-grid article span {
-  color: var(--dim);
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
 }
 
 body.boh-room .detail-grid article strong {
   display: block;
+  margin-top: 4px;
   color: var(--paper);
-  font-size: 1.4rem;
-  font-weight: 700;
-  line-height: 1;
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.1;
 }
 
-@media (max-width: 720px) {
-  body.boh-room .detail-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 440px) {
-  body.boh-room .detail-grid {
-    grid-template-columns: 1fr;
+@media (max-width: 640px) {
+  body.boh-room .trend {
+    min-height: 44px;
   }
 }

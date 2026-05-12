@@ -1,6 +1,5 @@
 /* ArchiveOS room-specific layout.
-   Operating-index shell is provided by ../../shared/room.css.
-   Archive accent leans muted gray/green — vault, custody, recall. */
+   Domain rhythm: vault list, resolver modal, recall and export columns. */
 
 body.boh-room .board {
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -10,7 +9,6 @@ body.boh-room .asset-card {
   display: grid;
   gap: 8px;
   cursor: pointer;
-  min-height: 200px;
 }
 
 body.boh-room .asset-art {
@@ -18,15 +16,19 @@ body.boh-room .asset-art {
   aspect-ratio: 4 / 3;
   display: grid;
   place-items: center;
-  color: var(--accent);
-  font-size: 0.7rem;
-  font-weight: 850;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  margin-bottom: 2px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--dim);
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
 }
 
 body.boh-room .asset-card h3 {
   font-size: 0.98rem;
+  font-weight: 500;
 }
 
 body.boh-room .asset-card p {
@@ -35,55 +37,39 @@ body.boh-room .asset-card p {
 
 body.boh-room .queue {
   display: grid;
-  gap: 8px;
+  gap: 0;
 }
 
 body.boh-room .queue article,
 body.boh-room .queue > div {
   display: grid;
-  gap: 4px;
-  padding: 10px 12px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-sm);
-  background: var(--field);
+  gap: 2px;
+  padding: 10px 0;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: transparent;
 }
 
 body.boh-room .jobs-list {
   display: grid;
-  gap: 1px;
-  padding: 0;
-  background: var(--line);
-  border: 1px solid var(--line);
+  gap: 0;
 }
 
 body.boh-room .jobs-list > * {
   display: grid;
   grid-template-columns: 1fr auto;
-  gap: 8px;
-  align-items: center;
-  padding: 10px 14px;
+  gap: 14px;
+  align-items: baseline;
+  padding: 10px 0;
   border: 0;
-  border-radius: 0;
-  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+  background: transparent;
   color: var(--muted);
-  font-size: 0.88rem;
-}
-
-html[data-theme="light"] body.boh-room .jobs-list > * {
-  background: rgba(255, 252, 244, 0.84);
-}
-
-body.boh-room .panel.wide {
-  width: 100%;
+  font-size: 0.9rem;
 }
 
 body.boh-room .preflight {
   display: grid;
   align-content: start;
-  gap: 10px;
-}
-
-body.boh-room .version-list > * {
-  display: grid;
-  gap: 4px;
+  gap: 12px;
 }

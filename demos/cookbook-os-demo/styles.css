@@ -1,64 +1,69 @@
 /* CookbookOS room-specific layout.
-   Operating-index shell is provided by ../../shared/room.css.
-   CookbookOS accent: parchment / archival paper tone — manuscript workbench. */
+   Domain rhythm: source/draft pairs, review list, canon record. */
 
 body.boh-room .evidence-list,
 body.boh-room .review-list {
   display: grid;
-  gap: 8px;
+  gap: 0;
   margin: 12px 0 0;
-  padding: 0;
-  list-style: none;
 }
 
 body.boh-room .evidence-list li,
 body.boh-room .review-list li {
   display: grid;
   gap: 4px;
-  padding: 12px 14px;
-  border: 1px solid var(--line);
-  border-left: 2px solid var(--accent);
-  border-radius: var(--radius-sm);
-  background: var(--field);
+  padding: 12px 0;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: transparent;
 }
 
 body.boh-room .evidence-list li {
-  display: grid;
-  grid-template-columns: minmax(0, 0.6fr) minmax(0, 1.4fr);
+  grid-template-columns: minmax(0, 0.5fr) minmax(0, 1.5fr);
   align-items: baseline;
 }
 
+body.boh-room .evidence-list li::before {
+  display: none;
+}
+
 body.boh-room .evidence-list li strong {
-  color: var(--accent);
-  font-size: 0.74rem;
-  font-weight: 850;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
 }
 
 body.boh-room .evidence-list li span {
   font-family: ui-monospace, SFMono-Regular, "Cascadia Code", Menlo, monospace;
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   color: var(--ink);
 }
 
 body.boh-room .review-list li strong {
   color: var(--paper);
   font-size: 0.96rem;
+  font-weight: 500;
+}
+
+body.boh-room .review-list li::before {
+  display: none;
 }
 
 body.boh-room .boundary-section {
-  margin-top: 36px;
-  padding-top: 28px;
+  margin-top: 40px;
+  padding-top: 24px;
   border-top: 1px solid var(--line);
 }
 
 body.boh-room .boundary-section p {
-  max-width: 64ch;
+  max-width: 60ch;
 }
 
 @media (max-width: 640px) {
   body.boh-room .evidence-list li {
     grid-template-columns: 1fr;
+    gap: 2px;
   }
 }

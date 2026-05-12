@@ -1,16 +1,14 @@
 /* InventoryOS room-specific layout.
-   Operating-index shell is provided by ../../shared/room.css.
-   InventoryOS accent: neutral utility tone — inspection bench, listing readiness. */
+   Domain rhythm: inspection bench, item rows, history strip. */
 
 body.boh-room .item-wall {
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
 }
 
 body.boh-room .item-card {
   display: grid;
   gap: 8px;
   cursor: pointer;
-  min-height: 220px;
 }
 
 body.boh-room .item-card .placeholder {
@@ -18,59 +16,60 @@ body.boh-room .item-card .placeholder {
   aspect-ratio: 4 / 3;
   display: grid;
   place-items: center;
-  border-radius: var(--radius-sm);
-  background: linear-gradient(135deg, var(--accent-soft), var(--field));
-  color: var(--accent);
-  font-size: 1.3rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
+  margin-bottom: 2px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--dim);
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
 }
 
 body.boh-room .item-card h3 {
   margin: 0;
   font-size: 0.98rem;
+  font-weight: 500;
 }
 
 body.boh-room .item-card p {
   margin: 0;
-  font-size: 0.84rem;
-}
-
-body.boh-room .item-card .pill,
-body.boh-room .item-card .tag,
-body.boh-room .item-card .status-pill {
-  align-self: flex-start;
-  width: fit-content;
+  font-size: 0.86rem;
 }
 
 body.boh-room .drop-zone {
   display: grid;
-  gap: 6px;
+  gap: 4px;
   align-items: center;
-  justify-items: center;
-  padding: 28px 16px !important;
-  min-height: 140px;
-  border-style: dashed !important;
-  text-align: center;
+  justify-items: start;
+  padding: 18px 0 !important;
+  min-height: auto;
+  border: 0 !important;
+  border-top: 1px solid var(--line) !important;
+  border-bottom: 1px solid var(--line) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
 }
 
 body.boh-room .drop-zone span {
-  color: var(--dim);
+  color: var(--muted);
   font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
 }
 
 body.boh-room .drop-zone strong {
   color: var(--paper);
-  font-size: 1.1rem;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 body.boh-room .detail-card {
   display: grid;
-  gap: 14px;
-  padding: 16px !important;
+  gap: 18px;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
 }
 
 body.boh-room .detail-card .placeholder {
@@ -78,34 +77,26 @@ body.boh-room .detail-card .placeholder {
   aspect-ratio: 16 / 9;
   display: grid;
   place-items: center;
-  border-radius: var(--radius-sm);
-  background: linear-gradient(135deg, var(--accent-soft), var(--field));
-  color: var(--accent);
-  font-size: 1.6rem;
-  font-weight: 800;
-  letter-spacing: 0.06em;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--dim);
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
 }
 
 body.boh-room .history-list {
   display: grid;
-  gap: 1px;
-  margin: 12px 0 0;
-  padding: 0;
-  list-style: none;
-  background: var(--line);
-  border: 1px solid var(--line);
+  gap: 0;
+  margin: 14px 0 0;
 }
 
 body.boh-room .history-list > * {
   display: grid;
-  gap: 4px;
-  padding: 12px 14px;
+  gap: 2px;
+  padding: 10px 0;
   border: 0;
-  border-radius: 0;
-  background: var(--bg);
-  font-size: 0.88rem;
-}
-
-html[data-theme="light"] body.boh-room .history-list > * {
-  background: rgba(255, 252, 244, 0.84);
+  border-bottom: 1px solid var(--line);
+  background: transparent;
+  font-size: 0.9rem;
 }
