@@ -1,170 +1,373 @@
 (function () {
-  const moduleButtons = Array.from(document.querySelectorAll(".module-entry"));
-  const pathButtons = Array.from(document.querySelectorAll(".path-step"));
-  const mobilePreview = document.getElementById("mobile-preview");
-  const preview = {
-    title: document.getElementById("preview-title"),
-    layer: document.getElementById("preview-layer"),
-    status: document.getElementById("preview-status"),
-    proves: document.getElementById("preview-proves"),
-    private: document.getElementById("preview-private"),
-    evidence: document.getElementById("preview-evidence"),
-    link: document.getElementById("preview-link"),
-    held: document.getElementById("preview-held"),
-  };
+  "use strict";
 
-  if (!moduleButtons.length || !preview.title) return;
+  const REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const STAGE_LABELS = ["Ingest", "Preserve", "Structure", "Review", "Authority", "Surface", "Receipt"];
 
-  function setStatusClass(status) {
-    preview.status.className = "preview-status";
-    preview.status.classList.add(`status-${status.toLowerCase()}`);
-  }
-
-  function setActiveButton(id) {
-    moduleButtons.forEach((button) => {
-      const active = button.dataset.module === id;
-      button.classList.toggle("is-active", active);
-      button.setAttribute("aria-pressed", active ? "true" : "false");
-    });
-
-    pathButtons.forEach((button) => {
-      const active = button.dataset.module === id;
-      button.classList.toggle("is-active", active);
-      button.setAttribute("aria-pressed", active ? "true" : "false");
-    });
-  }
-
-  function renderEvidence(button) {
-    const bullets = [
-      button.dataset.proofOne,
-      button.dataset.proofTwo,
-      button.dataset.proofThree,
-    ].filter(Boolean);
-
-    preview.evidence.replaceChildren(
-      ...bullets.map((item) => {
-        const li = document.createElement("li");
-        li.textContent = item;
-        return li;
-      }),
-    );
-  }
-
-  function renderMobilePreview(button) {
-    if (!mobilePreview) return;
-
-    const status = button.dataset.status || "REVIEW";
-    const route = button.dataset.route || "";
-    const bullets = [
-      button.dataset.proofOne,
-      button.dataset.proofTwo,
-      button.dataset.proofThree,
-    ].filter(Boolean);
-
-    const card = document.createElement("div");
-    card.className = "mobile-preview-card";
-
-    const head = document.createElement("div");
-    head.className = "preview-head";
-
-    const titleWrap = document.createElement("div");
-    const title = document.createElement("h3");
-    title.textContent = button.dataset.name || "";
-    const layer = document.createElement("p");
-    layer.textContent = button.dataset.layer || "";
-    titleWrap.append(title, layer);
-
-    const statusEl = document.createElement("span");
-    statusEl.className = `preview-status status-${status.toLowerCase()}`;
-    statusEl.textContent = status;
-    head.append(titleWrap, statusEl);
-
-    const proves = document.createElement("p");
-    proves.textContent = button.dataset.proves || "";
-
-    const list = document.createElement("ul");
-    bullets.forEach((item) => {
-      const li = document.createElement("li");
-      li.textContent = item;
-      list.append(li);
-    });
-
-    const boundary = document.createElement("p");
-    boundary.textContent = button.dataset.private || "";
-
-    const actionWrap = document.createElement("div");
-    actionWrap.className = "preview-actions";
-    if (route) {
-      const link = document.createElement("a");
-      link.className = "text-action primary";
-      link.href = route;
-      link.textContent = "Enter room";
-      actionWrap.append(link);
-    } else {
-      const held = document.createElement("span");
-      held.className = "held-state";
-      held.textContent = "Implementation held";
-      actionWrap.append(held);
+  const MODULES = [
+    {
+      key: "revenuedeskos",
+      name: "RevenueDeskOS",
+      subtitle: "Revenue intake reviewed before response",
+      status: "LIVE",
+      route: "/revenuedeskos/",
+      domain: "Revenue work",
+      stages: [
+        "An RFP arrives as a long, scattered email thread.",
+        "The original message is kept verbatim; nothing rewritten.",
+        "Scope, value, owner, and deadline surface as record fields.",
+        "Missing context is flagged; a reviewer is assigned.",
+        "Response direction is approved before any draft moves.",
+        "The signed-off brief becomes the working response packet.",
+        "Trail kept. Client RFP material stays sealed."
+      ],
+      ai: "Drafts a structured brief from raw RFP text.",
+      human: "Approves response direction and the final brief.",
+      sealed: "Client documents, stakeholder details, prior bid history."
+    },
+    {
+      key: "archiveos",
+      name: "ArchiveOS",
+      subtitle: "Source preserved, versions reviewed, recall earned",
+      status: "LIVE",
+      route: "/archiveos/",
+      domain: "Preservation",
+      stages: [
+        "A messy folder of sources is dropped in for indexing.",
+        "Originals are checksummed and left untouched on disk.",
+        "Versions, captions, and metadata are extracted to a record.",
+        "Conflicting versions surface for human resolution.",
+        "A representative version is approved as canonical.",
+        "Recall and export expose only approved copies.",
+        "Receipt kept. Original source remains the source of truth."
+      ],
+      ai: "Suggests version groupings and recall keywords.",
+      human: "Resolves conflicting versions and approves the canonical pick.",
+      sealed: "Private filenames, local paths, full source manifests."
+    },
+    {
+      key: "churchos",
+      name: "ChurchOS",
+      subtitle: "Sunday operations with sealed member data",
+      status: "SEALED",
+      route: "/churchos/",
+      domain: "Community ops",
+      stages: [
+        "A new Sunday service week is opened on the planner.",
+        "Service items, songbook references, and notes are attached.",
+        "Roles are assigned to demo people, not real members.",
+        "The packet is reviewed for unapproved or missing items.",
+        "Approval converts the packet into the working program.",
+        "Public-facing program is derived from approved state.",
+        "Reference archive preserved. Member data remains sealed."
+      ],
+      ai: "Drafts call-to-worship language and packet copy.",
+      human: "Approves service order, role access, and program output.",
+      sealed: "Member records, contact details, live church identity."
+    },
+    {
+      key: "inventoryos",
+      name: "InventoryOS",
+      subtitle: "Item intake reviewed before listing",
+      status: "LIVE",
+      route: "/inventoryos/",
+      domain: "Inspection",
+      stages: [
+        "An item enters intake from photos and a short note.",
+        "Photos and source notes are preserved as the record's basis.",
+        "Title, category, condition, and price draft are extracted.",
+        "Condition and pricing are flagged for operator review.",
+        "Listing readiness is approved on the item record.",
+        "Status surfaces as ready-to-list on the operator wall.",
+        "History trail kept. Sourcing context remains sealed."
+      ],
+      ai: "Drafts title, category, and a price suggestion.",
+      human: "Confirms condition, price, and listing readiness.",
+      sealed: "Real operator inventory, marketplace records, sourcing notes."
+    },
+    {
+      key: "runneros",
+      name: "RunnerOS",
+      subtitle: "A private archive of effort",
+      status: "STANDBY",
+      route: "/runneros/",
+      domain: "Effort archive",
+      stages: [
+        "A run import enters the queue from an external source.",
+        "Raw activity data is preserved as the import record.",
+        "Distance, pace, shoe, route, and race context are extracted.",
+        "Imports stay in review and do not change dashboard truth.",
+        "Approval promotes the run into the personal record.",
+        "Dashboard and recall update to include the approved run.",
+        "Health and exact GPS remain sealed; shares stay generic."
+      ],
+      ai: "Drafts shoe, route, and race context from raw fields.",
+      human: "Approves each run before it counts toward memory.",
+      sealed: "Health data, exact GPS routes, training-load history."
+    },
+    {
+      key: "cookbookos",
+      name: "CookbookOS",
+      subtitle: "Manuscript pages reviewed into canon",
+      status: "ARCHIVE",
+      route: "/cookbookos/",
+      domain: "Manuscript canon",
+      stages: [
+        "A scanned cookbook page enters as a manuscript record.",
+        "The page image is preserved as the source of truth.",
+        "OCR drafts ingredients and steps as a candidate recipe.",
+        "Uncertain lines surface for a human reading.",
+        "The reviewed recipe is approved as a canon entry.",
+        "Canon is searchable and linked back to its source page.",
+        "Unreviewed drafts remain candidates; source stays archival."
+      ],
+      ai: "OCRs the page and drafts a structured recipe.",
+      human: "Reads uncertain lines and approves canon status.",
+      sealed: "Family pages, source archives, full OCR confidence logs."
+    },
+    {
+      key: "manillaos",
+      name: "ManillaOS",
+      subtitle: "Authority review and canon promotion",
+      status: "REVIEW",
+      route: "",
+      domain: "Authority",
+      stages: [
+        "A candidate source enters the review queue.",
+        "The original document is preserved and frozen.",
+        "Evidence and interpretation are separated from source.",
+        "A reviewer reads evidence and assigns a verdict.",
+        "Approval promotes the candidate to a canon record.",
+        "Registry surfaces the new record with its full receipt.",
+        "Unapproved candidates remain non-authoritative."
+      ],
+      ai: "Drafts interpretation and suggests evidence pulls.",
+      human: "Assigns verdicts and promotes candidates to canon.",
+      sealed: "Source workbook content, reviewer notes, authority history."
+    },
+    {
+      key: "canonos",
+      name: "CanonOS",
+      subtitle: "Operating doctrine and term registry",
+      status: "SEALED",
+      route: "",
+      domain: "Canon",
+      stages: [
+        "A new term is proposed as a candidate definition.",
+        "Existing canon and related terms surface as context.",
+        "Definition, boundary, and module links are drafted.",
+        "Reviewers read the boundary and check for conflict.",
+        "Approval marks the term canonical.",
+        "Registry updates and dependent modules can reference it.",
+        "AI-drafted text remains candidate until reviewed."
+      ],
+      ai: "Drafts definitions and suggests related terms.",
+      human: "Approves boundaries and confirms canonical entries.",
+      sealed: "Private doctrine drafts, internal naming history."
+    },
+    {
+      key: "jobradaros",
+      name: "JobRadarOS",
+      subtitle: "A decision desk for role review",
+      status: "SEALED",
+      route: "",
+      domain: "Decision desk",
+      stages: [
+        "A role sighting enters the review queue from a feed.",
+        "Source URL, company, and posting text are preserved.",
+        "Match angle, fit, and a resume direction are drafted.",
+        "Company context and recency are checked for freshness.",
+        "A verdict is assigned and the application angle approved.",
+        "An application packet is produced with proof of fit.",
+        "Rejected or stale roles are archived for audit."
+      ],
+      ai: "Drafts match angles, resume cuts, and outreach drafts.",
+      human: "Sets verdict, freshness, and what actually goes out.",
+      sealed: "Personal search data, applied-to records, scoring history."
+    },
+    {
+      key: "mediaos",
+      name: "MediaOS",
+      subtitle: "A capture inbox that becomes memory",
+      status: "STANDBY",
+      route: "",
+      domain: "Media memory",
+      stages: [
+        "A screenshot or link is captured into the inbox.",
+        "The original capture and its source are preserved.",
+        "A short description, type, and project are drafted.",
+        "A human reviews whether the capture is worth keeping.",
+        "Approval promotes the capture into project memory.",
+        "Recall surfaces media against related work.",
+        "Raw captures remain available but never become canon."
+      ],
+      ai: "Drafts descriptions and classifies capture types.",
+      human: "Decides what becomes memory and what is discarded.",
+      sealed: "Original media files, exact source URLs, private folders."
     }
+  ];
 
-    card.append(head, proves, list, boundary, actionWrap);
-    mobilePreview.replaceChildren(card);
-    mobilePreview.hidden = false;
-    mobilePreview.classList.add("is-open");
-    button.after(mobilePreview);
-  }
+  // -------------------- DOM --------------------
+  const root = document.documentElement;
+  const body = document.body;
+  const moduleList = document.getElementById("module-list");
+  const loopSpine = document.getElementById("loop-spine");
+  const loopStations = Array.from(document.querySelectorAll(".loop-stations li"));
+  const trailItems = Array.from(document.querySelectorAll(".evidence-trail li"));
+  const previewTitle = document.getElementById("preview-title");
+  const previewSubtitle = document.getElementById("preview-subtitle");
+  const previewStatus = document.getElementById("preview-status");
+  const previewLink = document.getElementById("preview-link");
+  const previewHeld = document.getElementById("preview-held");
+  const prevAi = document.getElementById("prev-ai");
+  const prevHuman = document.getElementById("prev-human");
+  const prevSealed = document.getElementById("prev-sealed");
 
-  function updatePreview(button) {
-    const status = button.dataset.status || "REVIEW";
-    const route = button.dataset.route || "";
+  if (!moduleList || !loopStations.length || !trailItems.length) return;
 
-    preview.title.textContent = button.dataset.name || "";
-    preview.layer.textContent = button.dataset.layer || "";
-    preview.status.textContent = status;
-    setStatusClass(status);
-    preview.proves.textContent = button.dataset.proves || "";
-    preview.private.textContent = button.dataset.private || "";
-    renderEvidence(button);
-
-    if (route) {
-      preview.link.hidden = false;
-      preview.link.href = route;
-      preview.link.textContent = "Enter room";
-      preview.held.hidden = true;
-    } else {
-      preview.link.hidden = true;
-      preview.link.removeAttribute("href");
-      preview.held.hidden = false;
-    }
-
-    setActiveButton(button.dataset.module);
-    renderMobilePreview(button);
-  }
-
-  function findModule(id) {
-    return moduleButtons.find((button) => button.dataset.module === id);
-  }
-
-  moduleButtons.forEach((button) => {
-    button.setAttribute("aria-pressed", button.classList.contains("is-active") ? "true" : "false");
-    button.addEventListener("focus", () => updatePreview(button));
-    button.addEventListener("pointerenter", (event) => {
-      if (event.pointerType === "mouse" || event.pointerType === "pen") updatePreview(button);
+  // -------------------- Build module list --------------------
+  const moduleEntries = [];
+  MODULES.forEach((m, i) => {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = `module-entry status-${m.status.toLowerCase()}`;
+    btn.dataset.module = m.key;
+    btn.dataset.status = m.status;
+    btn.dataset.route = m.route || "";
+    btn.setAttribute("aria-pressed", "false");
+    btn.innerHTML = `
+      <span class="module-rank">${String(i + 1).padStart(2, "0")}</span>
+      <span class="module-status">${m.status}</span>
+      <span class="module-title">${m.name}</span>
+      <span class="module-purpose">${m.subtitle}</span>`;
+    btn.addEventListener("click", () => runModule(m.key));
+    btn.addEventListener("pointerenter", (e) => {
+      if (e.pointerType === "mouse" || e.pointerType === "pen") runModule(m.key);
     });
-    button.addEventListener("click", () => updatePreview(button));
+    btn.addEventListener("focus", () => runModule(m.key));
+    btn.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowDown") { e.preventDefault(); focusEntry(i + 1); }
+      else if (e.key === "ArrowUp") { e.preventDefault(); focusEntry(i - 1); }
+    });
+    moduleList.appendChild(btn);
+    moduleEntries.push(btn);
   });
 
-  pathButtons.forEach((button) => {
-    button.setAttribute("aria-pressed", button.classList.contains("is-active") ? "true" : "false");
-    button.addEventListener("focus", () => {
-      const target = findModule(button.dataset.module);
-      if (target) updatePreview(target);
-    });
-    button.addEventListener("click", () => {
-      const target = findModule(button.dataset.module);
-      if (target) updatePreview(target);
-    });
-  });
+  function focusEntry(i) {
+    const next = moduleEntries[(i + moduleEntries.length) % moduleEntries.length];
+    if (next) next.focus();
+  }
 
-  updatePreview(moduleButtons.find((button) => button.classList.contains("is-active")) || moduleButtons[0]);
+  // -------------------- Run controller --------------------
+  let runTimer = null;
+  let currentKey = null;
+  const STEP_MS = REDUCED ? 0 : 360;
+
+  function clearRun() {
+    if (runTimer) {
+      clearTimeout(runTimer);
+      runTimer = null;
+    }
+  }
+
+  function setProgress(stage) {
+    const pct = (stage / 6) * 100;
+    root.style.setProperty("--loop-progress", `${pct}%`);
+  }
+
+  function lightStage(stage, data) {
+    loopStations[stage] && loopStations[stage].classList.add("is-lit");
+    if (trailItems[stage]) {
+      trailItems[stage].classList.add("is-lit");
+    }
+    setProgress(stage);
+    if (stage === 6) loopSpine && loopSpine.classList.add("is-complete");
+  }
+
+  function paintModule(data) {
+    if (!data) return;
+    body.dataset.activeModule = data.key;
+
+    moduleEntries.forEach((btn) => {
+      const active = btn.dataset.module === data.key;
+      btn.classList.toggle("is-active", active);
+      btn.setAttribute("aria-pressed", active ? "true" : "false");
+    });
+
+    previewTitle.textContent = data.name;
+    previewSubtitle.textContent = data.subtitle;
+    previewStatus.textContent = data.status;
+    previewStatus.className = `preview-status status-${data.status.toLowerCase()}`;
+
+    trailItems.forEach((li, i) => {
+      const em = li.querySelector("em");
+      if (em) em.textContent = data.stages[i] || "";
+      li.classList.remove("is-lit");
+    });
+    loopStations.forEach((li) => li.classList.remove("is-lit"));
+    loopSpine && loopSpine.classList.remove("is-complete");
+
+    if (prevAi)     prevAi.textContent = data.ai || "";
+    if (prevHuman)  prevHuman.textContent = data.human || "";
+    if (prevSealed) prevSealed.textContent = data.sealed || "";
+
+    if (data.route) {
+      previewLink.href = data.route;
+      previewLink.hidden = false;
+      previewHeld.hidden = true;
+    } else {
+      previewLink.hidden = true;
+      previewLink.removeAttribute("href");
+      previewHeld.hidden = false;
+    }
+  }
+
+  function runModule(key) {
+    if (key === currentKey && runTimer) return;
+    clearRun();
+    const data = MODULES.find((m) => m.key === key);
+    if (!data) return;
+    currentKey = key;
+    paintModule(data);
+    setProgress(0);
+
+    if (REDUCED) {
+      // Snap to final
+      for (let i = 0; i < 7; i++) lightStage(i, data);
+      return;
+    }
+
+    let i = 0;
+    function tick() {
+      lightStage(i, data);
+      i++;
+      if (i < 7) {
+        runTimer = setTimeout(tick, STEP_MS);
+      } else {
+        runTimer = null;
+      }
+    }
+    tick();
+  }
+
+  // -------------------- Boot --------------------
+  // Wait until any in-view scroll settles, then auto-play the first module.
+  function boot() {
+    const first = MODULES[0];
+    paintModule(first);
+    setProgress(0);
+    if (REDUCED) {
+      for (let i = 0; i < 7; i++) lightStage(i, first);
+      currentKey = first.key;
+      return;
+    }
+    // Give the page a beat to settle visually.
+    setTimeout(() => runModule(first.key), 520);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot);
+  } else {
+    boot();
+  }
 })();
