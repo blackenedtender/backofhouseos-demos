@@ -1,21 +1,27 @@
 {
   "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/revenuedeskos",          "destination": "/demos/revenue-desk-demo" },
+    { "source": "/revenuedeskos/:path*",   "destination": "/demos/revenue-desk-demo/:path*" },
+    { "source": "/archiveos",              "destination": "/demos/archiveos-demo" },
+    { "source": "/archiveos/:path*",       "destination": "/demos/archiveos-demo/:path*" },
+    { "source": "/churchos",               "destination": "/demos/church-os-demo" },
+    { "source": "/churchos/:path*",        "destination": "/demos/church-os-demo/:path*" },
+    { "source": "/inventoryos",            "destination": "/demos/inventory-os-demo" },
+    { "source": "/inventoryos/:path*",     "destination": "/demos/inventory-os-demo/:path*" },
+    { "source": "/runneros",               "destination": "/demos/runneros-demo" },
+    { "source": "/runneros/:path*",        "destination": "/demos/runneros-demo/:path*" },
+    { "source": "/cookbookos",             "destination": "/demos/cookbook-os-demo" },
+    { "source": "/cookbookos/:path*",      "destination": "/demos/cookbook-os-demo/:path*" }
+  ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        {
-          "key": "X-Content-Type-Options",
-          "value": "nosniff"
-        },
-        {
-          "key": "X-Frame-Options",
-          "value": "DENY"
-        },
-        {
-          "key": "Referrer-Policy",
-          "value": "strict-origin-when-cross-origin"
-        }
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options",        "value": "DENY" },
+        { "key": "Referrer-Policy",        "value": "strict-origin-when-cross-origin" }
       ]
     }
   ]

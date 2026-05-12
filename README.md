@@ -2,95 +2,86 @@
 
 Public-safe operating index for BackOfHouseOS proof surfaces.
 
-The repo includes a root Demo Studio homepage that acts as the TCO /
-BackOfHouseOS public command layer. It lets visitors inspect module proof
-records before entering public-safe demo rooms, without changing private
-boundaries or turning the rooms into live systems.
+The root [Demo Studio](index.html) is the canonical entry point. From it, visitors inspect each module's proof record and enter the public-safe room. Private records, runtime systems, and sources stay sealed.
 
-These demos show the shape of the systems without exposing private runtime data.
+## Canonical domain
 
-## Systems Referenced By The Index
+`https://demos.philbap.com/` — linked to the Vercel project **`philbap-boh-demo-studio`** (see `.vercel/project.json`). Pushes to `main` build that project.
 
-- RevenueDeskOS
-- ArchiveOS
-- ChurchOS
-- InventoryOS
-- RunnerOS
-- CookbookOS
-- ManillaOS
-- CanonOS
-- JobRadarOS
-- MediaOS
+## Room URLs
 
-## Demo List
+Short canonical URLs (preferred for linking) and the underlying folder path are equivalent thanks to Vercel rewrites in [vercel.json](vercel.json).
 
-| System | Folder | Status | Vercel preset |
-|---|---|---|---|
-| RevenueDeskOS | `demos/revenue-desk-demo` | public-safe sample demo | Other |
-| ArchiveOS | `demos/archiveos-demo` | public-safe sample demo | Other |
-| ChurchOS | `demos/church-os-demo` | sanitized static demo | Other |
-| InventoryOS | `demos/inventory-os-demo` | public-safe sample demo | Other |
-| RunnerOS | `demos/runneros-demo` | public-safe sample demo | Other |
-| CookbookOS | `demos/cookbook-os-demo` | archive/concept demo | Other |
-| ManillaOS | no public route in this repo | implementation held | n/a |
-| CanonOS | no public route in this repo | implementation held | n/a |
-| JobRadarOS | no public route in this repo | implementation held | n/a |
-| MediaOS | no public route in this repo | implementation held | n/a |
+| Room | Short URL | Folder |
+|---|---|---|
+| RevenueDeskOS | `/revenuedeskos/` | `demos/revenue-desk-demo/` |
+| ArchiveOS | `/archiveos/` | `demos/archiveos-demo/` |
+| ChurchOS | `/churchos/` | `demos/church-os-demo/` |
+| InventoryOS | `/inventoryos/` | `demos/inventory-os-demo/` |
+| RunnerOS | `/runneros/` | `demos/runneros-demo/` |
+| CookbookOS | `/cookbookos/` | `demos/cookbook-os-demo/` |
 
-## Privacy Rules
+ManillaOS, CanonOS, JobRadarOS, and MediaOS appear on the index as held records — no public room route exists in this repo yet.
 
-- Do not add private data.
-- Do not add real databases.
-- Do not add local drive paths.
-- Do not add member, customer, employer, or personal data.
-- Do not add secrets or environment files.
-- Do not add raw exports, staging folders, thumbnails, or source archives.
-- Use sample data only.
+## CSS / asset bundling
 
-Every demo must clearly state:
+Each `demos/<room>/` is self-contained. Every room HTML references local files only — `room.css`, `room.js`, `assets/tco-logo-web.png` — so the room works on **both** the canonical deploy and any legacy standalone Vercel deployment whose project root is the room folder.
 
-```text
-This demo uses sample data. Real systems may run locally/private.
+Authoring source lives at [shared/room.css](shared/room.css) and [shared/room.js](shared/room.js). When you edit either, re-sync into every room:
+
+```bash
+for d in demos/*; do
+  cp shared/room.css "$d/room.css"
+  cp shared/room.js  "$d/room.js"
+done
 ```
 
-## Deployment Model
+## Legacy standalone Vercel projects
 
-- The root Demo Studio should deploy only to the existing canonical Vercel
-  project for `demos.philbap.com`.
-- Do not create new Vercel projects for the root studio.
-- Individual folders under `demos/` may have their own existing public projects,
-  but should not be deployed from this root pass unless explicitly requested.
-- Pushes to `main` may not auto-promote the canonical studio; verify the linked
-  Vercel project before production deploy.
+Older preview deployments are still wired to this repo for some rooms:
 
-## Archive Handoff
+- `revenue-desk-demo.vercel.app`
+- `archiveos-demo.vercel.app`
+- `church-os-demo.vercel.app`
+- `inventory-os-demo-flax.vercel.app`
 
-- Brand assets are tracked in `BRAND_ASSET_MANIFEST.md`.
-- Notion update instructions are tracked in `CHATGPT_NOTION_UPDATE_INSTRUCTIONS.md`.
-- Do not add Notion links until the Vercel URL is public, reviewed, and confirmed sample-data only.
+These projects deploy the room folder as their own root. Until this pass they rendered unstyled because the room HTML reached for `../../shared/room.css`, which Vercel cannot serve from outside the project root. Bundling fixes that — the same files now serve cleanly from both canonical and standalone.
 
-## Vercel Safety
+The smart back-link in `room.js` detects the host: on `*.philbap.com` it links to `/`; everywhere else it points to `https://demos.philbap.com/`. Standalone deploys still funnel visitors back to canonical.
 
-Before deploying the root studio, inspect `.vercel/project.json` and confirm it
-points to the intended existing project. Do not create a new project, change DNS,
-or deploy operator files.
+Other legacy URLs (`runneros-showcase.vercel.app`, `cookbookos-showcase.vercel.app`, `manillaos.vercel.app`) are different Vercel projects and outside this repo. They are not currently broken but their content is unrelated; migration is a follow-up task.
 
-## Local Preview
+## Privacy rules
 
-From the repo root or any demo folder:
+- Sample data only. Real systems may run locally or private.
+- No private databases, drive paths, member or customer records, employer/client material, secrets, env files, raw exports, staging folders, or source archives.
 
-```powershell
-python -m http.server 4170
+## Local preview
+
+From the repo root:
+
+```bash
+python3 -m http.server 8765
 ```
 
-Then open:
+Open `http://localhost:8765/` for the studio, or any of the room paths above.
 
-```text
-http://localhost:4170
+Each room folder is also independently servable:
+
+```bash
+cd demos/inventory-os-demo
+python3 -m http.server 8765
 ```
 
-Use a different port if one is already in use.
+That mirrors what a legacy standalone Vercel project sees.
 
-## GitHub Setup
+## Vercel safety
 
-See `GIT_PUSH_COMMANDS.md`.
+Before deploying, inspect `.vercel/project.json` and confirm it still points at `philbap-boh-demo-studio`. Do not create a new Vercel project, change DNS, or deploy any operator files in this repo.
+
+## Documentation
+
+- Visual system, mobile decisions, held issues: [DESIGN_NOTES.md](DESIGN_NOTES.md)
+- Brand assets: [BRAND_ASSET_MANIFEST.md](BRAND_ASSET_MANIFEST.md)
+- Notion update instructions: [CHATGPT_NOTION_UPDATE_INSTRUCTIONS.md](CHATGPT_NOTION_UPDATE_INSTRUCTIONS.md)
+- Demo safety scan history: [PUBLIC_DEMO_SAFETY_SCAN.md](PUBLIC_DEMO_SAFETY_SCAN.md)

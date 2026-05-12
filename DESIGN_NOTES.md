@@ -2,101 +2,91 @@
 
 ## Quality bar
 
-This homepage should feel genuinely designed, not merely functional. The standard is premium, restrained, intentional, atmospheric, mobile-polished, recruiter-legible, visually memorable, not gimmicky, and not generic. If a section reads like a template, it needs more discipline. If a card reads like a card, it should behave more like a system node. If motion feels decorative, it should be reduced or removed.
+Premium, restrained, intentional, mobile-polished, recruiter-legible, visually memorable, not gimmicky, not generic. Typography and pacing carry the work; chrome recedes. Quiet enough to feel serious, distinct enough to be remembered, clear enough that a hiring manager understands the work.
 
-Taste standard: quiet enough to feel serious, distinct enough to be remembered, and clear enough that a hiring manager understands the work.
+## Final visual system
 
-## What changed (latest pass)
+- One operating-index palette (dark default, polished paper light) shared by the root studio and every room. Defined in [studio.css](studio.css) and [shared/room.css](shared/room.css).
+- Per-room **accent only** — single `--accent` variable scoped by `body[data-room="…"]`. No themed UI gimmicks. Domain feeling is expressed through accent + shape rhythm + section pacing, not illustration.
+- Headings are weight 500 / no uppercase / minimal letter-spacing. Body labels are weight 400. Pills, badges, and "operating language" are typographic, not framed.
+- Surfaces are hairline-only: 1px borders, `border-radius: 0` almost everywhere, no shadows, no glassy blobs.
+- Buttons are underline text-actions. Primary differs only in accent color + always-visible underline.
+- Hero hierarchy: small eyebrow → restrained h1 (clamp(2.1rem, 5.8vw, 4.4rem) on root, slightly smaller in rooms) → lede → 2 quiet CTAs.
 
-- Unified individual demo rooms with the Demo Studio operating index.
-- Replaced the old `shared/demo-shell.css` and per-room `theme.css`/`theme.js` duplicates (six copies each) with a single canonical shared layer: [`shared/room.css`](shared/room.css) and [`shared/room.js`](shared/room.js).
-- Each room HTML now sets `class="boh-room"`, `data-room="<key>"`, and `data-status="<state>"` on `<body>`, links the shared room stylesheet, and loads the shared bootstrap script.
-- Rebuilt every room shell: compact top identity bar (TCO mark, module name, descriptor, status pill, back-link injected by the shared script), simplified room nav, restrained hero, structured operational sections.
-- Stripped the per-room `styles.css` files down to room-specific layout only (item walls, run cards, service rows, evidence pairs, etc.). The parent visual language now lives entirely in the shared layer.
-- Migrated all eight ChurchOS sub-pages off the sidebar layout into the unified top-bar shell.
+## Per-room domain accents
 
-## What changed (Demo Studio root, prior pass)
+| Room | Accent | Feeling |
+|---|---|---|
+| RevenueDeskOS | deep controlled green | bid intake, governed revenue work |
+| ArchiveOS | muted gray-green | vault, version review, recall |
+| ChurchOS | warm cream | sealed community stewardship |
+| InventoryOS | neutral gray | inspection bench, listing readiness |
+| RunnerOS | soft blue-green | quiet effort archive |
+| CookbookOS | parchment | manuscript-to-canon workbench |
 
-- Rebuilt the root homepage around a synthesis of the design tests: Direction C atmosphere, Direction A usability, and Direction B editorial structure.
-- Reframed the studio as an operating index with interactive proof previews instead of a flat module showcase.
-- Added a guided inspection path that updates the proof preview before the visitor enters a room.
+Light-mode each accent darkens for legibility.
 
-## Individual room design system
+## CSS / asset strategy (final)
 
-### Shared room shell (`shared/room.css`)
+Authoring source remains [shared/room.css](shared/room.css) and [shared/room.js](shared/room.js). Each `demos/<room>/` folder carries its own copy of `room.css` + `room.js` (synced from `shared/`). Each room HTML references **local-relative paths only**: `room.css`, `room.js`, `assets/tco-logo-web.png`. No room HTML reaches outside its folder.
 
-- Operating-index palette mirrors the studio: dark default with a polished paper light mode.
-- Compact 64px top identity bar containing brand mark, module name + descriptor, status pill, simplified room nav. The "Demo Studio" back link is injected by `shared/room.js` from any room.
-- Hero strip uses restrained typography (h1 caps at ~3.6rem desktop, ~2.4rem mobile) rather than huge marketing blobs.
-- Metric strips, proof loops, and flow steps render as gridded operational records with thin dividers (1px gap on a `--line` background) instead of rounded card grids with heavy shadows.
-- Panels share the same flat border / panel surface; the only blob-feeling surfaces are the small intake/today/loop cards on the hero, which carry a 1px accent stripe and a subtle accent-soft gradient.
-- Pills, badges, and tags share a single shape (rounded text on transparent with a 1px border).
-- Modals are operating dialogs (1px border, no glassy blob), keyboard-dismissible, and respect the same surface palette.
+**Why bundled instead of one shared file:**
 
-### Room accent strategy
+Legacy standalone Vercel projects (e.g. `revenue-desk-demo.vercel.app`, `inventory-os-demo-flax.vercel.app`) deploy with the room folder as their project root. From inside that root they cannot resolve `../../shared/room.css` — Vercel won't serve files above the project root, and a browser normalizes `../../` back to the URL root. Bundling makes each room self-sufficient on **both** canonical and legacy deployments without changing any Vercel project settings.
 
-Per-room accents are scoped via `body[data-room="<key>"]` and override `--accent`, `--accent-soft`, and `--accent-strong`. Light mode tweaks darken each accent for legibility. Domain feeling is expressed through accent + shape rhythm, not gimmick illustrations.
-
-- RevenueDeskOS: deep controlled green; row records + proof loop emphasis (revenue command surface).
-- ArchiveOS: muted gray-green; vault loop, modal review, asset board (preservation custody).
-- ChurchOS: warm sealed cream/green; service rows with left accent stripe, role-aware panels (protected community ops).
-- InventoryOS: neutral utility gray; item wall with placeholder swatches, history strip, listing-readiness language (inspection bench).
-- RunnerOS: soft blue-green; weekly trend, run cards, review queue, detail strip (quiet athletic archive).
-- CookbookOS: parchment / archival tone; manuscript proof loop, source-to-canon evidence pairs (archival workbench).
-
-### Mobile cleanup
-
-- Top identity bar collapses to a stacked column at <= 640px with the nav wrapping under the brand. The "Demo Studio" back-link label is hidden under 380px so only the arrow chip remains tappable.
-- Hero grids collapse to a single column under 960px. Metric strips collapse from four columns to two columns at 960px and one column at 640px.
-- Item walls, run grids, opportunity grids, and asset boards reflow to single column under 640px. Modal padding shrinks at <640px.
-- Buttons span full width on mobile so CTAs stay tappable above the iOS bottom bar.
-- ChurchOS service rows collapse cleanly to a single column with the timestamp stacked above the title rather than squeezed left.
-- `prefers-reduced-motion` continues to disable all settle and pulse animations.
-
-## Status mapping in this repo
-
-- RevenueDeskOS: LIVE.
-- ArchiveOS: LIVE.
-- InventoryOS: LIVE.
-- ChurchOS: SEALED.
-- RunnerOS: STANDBY.
-- CookbookOS: ARCHIVE.
-- ManillaOS: REVIEW (held).
-- CanonOS: SEALED (held).
-- JobRadarOS: SEALED (held).
-- MediaOS: STANDBY (held).
-
-ManillaOS, CanonOS, JobRadarOS, and MediaOS are shown as held records on the Demo Studio because no matching public room route exists in this repo.
-
-## Status meanings
-
-- LIVE: public-safe room is available and strong enough to inspect.
-- STANDBY: room exists, but the public proof surface is secondary or less mature.
-- SEALED: private/internal system; public surface is intentionally limited.
-- REVIEW: candidate/proof requires human review before authority.
-- ARCHIVE: historical proof or preserved evidence surface.
-
-## CSS architecture
+**Re-syncing after edits:** edit `shared/room.css` (the authoring source), then copy to each room:
 
 ```
-/studio.css                  Demo Studio root operating index
-/studio.js                   Demo Studio interactions
-/shared/room.css             Individual room design system (shared by all rooms)
-/shared/room.js              Room bootstrap (back link, status pill, theme toggle)
-/demos/<room>/index.html     Room markup, links shared room.css + per-room styles.css
-/demos/<room>/styles.css     Room-specific layout only (item-wall, run-card, etc.)
-/demos/<room>/app.js         Room-specific interactions (unchanged in this pass)
+for d in demos/*; do cp shared/room.css "$d/room.css" && cp shared/room.js "$d/room.js"; done
 ```
 
-Previously each room maintained its own duplicated `theme.css` and `theme.js` copy of `shared/demo-shell.*`. Those copies are removed; the shared layer is now the only source.
+## Legacy URL strategy
 
-## Intentionally held for a later pass
+| URL | Status | Behavior |
+|---|---|---|
+| demos.philbap.com/ | canonical | Root Demo Studio (this repo) |
+| demos.philbap.com/{room}os/ | canonical | Vercel rewrites to `/demos/<room>-demo/` |
+| revenue-desk-demo.vercel.app | legacy standalone | Serves the same room HTML, now with bundled CSS/JS so it renders styled |
+| archiveos-demo.vercel.app | legacy standalone | Same |
+| church-os-demo.vercel.app | legacy standalone | Same |
+| inventory-os-demo-flax.vercel.app | legacy standalone | Same |
+| runneros-showcase.vercel.app | unrelated project | Outside this repo; not affected by these changes |
+| runneros.vercel.app | unrelated project | Outside this repo |
+| cookbookos-showcase.vercel.app | unrelated project | Outside this repo |
+| manillaos.vercel.app | unrelated project | Outside this repo |
 
-- Public-safe implementation pages remain held until each system has a reviewed page.
-- ManillaOS, CanonOS, JobRadarOS, and MediaOS have no public room route and remain held on the studio.
-- No live telemetry, APIs, auth, analytics, or database-backed surfaces were added.
-- The design tests remain archived under `design-tests/` and are not linked from the production homepage.
-- No custom domain or Vercel project settings should be changed as part of design iteration.
-- CookbookOS room is intentionally framed as an archival workbench concept with sample evidence; no real OCR or scan upload is implemented.
+The legacy `*-demo.vercel.app` URLs receive the bundled assets automatically once this branch deploys. The `*-showcase` / `manillaos` URLs are different Vercel projects and need to be migrated or retired separately. They are not currently broken — they serve their own static pages — but their content is unrelated to this repo.
 
-Do not ship until each room feels like a polished public command surface, not a themed portfolio page.
+## Vercel rewrites
+
+`vercel.json` rewrites short URLs to the actual folder paths so both styles work:
+
+- `/revenuedeskos[/*]` → `/demos/revenue-desk-demo[/*]`
+- `/archiveos[/*]` → `/demos/archiveos-demo[/*]`
+- `/churchos[/*]` → `/demos/church-os-demo[/*]`
+- `/inventoryos[/*]` → `/demos/inventory-os-demo[/*]`
+- `/runneros[/*]` → `/demos/runneros-demo[/*]`
+- `/cookbookos[/*]` → `/demos/cookbook-os-demo[/*]`
+
+Root studio "Enter room" links and `data-route` attributes now point at the short URLs. The longer `/demos/<room>/` paths continue to work for direct links and as the deployable folder location.
+
+## Smart "Back to Studio" link
+
+`shared/room.js` detects the host. On `*.philbap.com` it links to `/`; on any other host (legacy `*.vercel.app`) it links to `https://demos.philbap.com/`. Standalone deploys still funnel visitors back to canonical.
+
+## Mobile decisions
+
+- Top identity bar collapses to stacked column at <= 640px with 10px gap. Back-link label hides under 380px (arrow chip remains tappable).
+- Hero h1 caps at `clamp(1.7rem, 7vw, 2.2rem)` mobile. Lede stays one line of comfortable reading.
+- All multi-column grids (metrics, proof-loop, status-strip, split, columns, deal-record, detail) collapse to single column at <= 640px. Gaps reduce to 18px vertical.
+- Buttons remain underline text-actions on mobile — no full-width filled blobs. No iOS bottom-bar collisions.
+- Modal padding shrinks at <640px; backdrop padding 16px so the modal can fit on small screens.
+- `prefers-reduced-motion` disables settle and pulse animations site-wide.
+
+## Held issues
+
+- ManillaOS, CanonOS, JobRadarOS, MediaOS remain held records on the studio — no public room route in this repo. Their entries on the index intentionally do not link.
+- The `*-showcase` and `manillaos.vercel.app` URLs are different Vercel projects and outside this repo. Migrating them is a follow-up task: either point those domains at the canonical project or rebuild their content here.
+- No live telemetry, APIs, auth, analytics, or database-backed surfaces are added in any room.
+- Design tests under [design-tests/](design-tests/) remain archived; not linked from production.
+- No DNS or Vercel project settings were changed in this pass. The canonical project remains `philbap-boh-demo-studio`.
