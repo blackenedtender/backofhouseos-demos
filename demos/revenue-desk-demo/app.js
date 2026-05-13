@@ -48,6 +48,7 @@ function renderOpportunities() {
         <p>${opportunity.client_name} / ${opportunity.vertical}</p>
       </div>
       <p>${opportunity.generated_brief_summary}</p>
+      <p class="artifact-caption">${opportunity.review_state}</p>
       <div class="pills">
         <span class="pill">${opportunity.deal_value}</span>
         <span class="pill">due ${opportunity.due_date}</span>
@@ -71,6 +72,18 @@ function renderRecord(opportunity) {
     .map((asset) => `<li>${asset}</li>`)
     .join("");
 
+  setText("record-source", opportunity.source_excerpt);
+
+  document.getElementById("record-fields").innerHTML = opportunity.structured_fields
+    .map((field) => `<li>${field}</li>`)
+    .join("");
+
+  document.getElementById("record-draft").innerHTML = opportunity.draft_brief_fragments
+    .map((fragment) => `<li>${fragment}</li>`)
+    .join("");
+
+  setText("record-review-state", `${opportunity.review_state}. ${opportunity.lineage_classification}.`);
+
   document.getElementById("record-reuse").innerHTML = opportunity.reuse_candidates
     .map((item) => `<li>${item}</li>`)
     .join("");
@@ -90,6 +103,28 @@ function renderSampleButtons() {
       ${opportunity.opportunity_name}
     </button>
   `).join("");
+}
+
+function renderArtifacts() {
+  const holder = document.getElementById("proof-artifacts");
+  if (!holder) return;
+  holder.innerHTML = state.data.artifacts.map((artifact) => `
+    <article class="artifact-card">
+      <img src="${artifact.image}" alt="${artifact.image_alt}" loading="lazy">
+      <div class="artifact-meta"><span>${artifact.classification}</span></div>
+      <h3>${artifact.title}</h3>
+      <p>${artifact.summary}</p>
+    </article>
+  `).join("");
+}
+
+function renderLineageNote() {
+  const note = state.data.demo.lineage_note;
+  if (!note) return;
+  setText(
+    "lineage-copy",
+    `${note.label}. Extracted structurally: ${note.extracted_structure.join(", ")}. Sanitized: ${note.sanitized.join(", ")}. Not exposed: ${note.not_exposed.join(", ")}.`
+  );
 }
 
 function renderLibrary() {
@@ -188,6 +223,8 @@ function bindEvents() {
 function renderAll() {
   renderMetrics();
   renderOpportunities();
+  renderArtifacts();
+  renderLineageNote();
   renderLibrary();
   renderGovernance();
   renderReviewQueue();

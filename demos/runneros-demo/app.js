@@ -10,6 +10,7 @@ async function loadRuns() {
   }
   const data = await response.json();
   state.runs = data.runs;
+  state.artifacts = data.artifacts || [];
 }
 
 function approvedRuns() {
@@ -78,8 +79,22 @@ function renderImports() {
       <div>
         <h3>${run.title}</h3>
         <p>${run.date} / ${miles(run.distance_miles)} / ${run.source}</p>
+        <p class="artifact-caption">${run.context_snippet}</p>
       </div>
       <span class="pill pending">pending</span>
+    </article>
+  `).join("");
+}
+
+function renderArtifacts() {
+  const holder = document.getElementById("runner-artifacts");
+  if (!holder) return;
+  holder.innerHTML = state.artifacts.map((artifact) => `
+    <article class="artifact-card">
+      <img src="${artifact.image}" alt="${artifact.image_alt}" loading="lazy">
+      <div class="artifact-meta"><span>${artifact.classification}</span></div>
+      <h3>${artifact.title}</h3>
+      <p>${artifact.summary}</p>
     </article>
   `).join("");
 }
@@ -97,12 +112,14 @@ function renderRuns() {
         <h3>${run.title}</h3>
         <p>${run.date}</p>
       </div>
+      <img class="run-artifact" src="${run.route_visual}" alt="${run.route_visual_alt}" loading="lazy">
       <div class="run-stats">
         <span>${miles(run.distance_miles)}</span>
         <span>${run.pace} pace</span>
         <span>${run.elevation_ft} ft</span>
       </div>
       <p>${run.notes}</p>
+      <p class="artifact-caption">${run.recovery_note}</p>
     </article>
   `).join("");
 }
@@ -129,6 +146,10 @@ function renderDetail() {
   setText("detail-duration", run.duration);
   setText("detail-pace", run.pace);
   setText("detail-elevation", `${run.elevation_ft} ft`);
+  setText("detail-context", `${run.context_snippet} ${run.recovery_note}.`);
+  const image = document.getElementById("detail-route-image");
+  image.src = run.route_visual;
+  image.alt = run.route_visual_alt;
 }
 
 function bindEvents() {
@@ -141,6 +162,7 @@ function bindEvents() {
 function renderAll() {
   renderDashboard();
   renderTrend();
+  renderArtifacts();
   renderImports();
   renderRuns();
   renderReview();

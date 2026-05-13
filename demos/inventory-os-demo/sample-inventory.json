@@ -16,7 +16,16 @@
       "notes": "Structured jacket with light wear at cuffs. Ready for listing photos.",
       "last_updated": "2026-04-21",
       "color": "#2f5368",
-      "history": ["photo intake", "draft created", "condition verified", "marked available"]
+      "history": [
+        "photo intake",
+        "draft created",
+        "condition verified",
+        "marked available"
+      ],
+      "image": "/public_assets/inventoryos/navy-field-jacket.svg",
+      "image_alt": "Synthetic operator photo of navy field jacket",
+      "photo_note": "tagged front crop, cuffs reviewed",
+      "data_classification": "Synthetic sample"
     },
     {
       "item_id": "demo-jacket-002",
@@ -28,7 +37,15 @@
       "notes": "Needs size confirmation before it can move to available.",
       "last_updated": "2026-04-22",
       "color": "#6f8a5f",
-      "history": ["photo intake", "draft created", "pending size check"]
+      "history": [
+        "photo intake",
+        "draft created",
+        "pending size check"
+      ],
+      "image": "/public_assets/inventoryos/quilted-liner-jacket.svg",
+      "image_alt": "Synthetic operator photo of quilted liner jacket",
+      "photo_note": "size tag still needs confirmation",
+      "data_classification": "Synthetic sample"
     },
     {
       "item_id": "demo-shoe-001",
@@ -40,7 +57,16 @@
       "notes": "Cleaned and photographed. Listing copy approved.",
       "last_updated": "2026-04-19",
       "color": "#d8d4ca",
-      "history": ["photo intake", "draft created", "cleaned", "listed"]
+      "history": [
+        "photo intake",
+        "draft created",
+        "cleaned",
+        "listed"
+      ],
+      "image": "/public_assets/inventoryos/white-leather-sneakers.svg",
+      "image_alt": "Synthetic operator photo of white leather sneakers",
+      "photo_note": "cleaned pair, listing copy approved",
+      "data_classification": "Synthetic sample"
     },
     {
       "item_id": "demo-shoe-002",
@@ -52,7 +78,15 @@
       "notes": "Visible sole wear. Best positioned as budget training pair.",
       "last_updated": "2026-04-18",
       "color": "#c46d45",
-      "history": ["photo intake", "condition verified", "marked available"]
+      "history": [
+        "photo intake",
+        "condition verified",
+        "marked available"
+      ],
+      "image": "/public_assets/inventoryos/trail-running-shoes.svg",
+      "image_alt": "Synthetic operator photo of trail running shoes",
+      "photo_note": "sole wear visible in review crop",
+      "data_classification": "Synthetic sample"
     },
     {
       "item_id": "demo-electronics-001",
@@ -64,7 +98,16 @@
       "notes": "Tested with sample batteries. Includes foam case in demo record.",
       "last_updated": "2026-04-23",
       "color": "#4d5662",
-      "history": ["photo intake", "function check", "accessories verified", "marked available"]
+      "history": [
+        "photo intake",
+        "function check",
+        "accessories verified",
+        "marked available"
+      ],
+      "image": "/public_assets/inventoryos/portable-audio-recorder.svg",
+      "image_alt": "Synthetic operator photo of portable audio recorder",
+      "photo_note": "function check complete with case note",
+      "data_classification": "Synthetic sample"
     },
     {
       "item_id": "demo-electronics-002",
@@ -76,7 +119,16 @@
       "notes": "Sold in demo history. Kept for status timeline proof.",
       "last_updated": "2026-04-15",
       "color": "#e2b85d",
-      "history": ["photo intake", "listed", "sold", "archived"]
+      "history": [
+        "photo intake",
+        "listed",
+        "sold",
+        "archived"
+      ],
+      "image": "/public_assets/inventoryos/compact-desk-lamp.svg",
+      "image_alt": "Synthetic operator photo of compact desk lamp",
+      "photo_note": "sold sample kept for history proof",
+      "data_classification": "Synthetic sample"
     },
     {
       "item_id": "demo-collectible-001",
@@ -88,7 +140,15 @@
       "notes": "Small collectible lot grouped as one inventory record.",
       "last_updated": "2026-04-20",
       "color": "#b7658f",
-      "history": ["photo intake", "grouped into set", "marked available"]
+      "history": [
+        "photo intake",
+        "grouped into set",
+        "marked available"
+      ],
+      "image": "/public_assets/inventoryos/enamel-pin-set.svg",
+      "image_alt": "Synthetic operator photo of vintage enamel pin set",
+      "photo_note": "grouped small lot with tag",
+      "data_classification": "Synthetic sample"
     },
     {
       "item_id": "demo-collectible-002",
@@ -100,7 +160,15 @@
       "notes": "Needs final category review before listing.",
       "last_updated": "2026-04-24",
       "color": "#7bb0a3",
-      "history": ["photo intake", "draft created", "category review needed"]
+      "history": [
+        "photo intake",
+        "draft created",
+        "category review needed"
+      ],
+      "image": "/public_assets/inventoryos/commemorative-mug.svg",
+      "image_alt": "Synthetic operator photo of commemorative mug",
+      "photo_note": "category review still open",
+      "data_classification": "Synthetic sample"
     },
     {
       "item_id": "demo-home-001",
@@ -112,7 +180,15 @@
       "notes": "Dimensions confirmed. Listed as home decor sample item.",
       "last_updated": "2026-04-17",
       "color": "#8a5d3b",
-      "history": ["photo intake", "dimensions confirmed", "listed"]
+      "history": [
+        "photo intake",
+        "dimensions confirmed",
+        "listed"
+      ],
+      "image": "/public_assets/inventoryos/walnut-picture-frame.svg",
+      "image_alt": "Synthetic operator photo of walnut picture frame",
+      "photo_note": "dimensions confirmed",
+      "data_classification": "Synthetic sample"
     },
     {
       "item_id": "demo-home-002",
@@ -124,13 +200,23 @@
       "notes": "No chips in demo inspection. Ready for sale.",
       "last_updated": "2026-04-23",
       "color": "#d9896b",
-      "history": ["photo intake", "condition verified", "marked available"]
+      "history": [
+        "photo intake",
+        "condition verified",
+        "marked available"
+      ],
+      "image": "/public_assets/inventoryos/ceramic-planter.svg",
+      "image_alt": "Synthetic operator photo of ceramic planter",
+      "photo_note": "no chips visible in sample review",
+      "data_classification": "Synthetic sample"
     }
   ],
   "intakeMock": {
     "uploadedPhotos": 6,
     "draftsCreated": 4,
     "needsReview": 2,
-    "message": "Upload photos, create item drafts, confirm details, then move records into usable inventory truth."
+    "message": "Upload photos, create item drafts, confirm details, then move records into usable inventory truth.",
+    "wallTexture": "/public_assets/inventoryos/inventory-wall-texture.svg",
+    "wallTextureAlt": "Synthetic inventory intake wall with tagged sample records"
   }
 }

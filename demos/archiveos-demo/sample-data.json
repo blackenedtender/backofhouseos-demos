@@ -20,9 +20,16 @@
       "versions": 4,
       "color": "#f2b84b",
       "accent": "#7a4b12",
-      "tags": ["running", "medal", "brooklyn"],
+      "tags": [
+        "running",
+        "medal",
+        "brooklyn"
+      ],
       "set": true,
-      "privacy": "public-safe demo"
+      "privacy": "public-safe demo",
+      "preview": "/public_assets/archiveos/medal-photo.svg",
+      "preview_alt": "Synthetic ArchiveOS preview for Brooklyn medal photo",
+      "custody_note": "synthetic preview; originals untouched; export uses approved copies"
     },
     {
       "id": "asset-arthur-meme",
@@ -33,9 +40,16 @@
       "versions": 3,
       "color": "#5f86d8",
       "accent": "#1e335c",
-      "tags": ["meme", "image", "duplicate"],
+      "tags": [
+        "meme",
+        "image",
+        "duplicate"
+      ],
       "set": false,
-      "privacy": "public-safe demo"
+      "privacy": "public-safe demo",
+      "preview": "/public_assets/archiveos/reaction-image.svg",
+      "preview_alt": "Synthetic ArchiveOS preview for Arthur meme",
+      "custody_note": "synthetic preview; originals untouched; export uses approved copies"
     },
     {
       "id": "asset-sermon-video",
@@ -46,9 +60,16 @@
       "versions": 2,
       "color": "#8c6bd9",
       "accent": "#34235f",
-      "tags": ["church", "video", "sermon"],
+      "tags": [
+        "church",
+        "video",
+        "sermon"
+      ],
       "set": true,
-      "privacy": "public-safe demo"
+      "privacy": "public-safe demo",
+      "preview": "/public_assets/archiveos/sermon-video.svg",
+      "preview_alt": "Synthetic ArchiveOS preview for Church sermon video",
+      "custody_note": "synthetic preview; originals untouched; export uses approved copies"
     },
     {
       "id": "asset-old-logo",
@@ -59,22 +80,36 @@
       "versions": 4,
       "color": "#3fbf9f",
       "accent": "#144c40",
-      "tags": ["brand", "logo", "design"],
+      "tags": [
+        "brand",
+        "logo",
+        "design"
+      ],
       "set": true,
-      "privacy": "public-safe demo"
+      "privacy": "public-safe demo",
+      "preview": "/public_assets/archiveos/logo-concept.svg",
+      "preview_alt": "Synthetic ArchiveOS preview for Old logo",
+      "custody_note": "synthetic preview; originals untouched; export uses approved copies"
     },
     {
       "id": "asset-target-receipt",
-      "title": "Target receipt",
+      "title": "Retail receipt",
       "kind": "document",
-      "memory": "Receipt image from an inventory run",
+      "memory": "Receipt image from a sample inventory run",
       "status": "Private",
       "versions": 1,
       "color": "#ef5b5b",
       "accent": "#6d1f1f",
-      "tags": ["receipt", "inventory", "private"],
+      "tags": [
+        "receipt",
+        "inventory",
+        "private"
+      ],
       "set": false,
-      "privacy": "blocked from export"
+      "privacy": "blocked from export",
+      "preview": "/public_assets/archiveos/receipt-blocked.svg",
+      "preview_alt": "Synthetic ArchiveOS preview for retail receipt",
+      "custody_note": "held/private marker; blocked from export"
     },
     {
       "id": "asset-running-clip",
@@ -85,9 +120,16 @@
       "versions": 2,
       "color": "#5fc1e8",
       "accent": "#174a5d",
-      "tags": ["running", "video", "training"],
+      "tags": [
+        "running",
+        "video",
+        "training"
+      ],
       "set": false,
-      "privacy": "public-safe demo"
+      "privacy": "public-safe demo",
+      "preview": "/public_assets/archiveos/running-clip.svg",
+      "preview_alt": "Synthetic ArchiveOS preview for Running clip",
+      "custody_note": "synthetic preview; originals untouched; export uses approved copies"
     },
     {
       "id": "asset-inventory-photo",
@@ -98,9 +140,16 @@
       "versions": 2,
       "color": "#d884bf",
       "accent": "#63264f",
-      "tags": ["inventory", "photo", "listing"],
+      "tags": [
+        "inventory",
+        "photo",
+        "listing"
+      ],
       "set": true,
-      "privacy": "public-safe demo"
+      "privacy": "public-safe demo",
+      "preview": "/public_assets/archiveos/inventory-photo.svg",
+      "preview_alt": "Synthetic ArchiveOS preview for Inventory item photo",
+      "custody_note": "synthetic preview; originals untouched; export uses approved copies"
     }
   ],
   "jobs": [
@@ -130,9 +179,32 @@
     "approvedCopies": 4,
     "blockedItems": 2,
     "warnings": [
-      "Target receipt is private and blocked.",
+      "Retail receipt is private and blocked.",
       "Running clip needs review before export."
     ],
     "rule": "Originals stay untouched. Export creates approved copies only."
-  }
+  },
+  "artifacts": [
+    {
+      "title": "Source preservation scan",
+      "classification": "Synthetic custody artifact",
+      "image": "/public_assets/archiveos/source-scan.svg",
+      "image_alt": "Synthetic custody scan preview",
+      "summary": "Shows checksum, hidden local path, preserved original, and candidate copy posture."
+    },
+    {
+      "title": "Version stack",
+      "classification": "Synthetic resolver preview",
+      "image": "/public_assets/archiveos/version-stack.svg",
+      "image_alt": "Synthetic version stack preview",
+      "summary": "Representative versions are reviewed without deleting source variants."
+    },
+    {
+      "title": "Export report",
+      "classification": "Synthetic export report",
+      "image": "/public_assets/archiveos/export-receipt.svg",
+      "image_alt": "Synthetic approved copy export report",
+      "summary": "Approved copies move forward; private or unresolved assets stay blocked."
+    }
+  ]
 }

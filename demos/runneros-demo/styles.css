@@ -7,7 +7,15 @@ body.boh-room .run-grid {
 
 body.boh-room .run-card {
   display: grid;
-  gap: 4px;
+  gap: 8px;
+}
+
+body.boh-room .run-artifact {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--line);
+  background: var(--bg-2);
+  object-fit: cover;
 }
 
 body.boh-room .run-card h3 {
@@ -79,6 +87,11 @@ body.boh-room .detail-grid article strong {
   font-size: 1.25rem;
   font-weight: 500;
   line-height: 1.1;
+}
+
+body.boh-room .approved-detail .route-preview {
+  grid-column: 1 / -1;
+  margin-top: 4px;
 }
 
 @media (max-width: 640px) {

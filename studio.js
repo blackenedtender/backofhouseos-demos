@@ -316,6 +316,7 @@
   }
 
   function lightStage(stage) {
+    loopStations.forEach((li, index) => li.classList.toggle("is-current", index === stage));
     loopStations[stage] && loopStations[stage].classList.add("is-lit");
     if (trailItems[stage]) trailItems[stage].classList.add("is-lit");
     setProgress(stage);
@@ -346,7 +347,10 @@
       if (em) em.textContent = data.stages[i] || "";
       li.classList.remove("is-lit");
     });
-    loopStations.forEach((li) => li.classList.remove("is-lit"));
+    loopStations.forEach((li) => {
+      li.classList.remove("is-lit");
+      li.classList.remove("is-current");
+    });
     loopSpine && loopSpine.classList.remove("is-complete");
 
     if (prevAi)     prevAi.textContent = data.ai || "";

@@ -14,8 +14,7 @@ body.boh-room .asset-card {
 body.boh-room .asset-art {
   width: 100%;
   aspect-ratio: 4 / 3;
-  display: grid;
-  place-items: center;
+  display: block;
   margin-bottom: 2px;
   border: 1px solid var(--line);
   background: transparent;
@@ -24,6 +23,10 @@ body.boh-room .asset-art {
   font-weight: 500;
   letter-spacing: 0;
   text-transform: none;
+}
+
+body.boh-room .asset-art img {
+  border: 0;
 }
 
 body.boh-room .asset-card h3 {

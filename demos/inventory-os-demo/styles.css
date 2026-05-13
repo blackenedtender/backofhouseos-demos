@@ -7,22 +7,16 @@ body.boh-room .item-wall {
 
 body.boh-room .item-card {
   display: grid;
-  gap: 8px;
+  gap: 10px;
   cursor: pointer;
 }
 
-body.boh-room .item-card .placeholder {
+body.boh-room .item-thumb {
   width: 100%;
   aspect-ratio: 4 / 3;
-  display: grid;
-  place-items: center;
-  margin-bottom: 2px;
   border: 1px solid var(--line);
-  background: transparent;
-  color: var(--dim);
-  font-size: 1.1rem;
-  font-weight: 500;
-  letter-spacing: 0.02em;
+  background: var(--bg-2);
+  object-fit: cover;
 }
 
 body.boh-room .item-card h3 {
@@ -38,7 +32,7 @@ body.boh-room .item-card p {
 
 body.boh-room .drop-zone {
   display: grid;
-  gap: 4px;
+  gap: 8px;
   align-items: center;
   justify-items: start;
   padding: 18px 0 !important;
@@ -48,6 +42,14 @@ body.boh-room .drop-zone {
   border-bottom: 1px solid var(--line) !important;
   border-radius: 0 !important;
   background: transparent !important;
+}
+
+body.boh-room .drop-zone img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--line);
+  background: var(--bg-2);
+  object-fit: cover;
 }
 
 body.boh-room .drop-zone span {
@@ -83,6 +85,10 @@ body.boh-room .detail-card .placeholder {
   font-size: 1.4rem;
   font-weight: 500;
   letter-spacing: 0.02em;
+}
+
+body.boh-room .detail-card .photo-frame img {
+  aspect-ratio: 16 / 10;
 }
 
 body.boh-room .history-list {

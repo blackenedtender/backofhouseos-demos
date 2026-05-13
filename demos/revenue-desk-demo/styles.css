@@ -33,6 +33,15 @@ body.boh-room .record-card {
   gap: 0;
 }
 
+body.boh-room .proof-artifacts {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 30px;
+}
+
+body.boh-room .lineage-note {
+  margin-top: 18px;
+}
+
 body.boh-room .library-row {
   display: grid;
   grid-template-columns: 1.6fr 0.9fr 0.8fr 0.8fr;
@@ -64,5 +73,9 @@ body.boh-room .governance-list > * {
   body.boh-room .library-row {
     grid-template-columns: 1fr;
     gap: 4px;
+  }
+
+  body.boh-room .proof-artifacts {
+    grid-template-columns: 1fr;
   }
 }

@@ -58,11 +58,12 @@ function renderWall() {
   const wall = document.getElementById("item-wall");
   wall.innerHTML = filteredItems().map((item) => `
     <article class="item-card" data-item="${item.item_id}" style="--item-color: ${item.color}" tabindex="0">
-      <div class="photo-placeholder" aria-hidden="true">${initials(item.title)}</div>
+      <img class="item-thumb" src="${item.image}" alt="${item.image_alt}" loading="lazy">
       <div class="item-body">
         <div>
           <h3>${item.title}</h3>
           <p>${item.notes}</p>
+          <p class="artifact-caption">${item.photo_note}</p>
         </div>
         <div class="pills">
           <span class="pill">${item.category}</span>
@@ -82,8 +83,10 @@ function renderDetail(item) {
   setText("detail-status", item.status);
   setText("detail-condition", item.condition);
   setText("detail-updated", item.last_updated);
-  setText("detail-initials", initials(item.title));
-  document.getElementById("detail-placeholder").style.setProperty("--item-color", item.color);
+  setText("detail-photo-note", `${item.photo_note} / ${item.data_classification}`);
+  const image = document.getElementById("detail-image");
+  image.src = item.image;
+  image.alt = item.image_alt;
   renderHistory(item);
 }
 

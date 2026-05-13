@@ -17,7 +17,11 @@
       "notes": "Easy start after a long desk day. Kept it light and steady.",
       "review_status": "approved",
       "source": "sample import",
-      "week": "2026-W10"
+      "week": "2026-W10",
+      "route_visual": "/public_assets/runneros/route-river-loop.svg",
+      "route_visual_alt": "Synthetic generalized route visual for Morning Reset",
+      "context_snippet": "Generalized route context; no exact GPS or health data is included.",
+      "recovery_note": "routine approved effort; no sealed health data shown"
     },
     {
       "id": "run-002",
@@ -31,7 +35,11 @@
       "notes": "Controlled climbs. Felt patient instead of fast.",
       "review_status": "approved",
       "source": "sample import",
-      "week": "2026-W10"
+      "week": "2026-W10",
+      "route_visual": "/public_assets/runneros/route-river-loop.svg",
+      "route_visual_alt": "Synthetic generalized route visual for Bridge Repeats",
+      "context_snippet": "Generalized route context; no exact GPS or health data is included.",
+      "recovery_note": "routine approved effort; no sealed health data shown"
     },
     {
       "id": "run-003",
@@ -45,7 +53,11 @@
       "notes": "Even effort. Good breathing. No drama.",
       "review_status": "approved",
       "source": "sample import",
-      "week": "2026-W10"
+      "week": "2026-W10",
+      "route_visual": "/public_assets/runneros/route-river-loop.svg",
+      "route_visual_alt": "Synthetic generalized route visual for Quiet Loop",
+      "context_snippet": "Generalized route context; no exact GPS or health data is included.",
+      "recovery_note": "routine approved effort; no sealed health data shown"
     },
     {
       "id": "run-004",
@@ -59,7 +71,11 @@
       "notes": "A clean run to close the laptop chapter of the day.",
       "review_status": "approved",
       "source": "sample import",
-      "week": "2026-W11"
+      "week": "2026-W11",
+      "route_visual": "/public_assets/runneros/route-river-loop.svg",
+      "route_visual_alt": "Synthetic generalized route visual for After Work Miles",
+      "context_snippet": "Generalized route context; no exact GPS or health data is included.",
+      "recovery_note": "routine approved effort; no sealed health data shown"
     },
     {
       "id": "run-005",
@@ -73,7 +89,11 @@
       "notes": "Longest training run so far. Slow, warm, and useful.",
       "review_status": "approved",
       "source": "sample import",
-      "week": "2026-W11"
+      "week": "2026-W11",
+      "route_visual": "/public_assets/runneros/route-river-loop.svg",
+      "route_visual_alt": "Synthetic generalized route visual for Long Slow Bloom",
+      "context_snippet": "Generalized route context; no exact GPS or health data is included.",
+      "recovery_note": "next day marked recovery-friendly in sample memory"
     },
     {
       "id": "run-006",
@@ -87,7 +107,11 @@
       "notes": "Middle miles clicked. Saved the last gear.",
       "review_status": "approved",
       "source": "sample import",
-      "week": "2026-W12"
+      "week": "2026-W12",
+      "route_visual": "/public_assets/runneros/route-river-loop.svg",
+      "route_visual_alt": "Synthetic generalized route visual for Tempo Check",
+      "context_snippet": "Generalized route context; no exact GPS or health data is included.",
+      "recovery_note": "routine approved effort; no sealed health data shown"
     },
     {
       "id": "run-007",
@@ -101,7 +125,11 @@
       "notes": "Short recovery. Let the legs talk quietly.",
       "review_status": "approved",
       "source": "sample import",
-      "week": "2026-W12"
+      "week": "2026-W12",
+      "route_visual": "/public_assets/runneros/route-river-loop.svg",
+      "route_visual_alt": "Synthetic generalized route visual for Rainy Recovery",
+      "context_snippet": "Generalized route context; no exact GPS or health data is included.",
+      "recovery_note": "routine approved effort; no sealed health data shown"
     },
     {
       "id": "run-008",
@@ -115,7 +143,11 @@
       "notes": "Settled into the rhythm early. Finished feeling intact.",
       "review_status": "approved",
       "source": "sample import",
-      "week": "2026-W13"
+      "week": "2026-W13",
+      "route_visual": "/public_assets/runneros/route-river-loop.svg",
+      "route_visual_alt": "Synthetic generalized route visual for Sunday Steady",
+      "context_snippet": "Generalized route context; no exact GPS or health data is included.",
+      "recovery_note": "routine approved effort; no sealed health data shown"
     },
     {
       "id": "run-009",
@@ -129,7 +161,11 @@
       "notes": "Just enough to stay loose.",
       "review_status": "approved",
       "source": "sample import",
-      "week": "2026-W13"
+      "week": "2026-W13",
+      "route_visual": "/public_assets/runneros/route-river-loop.svg",
+      "route_visual_alt": "Synthetic generalized route visual for Short Shakeout",
+      "context_snippet": "Generalized route context; no exact GPS or health data is included.",
+      "recovery_note": "routine approved effort; no sealed health data shown"
     },
     {
       "id": "run-010",
@@ -143,21 +179,29 @@
       "notes": "Started soft, finished strong. Good confidence builder.",
       "review_status": "approved",
       "source": "sample import",
-      "week": "2026-W14"
+      "week": "2026-W14",
+      "route_visual": "/public_assets/runneros/route-river-loop.svg",
+      "route_visual_alt": "Synthetic generalized route visual for Park Progression",
+      "context_snippet": "Generalized route context; no exact GPS or health data is included.",
+      "recovery_note": "routine approved effort; no sealed health data shown"
     },
     {
       "id": "run-011",
       "title": "Easy Four",
       "date": "2026-04-03",
       "type": "training",
-      "distance_miles": 4.0,
+      "distance_miles": 4,
       "duration": "00:39:36",
       "pace": "9:54",
       "elevation_ft": 58,
       "notes": "Unremarkable in the best way.",
       "review_status": "approved",
       "source": "sample import",
-      "week": "2026-W14"
+      "week": "2026-W14",
+      "route_visual": "/public_assets/runneros/route-river-loop.svg",
+      "route_visual_alt": "Synthetic generalized route visual for Easy Four",
+      "context_snippet": "Generalized route context; no exact GPS or health data is included.",
+      "recovery_note": "routine approved effort; no sealed health data shown"
     },
     {
       "id": "run-012",
@@ -171,7 +215,11 @@
       "notes": "Kept it clean. Nothing to prove today.",
       "review_status": "approved",
       "source": "sample import",
-      "week": "2026-W15"
+      "week": "2026-W15",
+      "route_visual": "/public_assets/runneros/route-river-loop.svg",
+      "route_visual_alt": "Synthetic generalized route visual for Pre-Race Float",
+      "context_snippet": "Generalized route context; no exact GPS or health data is included.",
+      "recovery_note": "routine approved effort; no sealed health data shown"
     },
     {
       "id": "race-001",
@@ -185,7 +233,11 @@
       "notes": "Race day record. Strong second half and calm finish.",
       "review_status": "approved",
       "source": "sample race result",
-      "week": "2026-W15"
+      "week": "2026-W15",
+      "route_visual": "/public_assets/runneros/race-summary.svg",
+      "route_visual_alt": "Synthetic race summary visual for Brooklyn Half",
+      "context_snippet": "Race summary is synthetic; exact course trace and health metrics are not shown.",
+      "recovery_note": "next day marked recovery-friendly in sample memory"
     },
     {
       "id": "pending-001",
@@ -199,7 +251,11 @@
       "notes": "Imported from sample file. Needs human review before totals.",
       "review_status": "pending",
       "source": "sample pending import",
-      "week": "2026-W16"
+      "week": "2026-W16",
+      "route_visual": "/public_assets/runneros/route-river-loop.svg",
+      "route_visual_alt": "Synthetic generalized route visual for Imported Evening Run",
+      "context_snippet": "Generalized route context; no exact GPS or health data is included.",
+      "recovery_note": "routine approved effort; no sealed health data shown"
     },
     {
       "id": "pending-002",
@@ -213,7 +269,34 @@
       "notes": "Possible duplicate against a watch export. Hold for review.",
       "review_status": "pending",
       "source": "sample pending import",
-      "week": "2026-W16"
+      "week": "2026-W16",
+      "route_visual": "/public_assets/runneros/route-river-loop.svg",
+      "route_visual_alt": "Synthetic generalized route visual for Imported Long Run",
+      "context_snippet": "Generalized route context; no exact GPS or health data is included.",
+      "recovery_note": "next day marked recovery-friendly in sample memory"
+    }
+  ],
+  "artifacts": [
+    {
+      "title": "Generalized route visual",
+      "classification": "Synthetic route artifact",
+      "image": "/public_assets/runneros/route-river-loop.svg",
+      "image_alt": "Synthetic generalized route visual with exact GPS withheld",
+      "summary": "Shows route context without exact GPS or private activity source data."
+    },
+    {
+      "title": "Split card",
+      "classification": "Synthetic split card",
+      "image": "/public_assets/runneros/split-card.svg",
+      "image_alt": "Synthetic approved run split card",
+      "summary": "A small approved-run artifact that makes the memory record inspectable."
+    },
+    {
+      "title": "Recovery context",
+      "classification": "Synthetic readiness artifact",
+      "image": "/public_assets/runneros/recovery-card.svg",
+      "image_alt": "Synthetic recovery readiness note",
+      "summary": "Health data remains sealed; readiness is shown as generic sample context only."
     }
   ]
 }

@@ -58,13 +58,13 @@ function renderBoard() {
   board.innerHTML = assets.map((asset) => `
     <article class="asset-card" style="--asset-color: ${asset.color}; --asset-accent: ${asset.accent}">
       <div class="asset-art">
-        <span class="asset-kind">${asset.kind}</span>
-        <span class="asset-glyph">${glyphs[asset.kind] || "ARC"}</span>
+        <img src="${asset.preview}" alt="${asset.preview_alt}" loading="lazy">
       </div>
       <div class="asset-body">
         <div>
           <h3>${asset.title}</h3>
           <p>${asset.memory}</p>
+          <p class="artifact-caption">${asset.custody_note}</p>
         </div>
         <div class="asset-meta">
           <span class="pill ${statusClass(asset.status)}">${asset.status}</span>
@@ -86,6 +86,19 @@ function renderBoard() {
   if (!assets.length) {
     board.innerHTML = `<p class="empty">No sample assets matched this recall search.</p>`;
   }
+}
+
+function renderArtifacts() {
+  const holder = document.getElementById("archive-artifacts");
+  if (!holder) return;
+  holder.innerHTML = state.data.artifacts.map((artifact) => `
+    <article class="artifact-card">
+      <img src="${artifact.image}" alt="${artifact.image_alt}" loading="lazy">
+      <div class="artifact-meta"><span>${artifact.classification}</span></div>
+      <h3>${artifact.title}</h3>
+      <p>${artifact.summary}</p>
+    </article>
+  `).join("");
 }
 
 function renderQueue() {
@@ -229,6 +242,7 @@ function bindEvents() {
 
 function renderAll() {
   renderMetrics();
+  renderArtifacts();
   renderBoard();
   renderQueue();
   renderPreflight();

@@ -3,7 +3,30 @@
     "name": "Revenue Desk Demo",
     "parent": "BackOfHouseOS / TCO",
     "mode": "public-safe static demo",
-    "disclaimer": "This demo uses sample data. It does not contain private, client, employer, or production information."
+    "disclaimer": "This demo uses sample data. It does not contain private, client, employer, or production information.",
+    "lineage_note": {
+      "label": "Sanitized from original Revenue Desk demo lineage",
+      "source": "preserved private Revenue Desk lineage reviewed locally; raw source not bundled",
+      "extracted_structure": [
+        "RFP intake",
+        "structured fields",
+        "bid package review",
+        "approval receipt",
+        "scoreboard cadence"
+      ],
+      "sanitized": [
+        "organization and client names",
+        "private source language",
+        "internal URLs",
+        "real pricing context"
+      ],
+      "not_exposed": [
+        "raw screenshots",
+        "source manifests",
+        "employer/client artifacts",
+        "internal workflow details"
+      ]
+    }
   },
   "metrics": {
     "incoming_rfps": 5,
@@ -21,15 +44,42 @@
       "deal_value": "$420,000",
       "due_date": "2026-05-14",
       "vertical": "Consumer Goods",
-      "requested_assets": ["streaming sponsorship", "social extensions", "measurement recap"],
+      "requested_assets": [
+        "streaming sponsorship",
+        "social extensions",
+        "measurement recap"
+      ],
       "intake_status": "structured",
       "review_status": "approved",
       "owner": "Proposal Operator",
       "checklist_score": 94,
-      "reuse_candidates": ["Q3 launch brief", "measurement language", "brand safety response"],
+      "reuse_candidates": [
+        "Q3 launch brief",
+        "measurement language",
+        "brand safety response"
+      ],
       "missing_fields": [],
       "generated_brief_summary": "A reviewed sponsorship opportunity with clear deliverables, due date, reusable proof language, and response-ready sections.",
-      "timeline": ["source received", "fields extracted", "checklist passed", "brief approved"]
+      "timeline": [
+        "source received",
+        "fields extracted",
+        "checklist passed",
+        "brief approved"
+      ],
+      "lineage_classification": "Synthetic sample based on original demo structure",
+      "artifact_image": "/public_assets/revenue_desk/receipt-sample.svg",
+      "source_excerpt": "Request for a Q4 partner package with streaming, social extension, and measurement recap requirements.",
+      "structured_fields": [
+        "goal: sponsor a seasonal streaming package",
+        "deliverables: sponsorship, social, recap",
+        "risk: measurement language needs reuse check"
+      ],
+      "draft_brief_fragments": [
+        "Lead with audience fit and proven recap structure.",
+        "Attach measurement language from approved prior packet.",
+        "Keep response path gated until final human review."
+      ],
+      "review_state": "approved sample - response direction reviewed"
     },
     {
       "id": "opp-002",
@@ -38,15 +88,43 @@
       "deal_value": "$185,000",
       "due_date": "2026-05-08",
       "vertical": "Retail",
-      "requested_assets": ["regional media plan", "event presence", "recap deck"],
+      "requested_assets": [
+        "regional media plan",
+        "event presence",
+        "recap deck"
+      ],
       "intake_status": "needs fields",
       "review_status": "pending review",
       "owner": "Sales Strategy Team",
       "checklist_score": 72,
-      "reuse_candidates": ["regional activation checklist", "event staffing note"],
-      "missing_fields": ["final market list", "approval contact"],
+      "reuse_candidates": [
+        "regional activation checklist",
+        "event staffing note"
+      ],
+      "missing_fields": [
+        "final market list",
+        "approval contact"
+      ],
       "generated_brief_summary": "A promising activation request with strong source material, pending final market and approval-owner confirmation.",
-      "timeline": ["source received", "fields extracted", "missing fields flagged"]
+      "timeline": [
+        "source received",
+        "fields extracted",
+        "missing fields flagged"
+      ],
+      "lineage_classification": "Synthetic sample based on original demo structure",
+      "artifact_image": "/public_assets/revenue_desk/receipt-sample.svg",
+      "source_excerpt": "Regional activation request with market list and approval contact still unresolved.",
+      "structured_fields": [
+        "goal: regional sports activation",
+        "deliverables: media plan, event presence, recap",
+        "risk: final market list missing"
+      ],
+      "draft_brief_fragments": [
+        "Hold final package until market list arrives.",
+        "Use event staffing note as reusable response logic.",
+        "Route approval contact gap to review queue."
+      ],
+      "review_state": "pending review - missing fields visible"
     },
     {
       "id": "opp-003",
@@ -55,15 +133,42 @@
       "deal_value": "$260,000",
       "due_date": "2026-05-21",
       "vertical": "Entertainment",
-      "requested_assets": ["media plan", "audience rationale", "creative options"],
+      "requested_assets": [
+        "media plan",
+        "audience rationale",
+        "creative options"
+      ],
       "intake_status": "structured",
       "review_status": "approved",
       "owner": "GTM Team",
       "checklist_score": 88,
-      "reuse_candidates": ["launch plan outline", "audience positioning", "creative menu"],
+      "reuse_candidates": [
+        "launch plan outline",
+        "audience positioning",
+        "creative menu"
+      ],
       "missing_fields": [],
       "generated_brief_summary": "A launch campaign request converted into a clean response brief with reusable audience and creative modules.",
-      "timeline": ["source received", "fields extracted", "review notes added", "brief approved"]
+      "timeline": [
+        "source received",
+        "fields extracted",
+        "review notes added",
+        "brief approved"
+      ],
+      "lineage_classification": "Synthetic sample based on original demo structure",
+      "artifact_image": "/public_assets/revenue_desk/receipt-sample.svg",
+      "source_excerpt": "Launch campaign brief asking for media plan, audience rationale, and creative options.",
+      "structured_fields": [
+        "goal: launch media plan",
+        "deliverables: plan, rationale, creative options",
+        "risk: audience positioning must be checked"
+      ],
+      "draft_brief_fragments": [
+        "Use approved launch outline as spine.",
+        "Keep creative menu modular.",
+        "Reviewer confirmed no required fields missing."
+      ],
+      "review_state": "approved sample - reusable modules attached"
     },
     {
       "id": "opp-004",
@@ -72,15 +177,43 @@
       "deal_value": "$310,000",
       "due_date": "2026-05-29",
       "vertical": "Health and Fitness",
-      "requested_assets": ["partnership overview", "talent options", "performance forecast"],
+      "requested_assets": [
+        "partnership overview",
+        "talent options",
+        "performance forecast"
+      ],
       "intake_status": "draft record",
       "review_status": "pending review",
       "owner": "Revenue Team",
       "checklist_score": 66,
-      "reuse_candidates": ["partnership proposal shell"],
-      "missing_fields": ["audience target", "forecast assumptions", "legal constraint notes"],
+      "reuse_candidates": [
+        "partnership proposal shell"
+      ],
+      "missing_fields": [
+        "audience target",
+        "forecast assumptions",
+        "legal constraint notes"
+      ],
       "generated_brief_summary": "A draft partnership request that needs audience, forecast, and constraint review before response work begins.",
-      "timeline": ["source received", "draft created", "review required"]
+      "timeline": [
+        "source received",
+        "draft created",
+        "review required"
+      ],
+      "lineage_classification": "Synthetic sample based on original demo structure",
+      "artifact_image": "/public_assets/revenue_desk/receipt-sample.svg",
+      "source_excerpt": "Partnership proposal request with forecast assumptions and constraints still unconfirmed.",
+      "structured_fields": [
+        "goal: partnership proposal",
+        "deliverables: overview, talent options, forecast",
+        "risk: forecast assumptions not reviewed"
+      ],
+      "draft_brief_fragments": [
+        "Do not write forecast copy until assumptions clear.",
+        "Flag audience target as open.",
+        "Hold legal constraints for human review."
+      ],
+      "review_state": "pending review - response work blocked"
     },
     {
       "id": "opp-005",
@@ -89,15 +222,44 @@
       "deal_value": "$145,000",
       "due_date": "2026-06-03",
       "vertical": "Food and Beverage",
-      "requested_assets": ["sponsorship package", "on-site activation", "post-event report"],
+      "requested_assets": [
+        "sponsorship package",
+        "on-site activation",
+        "post-event report"
+      ],
       "intake_status": "structured",
       "review_status": "ready for approval",
       "owner": "Governance Admin",
       "checklist_score": 81,
-      "reuse_candidates": ["event recap template", "activation checklist", "sponsorship package outline"],
-      "missing_fields": ["final budget approval"],
+      "reuse_candidates": [
+        "event recap template",
+        "activation checklist",
+        "sponsorship package outline"
+      ],
+      "missing_fields": [
+        "final budget approval"
+      ],
       "generated_brief_summary": "An event sponsorship RFP with most required fields complete and one budget approval item pending.",
-      "timeline": ["source received", "fields extracted", "checklist reviewed", "approval pending"]
+      "timeline": [
+        "source received",
+        "fields extracted",
+        "checklist reviewed",
+        "approval pending"
+      ],
+      "lineage_classification": "Synthetic sample based on original demo structure",
+      "artifact_image": "/public_assets/revenue_desk/receipt-sample.svg",
+      "source_excerpt": "Event sponsorship RFP mostly complete, with budget approval still pending.",
+      "structured_fields": [
+        "goal: event sponsorship package",
+        "deliverables: onsite activation, report",
+        "risk: final budget approval needed"
+      ],
+      "draft_brief_fragments": [
+        "Use activation checklist for package shape.",
+        "Prepare recap language but hold delivery.",
+        "One approval item remains before final packet."
+      ],
+      "review_state": "ready for approval - one blocker remains"
     }
   ],
   "governance": [
@@ -106,5 +268,35 @@
     "Audit log for status changes",
     "No autonomous submission",
     "Synthetic public demo data only"
+  ],
+  "artifacts": [
+    {
+      "title": "Intake thread",
+      "classification": "Sanitized from original demo structure",
+      "image": "/public_assets/revenue_desk/intake-thread.svg",
+      "image_alt": "Synthetic RFP intake thread preview sanitized from original workflow structure",
+      "summary": "Long-form request reduced to goals, due date, deliverables, risks, and owner."
+    },
+    {
+      "title": "Structured fields",
+      "classification": "Synthetic sample based on lineage",
+      "image": "/public_assets/revenue_desk/structured-fields.svg",
+      "image_alt": "Synthetic structured opportunity field preview",
+      "summary": "Field extraction shows reviewable values without exposing private RFP language."
+    },
+    {
+      "title": "Draft brief fragment",
+      "classification": "Synthetic draft only",
+      "image": "/public_assets/revenue_desk/draft-brief.svg",
+      "image_alt": "Synthetic draft brief fragment preview",
+      "summary": "Draft response sections stay marked draft until a human approves direction."
+    },
+    {
+      "title": "Approval ticket",
+      "classification": "Synthetic review state",
+      "image": "/public_assets/revenue_desk/review-ticket.svg",
+      "image_alt": "Synthetic approval ticket preview",
+      "summary": "Review gate records verdict and blocks autonomous submission."
+    }
   ]
 }
