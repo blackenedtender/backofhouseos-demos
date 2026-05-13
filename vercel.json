@@ -1,6 +1,20 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/demos/revenue-desk-demo",        "destination": "/revenuedeskos",        "statusCode": 308 },
+    { "source": "/demos/revenue-desk-demo/:path*", "destination": "/revenuedeskos/:path*", "statusCode": 308 },
+    { "source": "/demos/archiveos-demo",           "destination": "/archiveos",            "statusCode": 308 },
+    { "source": "/demos/archiveos-demo/:path*",    "destination": "/archiveos/:path*",     "statusCode": 308 },
+    { "source": "/demos/church-os-demo",           "destination": "/churchos",             "statusCode": 308 },
+    { "source": "/demos/church-os-demo/:path*",    "destination": "/churchos/:path*",      "statusCode": 308 },
+    { "source": "/demos/inventory-os-demo",        "destination": "/inventoryos",          "statusCode": 308 },
+    { "source": "/demos/inventory-os-demo/:path*", "destination": "/inventoryos/:path*",   "statusCode": 308 },
+    { "source": "/demos/runneros-demo",            "destination": "/runneros",             "statusCode": 308 },
+    { "source": "/demos/runneros-demo/:path*",     "destination": "/runneros/:path*",      "statusCode": 308 },
+    { "source": "/demos/cookbook-os-demo",         "destination": "/cookbookos",           "statusCode": 308 },
+    { "source": "/demos/cookbook-os-demo/:path*",  "destination": "/cookbookos/:path*",    "statusCode": 308 }
+  ],
   "rewrites": [
     { "source": "/revenuedeskos",          "destination": "/demos/revenue-desk-demo" },
     { "source": "/revenuedeskos/:path*",   "destination": "/demos/revenue-desk-demo/:path*" },

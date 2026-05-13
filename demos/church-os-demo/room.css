@@ -167,6 +167,19 @@ body.boh-room .room-back-arrow {
   font-size: 0.92rem;
 }
 
+/* On legacy / non-canonical deploys, make the canonical pointer visible
+   but restrained — accent-colored label so the visitor sees demos.philbap.com. */
+body.boh-room .room-back.is-canonical-pointer {
+  color: var(--accent);
+}
+
+body.boh-room .room-back.is-canonical-pointer:hover,
+body.boh-room .room-back.is-canonical-pointer:focus-visible {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
 body.boh-room .room-identity,
 body.boh-room .brand {
   display: inline-flex;

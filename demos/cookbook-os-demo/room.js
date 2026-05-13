@@ -41,8 +41,17 @@
     back.className = "room-back";
     const onCanonical = /(^|\.)philbap\.com$/i.test(location.hostname);
     back.href = onCanonical ? "/" : "https://demos.philbap.com/";
-    back.setAttribute("aria-label", "Back to TCO Demo Studio");
-    back.innerHTML = '<span class="room-back-arrow" aria-hidden="true">←</span><span class="room-back-label">Demo Studio</span>';
+    if (!onCanonical) back.classList.add("is-canonical-pointer");
+    back.setAttribute(
+      "aria-label",
+      onCanonical
+        ? "Back to the Demo Gallery"
+        : "Open canonical site demos.philbap.com"
+    );
+    const label = onCanonical ? "Demo Gallery" : "demos.philbap.com";
+    back.innerHTML =
+      '<span class="room-back-arrow" aria-hidden="true">←</span>' +
+      '<span class="room-back-label">' + label + '</span>';
     target.insertAdjacentElement("afterbegin", back);
   }
 
