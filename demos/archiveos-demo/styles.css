@@ -76,3 +76,93 @@ body.boh-room .preflight {
   align-content: start;
   gap: 12px;
 }
+
+/* ===== Card header — kind label + status pill ===== */
+body.boh-room .asset-card .asset-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 0 2px;
+}
+
+body.boh-room .asset-card .asset-kind {
+  color: var(--dim);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+body.boh-room .asset-card h3 {
+  margin: 0;
+  color: var(--paper);
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: -0.008em;
+}
+
+body.boh-room .asset-card .asset-memory {
+  margin: 4px 0 0;
+  color: var(--ink);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+body.boh-room .asset-card .asset-recall {
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.02em;
+}
+
+body.boh-room .asset-card .card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 22px;
+  margin-top: 8px;
+}
+
+body.boh-room .asset-card .asset-body {
+  display: grid;
+  gap: 6px;
+}
+
+/* Queue items lighter */
+body.boh-room .queue .queue-item {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+body.boh-room .queue .queue-item:last-child {
+  border-bottom: 0;
+}
+
+body.boh-room .queue .queue-item strong {
+  color: var(--paper);
+  font-family: var(--font-ui);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+body.boh-room .queue .queue-item span {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+}
+
+body.boh-room .empty-line {
+  margin: 8px 0;
+  color: var(--dim);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+}

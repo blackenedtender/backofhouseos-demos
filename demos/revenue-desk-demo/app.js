@@ -104,6 +104,62 @@ function renderOpportunities() {
   }).join("");
 }
 
+function setFlowStep(step) {
+  const stepEls = document.querySelectorAll(".flow-step");
+  stepEls.forEach((el) => {
+    const n = Number(el.dataset.step);
+    el.classList.toggle("is-active", n === step);
+    el.classList.toggle("is-passed", n < step);
+  });
+}
+
+function renderFlowPanels(opportunity) {
+  const sourceEl = document.getElementById("flow-source");
+  if (sourceEl) sourceEl.textContent = opportunity.source_excerpt;
+
+  const structuredEl = document.getElementById("flow-structured");
+  if (structuredEl) {
+    structuredEl.innerHTML = opportunity.structured_fields
+      .map((field) => `<li>${escapeHtml(field)}</li>`)
+      .join("");
+  }
+
+  const blockerStateEl = document.getElementById("flow-blocker-state");
+  const blockersEl = document.getElementById("flow-blockers");
+  if (blockerStateEl && blockersEl) {
+    const missing = opportunity.missing_fields || [];
+    if (missing.length === 0) {
+      blockerStateEl.textContent = "No blockers · final approval only.";
+      blockerStateEl.className = "panel-body flow-blocker-state is-clear";
+      blockersEl.innerHTML = "";
+    } else {
+      blockerStateEl.textContent = missing.length + " blocker" + (missing.length === 1 ? "" : "s") + " on this record.";
+      blockerStateEl.className = "panel-body flow-blocker-state is-blocked";
+      blockersEl.innerHTML = missing
+        .map((item) => `<li>${escapeHtml(item)}</li>`)
+        .join("");
+    }
+  }
+
+  const draftEl = document.getElementById("flow-draft");
+  if (draftEl) {
+    draftEl.innerHTML =
+      `<p class="draft-summary">${escapeHtml(opportunity.generated_brief_summary)}</p>` +
+      `<ul class="panel-list">` +
+      opportunity.draft_brief_fragments.map((f) => `<li>${escapeHtml(f)}</li>`).join("") +
+      `</ul>`;
+    delete draftEl.dataset.generated;
+  }
+
+  const saveState = document.getElementById("save-state");
+  if (saveState) {
+    saveState.hidden = true;
+    delete saveState.dataset.saved;
+  }
+
+  setFlowStep(opportunity.missing_fields && opportunity.missing_fields.length ? 3 : 2);
+}
+
 function renderRecord(opportunity) {
   state.selected = opportunity;
   state.featured = opportunity.id;
@@ -147,20 +203,23 @@ function renderRecord(opportunity) {
       .join("");
   }
 
-  const rfp = document.getElementById("rfp-text");
-  if (rfp) rfp.value = rfpText(opportunity);
-
+  renderFlowPanels(opportunity);
   renderSampleButtons();
   renderOpportunities();
 }
 
 function renderSampleButtons() {
   const holder = document.getElementById("sample-buttons");
-  holder.innerHTML = state.data.opportunities.map((opportunity) => `
-    <button type="button" data-sample="${opportunity.id}" aria-pressed="${state.selected?.id === opportunity.id}">
-      ${opportunity.opportunity_name}
-    </button>
-  `).join("");
+  if (!holder) return;
+  holder.innerHTML = state.data.opportunities.map((opportunity) => {
+    const active = state.selected && state.selected.id === opportunity.id;
+    return `
+      <button type="button" class="flow-chip ${active ? "is-active" : ""}" data-sample="${opportunity.id}" aria-pressed="${active ? "true" : "false"}" role="tab">
+        <span class="flow-chip-client">${escapeHtml(opportunity.client_name)}</span>
+        <span class="flow-chip-name">${escapeHtml(opportunity.opportunity_name)}</span>
+      </button>
+    `;
+  }).join("");
 }
 
 function renderArtifacts() {
@@ -223,18 +282,23 @@ function renderReviewQueue() {
 
 function generateSummary() {
   const opportunity = state.selected || state.data.opportunities[0];
-  const missing = opportunity.missing_fields.length
-    ? `Missing fields: ${opportunity.missing_fields.join(", ")}.`
-    : "No required fields are missing.";
+  const missing = opportunity.missing_fields && opportunity.missing_fields.length
+    ? `<p class="draft-note">Open blockers: ${escapeHtml(opportunity.missing_fields.join(", "))}.</p>`
+    : `<p class="draft-note">No blockers — ready for final approval.</p>`;
 
-  const output = document.getElementById("draft-output");
-  delete output.dataset.saved;
-  output.innerHTML = `
-    <strong>${opportunity.opportunity_name}</strong><br>
-    ${opportunity.generated_brief_summary}<br><br>
-    Owner: ${opportunity.owner}. Checklist: ${opportunity.checklist_score}%. ${missing}<br><br>
-    <em>Synthetic draft only. Nothing is submitted or sent.</em>
-  `;
+  const draftEl = document.getElementById("flow-draft");
+  if (draftEl) {
+    draftEl.innerHTML =
+      `<p class="draft-title">${escapeHtml(opportunity.opportunity_name)}</p>` +
+      `<p class="draft-summary">${escapeHtml(opportunity.generated_brief_summary)}</p>` +
+      `<ul class="panel-list">` +
+      opportunity.draft_brief_fragments.map((f) => `<li>${escapeHtml(f)}</li>`).join("") +
+      `</ul>` +
+      missing +
+      `<p class="draft-foot">Synthetic draft only. Nothing is submitted or sent.</p>`;
+    draftEl.dataset.generated = "true";
+  }
+  setFlowStep(4);
 }
 
 function bindEvents() {
@@ -275,13 +339,15 @@ function bindEvents() {
 
   document.getElementById("generate-summary").addEventListener("click", generateSummary);
   document.getElementById("save-project").addEventListener("click", () => {
-    const output = document.getElementById("draft-output");
-    if (!output.dataset.saved) {
-      output.innerHTML += "<br><br><strong>Saved as a sample record in this browser session only.</strong>";
-      output.dataset.saved = "true";
+    const saveState = document.getElementById("save-state");
+    if (!saveState) return;
+    if (!saveState.dataset.saved) {
+      saveState.textContent = "Sample saved locally for this demo session.";
+      saveState.hidden = false;
+      saveState.dataset.saved = "true";
       return;
     }
-    output.querySelector("strong:last-child").textContent = "Sample record already saved in this browser session.";
+    saveState.textContent = "Sample already saved in this browser session.";
   });
 }
 
@@ -294,7 +360,6 @@ function renderAll() {
   renderGovernance();
   renderReviewQueue();
   renderRecord(state.data.opportunities[0]);
-  generateSummary();
 }
 
 loadData()

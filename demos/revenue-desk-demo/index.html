@@ -126,32 +126,63 @@
 
         <section class="opportunity-grid" id="opportunity-grid" aria-live="polite"></section>
 
-        <section class="split" id="review">
-          <article class="panel intake-shell">
+        <section class="intake-flow" id="review" aria-label="Intake workflow demo">
+          <header class="flow-head">
             <p class="eyebrow">Intake demo</p>
-            <h2>Turn a request into a draft brief.</h2>
-            <div class="sample-buttons" id="sample-buttons"></div>
-            <label class="textarea-label">
-              <span>Sample source request</span>
-              <textarea id="rfp-text" aria-label="Sample RFP input"></textarea>
-            </label>
-            <div class="action-row">
-              <button class="primary-action" id="generate-summary" type="button">Generate sample draft</button>
-              <button class="primary-action secondary" id="save-project" type="button">Save sample record</button>
-            </div>
-            <div class="draft-output" id="draft-output">Pick an example to populate the draft brief.</div>
-          </article>
+            <h2>Watch a request become a reviewable draft.</h2>
+            <p class="flow-disclaimer">Synthetic demo only. Nothing is submitted or sent.</p>
+          </header>
 
-          <article class="panel">
-            <p class="eyebrow">Review queue</p>
-            <h2>Pending records stay visible.</h2>
-            <p class="muted">Records that need fields or approval stay in review instead of becoming trusted workflow history.</p>
-            <div class="review-queue" id="review-queue"></div>
-            <div class="pending-note">
-              <span>Pending reviews</span>
-              <strong id="pending-reviews">0</strong>
-            </div>
-          </article>
+          <ol class="flow-steps" id="flow-steps" aria-label="Workflow stages">
+            <li class="flow-step is-active" data-step="1"><span class="flow-num">01</span><span class="flow-label">Select request</span></li>
+            <li class="flow-step" data-step="2"><span class="flow-num">02</span><span class="flow-label">Structure fields</span></li>
+            <li class="flow-step" data-step="3"><span class="flow-num">03</span><span class="flow-label">Review blockers</span></li>
+            <li class="flow-step" data-step="4"><span class="flow-num">04</span><span class="flow-label">Draft brief</span></li>
+          </ol>
+
+          <div class="flow-chips" id="sample-buttons" role="tablist" aria-label="Sample requests"></div>
+
+          <div class="flow-panels">
+            <article class="flow-panel" data-panel="source">
+              <header>
+                <span class="panel-num">01</span>
+                <h3>Source request</h3>
+              </header>
+              <p class="panel-body flow-source" id="flow-source">Pick a request to see the preserved source excerpt.</p>
+            </article>
+
+            <article class="flow-panel" data-panel="structured">
+              <header>
+                <span class="panel-num">02</span>
+                <h3>Extracted record</h3>
+              </header>
+              <ul class="panel-body panel-list" id="flow-structured" aria-live="polite"></ul>
+            </article>
+
+            <article class="flow-panel" data-panel="blockers">
+              <header>
+                <span class="panel-num">03</span>
+                <h3>Review blockers</h3>
+              </header>
+              <p class="panel-body flow-blocker-state" id="flow-blocker-state">—</p>
+              <ul class="panel-body panel-list" id="flow-blockers" aria-live="polite"></ul>
+            </article>
+
+            <article class="flow-panel" data-panel="draft">
+              <header>
+                <span class="panel-num">04</span>
+                <h3>Draft brief</h3>
+              </header>
+              <div class="panel-body flow-draft" id="flow-draft">Pick a request to see the draft preview.</div>
+            </article>
+          </div>
+
+          <div class="flow-actions">
+            <button class="primary-action" id="generate-summary" type="button">Generate sample draft</button>
+            <button class="primary-action secondary" id="save-project" type="button">Save sample record</button>
+            <span class="flow-save-state" id="save-state" hidden>Sample saved locally for this demo session.</span>
+          </div>
+          <p class="flow-foot">No backend. No network calls. State stays in your browser.</p>
         </section>
 
         <section class="deal-record" id="record">

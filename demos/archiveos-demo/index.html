@@ -44,24 +44,23 @@
       <main>
         <section class="hero" id="home">
           <div class="hero-copy">
-            <p class="eyebrow">Preservation, review, recall</p>
-            <h1>Source preserved. Truth reviewed.</h1>
-            <p class="room-state is-live"><span class="state-tag">LIVE</span><span class="state-sep" aria-hidden="true">·</span><span class="state-data">Synthetic sample</span><span class="state-detail">7 assets, a four-version resolver modal, preflight checks, and an export report.</span></p>
+            <p class="eyebrow">Find. Group. Recall.</p>
+            <h1>Locate files you remember by what you remember.</h1>
+            <p class="room-state is-live"><span class="state-tag">LIVE</span><span class="state-sep" aria-hidden="true">·</span><span class="state-data">Synthetic sample</span><span class="state-detail">7 assets, a four-version resolver, a curated collection, preflight, and an export report.</span></p>
 <p class="lede">
-              Original source material stays intact while structure, review state, and recall
-              become usable. Originals stay untouched; approved copies move forward.
+              Search messy files by memory. Group similar versions. Curate a collection. Review before export.
             </p>
             <div class="action-row" aria-label="Primary demo actions">
-              <a class="button primary" href="#board">Search recall</a>
-              <a class="button" href="#export">Export report</a>
+              <a class="button primary" href="#board">Search files</a>
+              <a class="button" href="#set">Open collection</a>
             </div>
           </div>
-          <aside class="loop-card" aria-label="ArchiveOS product loop">
-            <div>Preservation loop</div>
-            <div class="loop-step active">Scan messy sources</div>
-            <div class="loop-step">Index and recall</div>
-            <div class="loop-step">Review versions</div>
-            <div class="loop-step">Approve sets</div>
+          <aside class="loop-card" aria-label="ArchiveOS workflow">
+            <div>Workflow</div>
+            <div class="loop-step active">Scan files</div>
+            <div class="loop-step">Index and group</div>
+            <div class="loop-step">Compare versions</div>
+            <div class="loop-step">Curate collection</div>
             <div class="loop-step">Export copies</div>
           </aside>
         </section>
@@ -89,11 +88,11 @@
 
         <section class="section-header" id="board">
           <div>
-            <p class="eyebrow">Visual memory board</p>
-            <h2>Search what you remember.</h2>
+            <p class="eyebrow">Recall</p>
+            <h2>Search the shelf.</h2>
           </div>
           <label class="search-box">
-            <span>Recall search</span>
+            <span>Search</span>
             <input id="search" type="search" placeholder="Try running, church, logo, receipt">
           </label>
         </section>
@@ -102,36 +101,32 @@
 
         <section class="split-section" id="set">
           <div class="panel">
-            <p class="eyebrow">Content set</p>
-            <h2>Publishing queue.</h2>
-            <p>
-              Selected assets move into a reviewable set before export. Private or unresolved
-              records stay blocked until a human approves them.
-            </p>
+            <p class="eyebrow">Collection</p>
+            <h2>What you've curated.</h2>
             <div id="queue" class="queue"></div>
           </div>
           <div class="panel preflight">
-            <p class="eyebrow">Safety preflight</p>
-            <h2>Approved copies only.</h2>
+            <p class="eyebrow">Pre-export</p>
+            <h2>Check before publish.</h2>
             <ul id="preflight-list"></ul>
-            <button class="button primary" id="run-preflight" type="button">Run preflight mock</button>
+            <button class="button primary" id="run-preflight" type="button">Run check</button>
           </div>
         </section>
 
         <section class="split-section" id="jobs">
           <div class="panel wide">
-            <p class="eyebrow">Process monitor</p>
-            <h2>Jobs stay visible.</h2>
+            <p class="eyebrow">Recent jobs</p>
+            <h2>Indexing and recall.</h2>
             <div id="jobs-list" class="jobs-list"></div>
           </div>
         </section>
 
         <section class="export-report" id="export">
           <div>
-            <p class="eyebrow">Export report mock</p>
-            <h2>Originals stay untouched.</h2>
+            <p class="eyebrow">Export report</p>
+            <h2>What goes out.</h2>
             <p id="export-rule">
-              Export creates approved copies only.
+              Originals untouched. Only approved copies leave.
             </p>
           </div>
           <div class="report-grid">
@@ -165,8 +160,8 @@
       </div>
 
       <footer class="footer">
-        <span>ArchiveOS demo uses synthetic sample data only.</span>
-        <span>No real files, drives, databases, local paths, or private previews are included.</span>
+        <span>Synthetic sample only.</span>
+        <span>No real files, drives, or private archive contents.</span>
       </footer>
     </div>
   </body>
