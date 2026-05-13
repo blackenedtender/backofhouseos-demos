@@ -376,8 +376,144 @@ h3 {
 }
 
 /* -------------------- Modules section -------------------- */
+/* -------------------- Honesty notice + what + featured -------------------- */
+.notice {
+  margin: 28px 0 0;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-left: 2px solid var(--gold);
+  background: rgba(184, 154, 100, 0.04);
+}
+
+.notice p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.94rem;
+  line-height: 1.55;
+}
+
+.notice strong {
+  color: var(--paper);
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  margin-right: 8px;
+  text-transform: uppercase;
+}
+
+.what-section {
+  padding: 56px 0 4px;
+}
+
+.what-section h2 { margin-bottom: 10px; }
+
+.what-section p {
+  max-width: 64ch;
+  margin: 0;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.featured-section {
+  padding: 64px 0 16px;
+}
+
+.featured-list {
+  display: grid;
+  gap: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+
+.featured-item {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) auto;
+  gap: 22px;
+  align-items: baseline;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.featured-rank {
+  color: var(--dim);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.featured-item h3 {
+  margin: 0 0 6px;
+  color: var(--paper);
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 2.2vw, 1.7rem);
+  font-weight: 500;
+  letter-spacing: -0.012em;
+}
+
+.featured-item h3 a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 220ms var(--ease), color 220ms var(--ease);
+}
+
+.featured-item h3 a:hover,
+.featured-item h3 a:focus-visible {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+  outline: none;
+}
+
+.featured-item p {
+  max-width: 64ch;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.featured-status {
+  align-self: start;
+  margin-top: 4px;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+/* -------------------- Module groups -------------------- */
+.module-group + .module-group {
+  margin-top: 32px;
+}
+
+.group-label {
+  margin: 0 0 6px;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: none;
+}
+
+.module-group[data-group="held"] .module-entry {
+  cursor: pointer;
+  opacity: 0.78;
+}
+
+.module-group[data-group="held"] .module-entry:hover,
+.module-group[data-group="held"] .module-entry.is-active {
+  opacity: 1;
+}
+
 .modules-section {
-  padding-top: 16px;
+  padding-top: 36px;
 }
 
 .section-heading {
@@ -453,6 +589,12 @@ h3 {
 
 .status-live .module-status,
 .preview-status.status-live      { color: var(--accent); }
+.status-snapshot .module-status,
+.preview-status.status-snapshot  { color: var(--gold); }
+.status-concept .module-status,
+.preview-status.status-concept   { color: var(--gold); }
+.status-held .module-status,
+.preview-status.status-held      { color: var(--dim); }
 .status-standby .module-status,
 .status-archive .module-status,
 .preview-status.status-standby,
@@ -898,8 +1040,30 @@ h3 {
 
   .hero-actions,
   .preview-actions { gap: 18px; margin-top: 24px; }
+
+  .notice { padding: 14px 14px; }
+  .notice strong { display: block; margin: 0 0 4px; }
+
+  .what-section { padding: 36px 0 0; }
+  .featured-section { padding: 40px 0 8px; }
+
+  .featured-item {
+    grid-template-columns: 36px minmax(0, 1fr);
+    gap: 4px 14px;
+    padding: 18px 0;
+  }
+  .featured-item h3 { font-size: 1.2rem; }
+  .featured-item p { font-size: 0.9rem; }
+  .featured-status {
+    grid-column: 1 / -1;
+    margin-top: 6px;
+    padding-left: 50px;
+  }
+
+  .module-group + .module-group { margin-top: 24px; }
 }
 
 @media (max-width: 420px) {
   h1 { font-size: clamp(1.75rem, 9vw, 2.4rem); }
+  .notice p { font-size: 0.9rem; }
 }

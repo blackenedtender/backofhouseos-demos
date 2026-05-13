@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="BackOfHouseOS — an operating system that turns messy work into preserved, reviewed, human-usable proof. Pick a module and watch the loop play through a public-safe example.">
-    <title>BackOfHouseOS — The Creative Origin</title>
+    <meta name="description" content="A public demo gallery from The Creative Origin. A few small workflow tools that turn messy inputs into reviewable records. Some demos are live, some are sanitized snapshots, some are held.">
+    <title>Demo Gallery — The Creative Origin</title>
     <link rel="icon" href="assets/tco-logo-web.png">
     <link rel="stylesheet" href="studio.css">
     <script src="studio.js" defer></script>
@@ -12,42 +12,63 @@
   <body>
     <div class="studio-shell">
       <header class="studio-header">
-        <a class="brand-lockup" href="#ingress" aria-label="BackOfHouseOS home">
+        <a class="brand-lockup" href="#ingress" aria-label="The Creative Origin demo gallery home">
           <span class="brand-mark">
             <img src="assets/tco-logo-web.png" alt="" aria-hidden="true">
           </span>
           <span>
             <strong>The Creative Origin</strong>
-            <small>BackOfHouseOS</small>
+            <small>Demo gallery</small>
           </span>
         </a>
-        <nav class="studio-nav" aria-label="Studio">
-          <a href="#modules">Modules</a>
-          <a href="#governance">Governance</a>
+        <nav class="studio-nav" aria-label="Gallery">
+          <a href="#featured">Inspect</a>
+          <a href="#demos">All demos</a>
         </nav>
       </header>
 
       <main id="ingress">
         <section class="hero-section" aria-labelledby="studio-title">
-          <p class="system-line">An operating system for messy work.</p>
-          <h1 id="studio-title">Messy input becomes governed proof.</h1>
+          <p class="system-line">A public demo gallery from The Creative Origin.</p>
+          <h1 id="studio-title">Small tools for messy work.</h1>
           <p class="hero-copy">
-            BackOfHouseOS preserves source, structures meaning, holds review,
-            and produces records you can trust. Pick a module and watch it run.
+            I build small workflow tools that turn messy inputs into reviewable records.
+            A few are working examples below; some are sanitized snapshots; some are held
+            until there is enough public-safe proof to show.
           </p>
           <div class="hero-actions">
-            <a class="text-action primary" href="#modules">Run a module</a>
-            <a class="text-action" href="#governance">Governance note</a>
+            <a class="text-action primary" href="#featured">See the demos</a>
+            <a class="text-action" href="#what">What this is</a>
           </div>
         </section>
 
-        <section class="loop-spine" id="loop-spine" aria-label="BackOfHouseOS operating loop">
+        <section class="notice" id="notice" aria-label="Honesty notice">
+          <p>
+            <strong>Read me first.</strong>
+            This is a public gallery. Some rooms are working examples with synthetic data,
+            some are sanitized snapshots, and some are held until there is enough
+            public-safe proof to show. Status labels under each demo say which.
+          </p>
+        </section>
+
+        <section class="what-section" id="what" aria-labelledby="what-title">
+          <p class="eyebrow">What this is</p>
+          <h2 id="what-title">A shared pattern, applied to specific work.</h2>
+          <p>
+            Each tool follows the same shape: capture the source, structure the work,
+            require review, then surface a usable output. The animated row below shows
+            that pattern. Pick a demo and watch the row step through a public-safe
+            example for that domain.
+          </p>
+        </section>
+
+        <section class="loop-spine" id="loop-spine" aria-label="Shared workflow pattern">
           <ol class="loop-stations" role="list">
-            <li data-stage="0"><span class="loop-num">01</span><span class="loop-name">Ingest</span></li>
+            <li data-stage="0"><span class="loop-num">01</span><span class="loop-name">Capture</span></li>
             <li data-stage="1"><span class="loop-num">02</span><span class="loop-name">Preserve</span></li>
             <li data-stage="2"><span class="loop-num">03</span><span class="loop-name">Structure</span></li>
             <li data-stage="3"><span class="loop-num">04</span><span class="loop-name">Review</span></li>
-            <li data-stage="4"><span class="loop-num">05</span><span class="loop-name">Authority</span></li>
+            <li data-stage="4"><span class="loop-num">05</span><span class="loop-name">Approve</span></li>
             <li data-stage="5"><span class="loop-num">06</span><span class="loop-name">Surface</span></li>
             <li data-stage="6"><span class="loop-num">07</span><span class="loop-name">Receipt</span></li>
           </ol>
@@ -57,14 +78,62 @@
           </div>
         </section>
 
-        <section class="modules-section" id="modules">
+        <section class="featured-section" id="featured" aria-labelledby="featured-title">
           <div class="section-heading">
-            <h2>Run a module.</h2>
-            <p>Pick one. The loop above plays through a public-safe example; the preview to the right fills in line by line. Reduced-motion settings hold the run; everything stays readable.</p>
+            <p class="eyebrow">What to inspect first</p>
+            <h2 id="featured-title">Three demos with the most to look at.</h2>
+            <p>Each link below opens a working example with synthetic data only.</p>
+          </div>
+
+          <ol class="featured-list">
+            <li class="featured-item">
+              <span class="featured-rank">01</span>
+              <div>
+                <h3><a href="/revenuedeskos/">RevenueDeskOS</a></h3>
+                <p>Five synthetic RFPs cycle through intake, checklist review, owner assignment, and a generated draft brief. The reuse history and audit trail stay attached to each record.</p>
+              </div>
+              <span class="featured-status status-live">LIVE</span>
+            </li>
+            <li class="featured-item">
+              <span class="featured-rank">02</span>
+              <div>
+                <h3><a href="/archiveos/">ArchiveOS</a></h3>
+                <p>Seven sample assets land on a memory board. Resolve a four-version conflict in a modal, run a preflight, and watch the export report show approved-versus-blocked counts.</p>
+              </div>
+              <span class="featured-status status-live">LIVE</span>
+            </li>
+            <li class="featured-item">
+              <span class="featured-rank">03</span>
+              <div>
+                <h3><a href="/inventoryos/">InventoryOS</a></h3>
+                <p>Ten synthetic items sit on an item wall. Each one shows its photo placeholder, condition, status, and history trail; pick one to inspect its review state.</p>
+              </div>
+              <span class="featured-status status-live">LIVE</span>
+            </li>
+          </ol>
+        </section>
+
+        <section class="modules-section" id="demos">
+          <div class="section-heading">
+            <h2>All demos.</h2>
+            <p>Hover or focus a demo to watch the pattern row above play through a public-safe example. Status labels reflect what is actually inspectable today.</p>
           </div>
 
           <div class="modules-layout">
-            <div class="module-list" id="module-list" aria-label="BackOfHouseOS modules"></div>
+            <div class="module-index">
+              <div class="module-group" data-group="live">
+                <p class="group-label">Working examples</p>
+                <div class="module-list" data-group="live" aria-label="Working examples"></div>
+              </div>
+              <div class="module-group" data-group="snapshot">
+                <p class="group-label">Snapshots and concepts</p>
+                <div class="module-list" data-group="snapshot" aria-label="Snapshots and concepts"></div>
+              </div>
+              <div class="module-group" data-group="held">
+                <p class="group-label">Held — no public room yet</p>
+                <div class="module-list" data-group="held" aria-label="Held"></div>
+              </div>
+            </div>
 
             <aside class="preview-panel" aria-labelledby="preview-title" aria-live="polite">
               <div class="preview-sticky">
@@ -77,11 +146,11 @@
                 </div>
 
                 <ol class="evidence-trail" id="evidence-trail">
-                  <li data-stage="0"><span class="trail-num">01</span><strong>Ingest</strong><em></em></li>
+                  <li data-stage="0"><span class="trail-num">01</span><strong>Capture</strong><em></em></li>
                   <li data-stage="1"><span class="trail-num">02</span><strong>Preserve</strong><em></em></li>
                   <li data-stage="2"><span class="trail-num">03</span><strong>Structure</strong><em></em></li>
                   <li data-stage="3"><span class="trail-num">04</span><strong>Review</strong><em></em></li>
-                  <li data-stage="4"><span class="trail-num">05</span><strong>Authority</strong><em></em></li>
+                  <li data-stage="4"><span class="trail-num">05</span><strong>Approve</strong><em></em></li>
                   <li data-stage="5"><span class="trail-num">06</span><strong>Surface</strong><em></em></li>
                   <li data-stage="6"><span class="trail-num">07</span><strong>Receipt</strong><em></em></li>
                 </ol>
@@ -89,43 +158,30 @@
                 <dl class="governance-mini">
                   <div><dt>AI drafts</dt><dd id="prev-ai">—</dd></div>
                   <div><dt>Human signs</dt><dd id="prev-human">—</dd></div>
-                  <div><dt>Stays sealed</dt><dd id="prev-sealed">—</dd></div>
+                  <div><dt>Stays private</dt><dd id="prev-sealed">—</dd></div>
                 </dl>
 
                 <div class="preview-actions">
-                  <a class="text-action primary" id="preview-link" href="/revenuedeskos/">Enter room</a>
-                  <span class="held-state" id="preview-held" hidden>Implementation held</span>
+                  <a class="text-action primary" id="preview-link" href="/revenuedeskos/">Open demo</a>
+                  <span class="held-state" id="preview-held" hidden>No public room yet</span>
                 </div>
               </div>
             </aside>
           </div>
         </section>
 
-        <section class="governance-section" id="governance" aria-labelledby="gov-title">
-          <p class="eyebrow">Governance</p>
-          <h2 id="gov-title">AI drafts structure. Review creates authority.</h2>
-          <div class="governance-flow" aria-hidden="true">
-            <span class="gov-step"><span class="gov-num">01</span><strong>Candidate</strong><em>AI suggestion</em></span>
-            <span class="gov-arrow"></span>
-            <span class="gov-step"><span class="gov-num">02</span><strong>Review</strong><em>Human gate</em></span>
-            <span class="gov-arrow"></span>
-            <span class="gov-step is-canon"><span class="gov-num">03</span><strong>Canon</strong><em>Approved with receipt</em></span>
-          </div>
-          <p class="governance-copy">
-            AI suggestions enter as candidates. They become canon only after a human review step assigns authority. Original source is preserved and referenced by the approved record — never overwritten. The system, not the model, is the source of authority.
-          </p>
-        </section>
-
         <section class="boundary-section">
           <p>
-            This index links only to public-safe rooms with synthetic data. Private records, databases, employer or client material, member data, and runtime systems remain sealed.
+            Everything linked from this page uses synthetic data. Real records, databases,
+            employer or client material, member or customer data, and runtime systems are
+            not exposed and are not part of any demo.
           </p>
         </section>
       </main>
 
       <footer class="studio-footer">
         <span>© The Creative Origin · Phil Baptiste</span>
-        <span>BackOfHouseOS</span>
+        <span>Public demo gallery</span>
       </footer>
     </div>
   </body>

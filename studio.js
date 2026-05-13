@@ -2,7 +2,7 @@
   "use strict";
 
   const REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const STAGE_LABELS = ["Ingest", "Preserve", "Structure", "Review", "Authority", "Surface", "Receipt"];
+  const STAGE_LABELS = ["Capture", "Preserve", "Structure", "Review", "Approve", "Surface", "Receipt"];
 
   const MODULES = [
     {
@@ -10,16 +10,16 @@
       name: "RevenueDeskOS",
       subtitle: "Revenue intake reviewed before response",
       status: "LIVE",
+      group: "live",
       route: "/revenuedeskos/",
-      domain: "Revenue work",
       stages: [
         "An RFP arrives as a long, scattered email thread.",
         "The original message is kept verbatim; nothing rewritten.",
-        "Scope, value, owner, and deadline surface as record fields.",
+        "Scope, value, owner, and deadline are pulled into fields.",
         "Missing context is flagged; a reviewer is assigned.",
         "Response direction is approved before any draft moves.",
         "The signed-off brief becomes the working response packet.",
-        "Trail kept. Client RFP material stays sealed."
+        "Trail kept. Client RFP material is not shown here."
       ],
       ai: "Drafts a structured brief from raw RFP text.",
       human: "Approves response direction and the final brief.",
@@ -30,8 +30,8 @@
       name: "ArchiveOS",
       subtitle: "Source preserved, versions reviewed, recall earned",
       status: "LIVE",
+      group: "live",
       route: "/archiveos/",
-      domain: "Preservation",
       stages: [
         "A messy folder of sources is dropped in for indexing.",
         "Originals are checksummed and left untouched on disk.",
@@ -39,39 +39,19 @@
         "Conflicting versions surface for human resolution.",
         "A representative version is approved as canonical.",
         "Recall and export expose only approved copies.",
-        "Receipt kept. Original source remains the source of truth."
+        "Change log kept. Original source stays as-is."
       ],
       ai: "Suggests version groupings and recall keywords.",
-      human: "Resolves conflicting versions and approves the canonical pick.",
+      human: "Resolves conflicting versions and picks the representative one.",
       sealed: "Private filenames, local paths, full source manifests."
-    },
-    {
-      key: "churchos",
-      name: "ChurchOS",
-      subtitle: "Sunday operations with sealed member data",
-      status: "SEALED",
-      route: "/churchos/",
-      domain: "Community ops",
-      stages: [
-        "A new Sunday service week is opened on the planner.",
-        "Service items, songbook references, and notes are attached.",
-        "Roles are assigned to demo people, not real members.",
-        "The packet is reviewed for unapproved or missing items.",
-        "Approval converts the packet into the working program.",
-        "Public-facing program is derived from approved state.",
-        "Reference archive preserved. Member data remains sealed."
-      ],
-      ai: "Drafts call-to-worship language and packet copy.",
-      human: "Approves service order, role access, and program output.",
-      sealed: "Member records, contact details, live church identity."
     },
     {
       key: "inventoryos",
       name: "InventoryOS",
       subtitle: "Item intake reviewed before listing",
       status: "LIVE",
+      group: "live",
       route: "/inventoryos/",
-      domain: "Inspection",
       stages: [
         "An item enters intake from photos and a short note.",
         "Photos and source notes are preserved as the record's basis.",
@@ -79,7 +59,7 @@
         "Condition and pricing are flagged for operator review.",
         "Listing readiness is approved on the item record.",
         "Status surfaces as ready-to-list on the operator wall.",
-        "History trail kept. Sourcing context remains sealed."
+        "History trail kept. Sourcing context not exposed."
       ],
       ai: "Drafts title, category, and a price suggestion.",
       human: "Confirms condition, price, and listing readiness.",
@@ -89,9 +69,9 @@
       key: "runneros",
       name: "RunnerOS",
       subtitle: "A private archive of effort",
-      status: "STANDBY",
+      status: "LIVE",
+      group: "snapshot",
       route: "/runneros/",
-      domain: "Effort archive",
       stages: [
         "A run import enters the queue from an external source.",
         "Raw activity data is preserved as the import record.",
@@ -99,19 +79,39 @@
         "Imports stay in review and do not change dashboard truth.",
         "Approval promotes the run into the personal record.",
         "Dashboard and recall update to include the approved run.",
-        "Health and exact GPS remain sealed; shares stay generic."
+        "Health and exact GPS stay private; shares stay generic."
       ],
       ai: "Drafts shoe, route, and race context from raw fields.",
       human: "Approves each run before it counts toward memory.",
       sealed: "Health data, exact GPS routes, training-load history."
     },
     {
+      key: "churchos",
+      name: "ChurchOS",
+      subtitle: "Sunday operations, sanitized snapshot",
+      status: "SNAPSHOT",
+      group: "snapshot",
+      route: "/churchos/",
+      stages: [
+        "A new Sunday service week is opened on the planner.",
+        "Service items, songbook references, and notes are attached.",
+        "Roles are assigned to demo people, not real members.",
+        "The packet is reviewed for unapproved or missing items.",
+        "Approval converts the packet into the working program.",
+        "Public-facing program is derived from approved state.",
+        "Reference archive preserved. Member data not in this demo."
+      ],
+      ai: "Drafts call-to-worship language and packet copy.",
+      human: "Approves service order, role access, and program output.",
+      sealed: "Member records, contact details, live church identity."
+    },
+    {
       key: "cookbookos",
       name: "CookbookOS",
-      subtitle: "Manuscript pages reviewed into canon",
-      status: "ARCHIVE",
+      subtitle: "Manuscript-to-canon, concept demo",
+      status: "CONCEPT",
+      group: "snapshot",
       route: "/cookbookos/",
-      domain: "Manuscript canon",
       stages: [
         "A scanned cookbook page enters as a manuscript record.",
         "The page image is preserved as the source of truth.",
@@ -129,9 +129,9 @@
       key: "manillaos",
       name: "ManillaOS",
       subtitle: "Authority review and canon promotion",
-      status: "REVIEW",
+      status: "HELD",
+      group: "held",
       route: "",
-      domain: "Authority",
       stages: [
         "A candidate source enters the review queue.",
         "The original document is preserved and frozen.",
@@ -149,9 +149,9 @@
       key: "canonos",
       name: "CanonOS",
       subtitle: "Operating doctrine and term registry",
-      status: "SEALED",
+      status: "HELD",
+      group: "held",
       route: "",
-      domain: "Canon",
       stages: [
         "A new term is proposed as a candidate definition.",
         "Existing canon and related terms surface as context.",
@@ -169,9 +169,9 @@
       key: "jobradaros",
       name: "JobRadarOS",
       subtitle: "A decision desk for role review",
-      status: "SEALED",
+      status: "HELD",
+      group: "held",
       route: "",
-      domain: "Decision desk",
       stages: [
         "A role sighting enters the review queue from a feed.",
         "Source URL, company, and posting text are preserved.",
@@ -189,9 +189,9 @@
       key: "mediaos",
       name: "MediaOS",
       subtitle: "A capture inbox that becomes memory",
-      status: "STANDBY",
+      status: "HELD",
+      group: "held",
       route: "",
-      domain: "Media memory",
       stages: [
         "A screenshot or link is captured into the inbox.",
         "The original capture and its source are preserved.",
@@ -210,7 +210,11 @@
   // -------------------- DOM --------------------
   const root = document.documentElement;
   const body = document.body;
-  const moduleList = document.getElementById("module-list");
+  const groupLists = {
+    live: document.querySelector('.module-list[data-group="live"]'),
+    snapshot: document.querySelector('.module-list[data-group="snapshot"]'),
+    held: document.querySelector('.module-list[data-group="held"]')
+  };
   const loopSpine = document.getElementById("loop-spine");
   const loopStations = Array.from(document.querySelectorAll(".loop-stations li"));
   const trailItems = Array.from(document.querySelectorAll(".evidence-trail li"));
@@ -223,20 +227,24 @@
   const prevHuman = document.getElementById("prev-human");
   const prevSealed = document.getElementById("prev-sealed");
 
-  if (!moduleList || !loopStations.length || !trailItems.length) return;
+  if (!groupLists.live || !loopStations.length || !trailItems.length) return;
 
   // -------------------- Build module list --------------------
   const moduleEntries = [];
-  MODULES.forEach((m, i) => {
+  let rank = 0;
+  MODULES.forEach((m) => {
+    rank += 1;
+    const list = groupLists[m.group] || groupLists.live;
     const btn = document.createElement("button");
     btn.type = "button";
     btn.className = `module-entry status-${m.status.toLowerCase()}`;
     btn.dataset.module = m.key;
     btn.dataset.status = m.status;
+    btn.dataset.group = m.group;
     btn.dataset.route = m.route || "";
     btn.setAttribute("aria-pressed", "false");
     btn.innerHTML = `
-      <span class="module-rank">${String(i + 1).padStart(2, "0")}</span>
+      <span class="module-rank">${String(rank).padStart(2, "0")}</span>
       <span class="module-status">${m.status}</span>
       <span class="module-title">${m.name}</span>
       <span class="module-purpose">${m.subtitle}</span>`;
@@ -246,10 +254,10 @@
     });
     btn.addEventListener("focus", () => runModule(m.key));
     btn.addEventListener("keydown", (e) => {
-      if (e.key === "ArrowDown") { e.preventDefault(); focusEntry(i + 1); }
-      else if (e.key === "ArrowUp") { e.preventDefault(); focusEntry(i - 1); }
+      if (e.key === "ArrowDown") { e.preventDefault(); focusEntry(moduleEntries.indexOf(btn) + 1); }
+      else if (e.key === "ArrowUp") { e.preventDefault(); focusEntry(moduleEntries.indexOf(btn) - 1); }
     });
-    moduleList.appendChild(btn);
+    list.appendChild(btn);
     moduleEntries.push(btn);
   });
 
@@ -264,10 +272,7 @@
   const STEP_MS = REDUCED ? 0 : 360;
 
   function clearRun() {
-    if (runTimer) {
-      clearTimeout(runTimer);
-      runTimer = null;
-    }
+    if (runTimer) { clearTimeout(runTimer); runTimer = null; }
   }
 
   function setProgress(stage) {
@@ -275,11 +280,9 @@
     root.style.setProperty("--loop-progress", `${pct}%`);
   }
 
-  function lightStage(stage, data) {
+  function lightStage(stage) {
     loopStations[stage] && loopStations[stage].classList.add("is-lit");
-    if (trailItems[stage]) {
-      trailItems[stage].classList.add("is-lit");
-    }
+    if (trailItems[stage]) trailItems[stage].classList.add("is-lit");
     setProgress(stage);
     if (stage === 6) loopSpine && loopSpine.classList.add("is-complete");
   }
@@ -313,6 +316,7 @@
 
     if (data.route) {
       previewLink.href = data.route;
+      previewLink.textContent = "Open demo";
       previewLink.hidden = false;
       previewHeld.hidden = true;
     } else {
@@ -332,36 +336,30 @@
     setProgress(0);
 
     if (REDUCED) {
-      // Snap to final
-      for (let i = 0; i < 7; i++) lightStage(i, data);
+      for (let i = 0; i < 7; i++) lightStage(i);
       return;
     }
 
     let i = 0;
     function tick() {
-      lightStage(i, data);
+      lightStage(i);
       i++;
-      if (i < 7) {
-        runTimer = setTimeout(tick, STEP_MS);
-      } else {
-        runTimer = null;
-      }
+      if (i < 7) runTimer = setTimeout(tick, STEP_MS);
+      else runTimer = null;
     }
     tick();
   }
 
   // -------------------- Boot --------------------
-  // Wait until any in-view scroll settles, then auto-play the first module.
   function boot() {
     const first = MODULES[0];
     paintModule(first);
     setProgress(0);
     if (REDUCED) {
-      for (let i = 0; i < 7; i++) lightStage(i, first);
+      for (let i = 0; i < 7; i++) lightStage(i);
       currentKey = first.key;
       return;
     }
-    // Give the page a beat to settle visually.
     setTimeout(() => runModule(first.key), 520);
   }
 
