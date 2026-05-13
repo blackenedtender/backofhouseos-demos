@@ -5,7 +5,7 @@ const state = {
 };
 
 async function loadData() {
-  const response = await fetch("sample-data.json", { cache: "no-store" });
+  const response = await fetch("/revenuedeskos/sample-data.json", { cache: "no-store" });
   if (!response.ok) throw new Error("Unable to load sample-data.json");
   return response.json();
 }
@@ -134,10 +134,13 @@ function generateSummary() {
     ? `Missing fields: ${opportunity.missing_fields.join(", ")}.`
     : "No required fields are missing.";
 
-  document.getElementById("draft-output").innerHTML = `
+  const output = document.getElementById("draft-output");
+  delete output.dataset.saved;
+  output.innerHTML = `
     <strong>${opportunity.opportunity_name}</strong><br>
     ${opportunity.generated_brief_summary}<br><br>
-    Owner: ${opportunity.owner}. Checklist: ${opportunity.checklist_score}%. ${missing}
+    Owner: ${opportunity.owner}. Checklist: ${opportunity.checklist_score}%. ${missing}<br><br>
+    <em>Synthetic draft only. Nothing is submitted or sent.</em>
   `;
 }
 
@@ -172,7 +175,13 @@ function bindEvents() {
 
   document.getElementById("generate-summary").addEventListener("click", generateSummary);
   document.getElementById("save-project").addEventListener("click", () => {
-    document.getElementById("draft-output").innerHTML += "<br><br><strong>Saved to sample Projects board.</strong>";
+    const output = document.getElementById("draft-output");
+    if (!output.dataset.saved) {
+      output.innerHTML += "<br><br><strong>Saved as a sample record in this browser session only.</strong>";
+      output.dataset.saved = "true";
+      return;
+    }
+    output.querySelector("strong:last-child").textContent = "Sample record already saved in this browser session.";
   });
 }
 

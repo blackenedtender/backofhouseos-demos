@@ -32,11 +32,7 @@ From this folder:
 python -m http.server 4174
 ```
 
-Then open:
-
-```text
-http://localhost:4174
-```
+Open the address printed by the static server.
 
 Opening `index.html` directly may not load `sample-runs.json` in some browsers, so a local static server is recommended.
 

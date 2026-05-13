@@ -16,7 +16,7 @@
     <meta name="twitter:description" content="A public demo gallery from The Creative Origin. A few small workflow tools that turn messy inputs into reviewable records. Some demos are live, some are sanitized snapshots, some are held.">
     <meta name="twitter:image"       content="https://demos.philbap.com/assets/tco-logo-web.png">
     <title>Demo Gallery — The Creative Origin</title>
-    <link rel="icon" href="assets/tco-logo-web.png">
+    <link rel="icon" href="/assets/tco-logo-web.png">
     <link rel="stylesheet" href="studio.css">
     <script src="studio.js" defer></script>
   </head>
@@ -25,7 +25,7 @@
       <header class="studio-header">
         <a class="brand-lockup" href="#ingress" aria-label="The Creative Origin demo gallery home">
           <span class="brand-mark">
-            <img src="assets/tco-logo-web.png" alt="" aria-hidden="true">
+            <img src="/assets/tco-logo-web.png" alt="" aria-hidden="true">
           </span>
           <span>
             <strong>The Creative Origin</strong>
@@ -155,6 +155,13 @@
                   </div>
                   <span class="preview-status status-live" id="preview-status">LIVE</span>
                 </div>
+
+                <dl class="implementation-mini" aria-label="Implementation state">
+                  <div><dt>Room</dt><dd id="preview-room">yes</dd></div>
+                  <div><dt>Data</dt><dd id="preview-data">Synthetic sample</dd></div>
+                  <div><dt>Interaction</dt><dd id="preview-interaction">interactive</dd></div>
+                  <div><dt>Inspect</dt><dd id="preview-inspect">sample records</dd></div>
+                </dl>
 
                 <ol class="evidence-trail" id="evidence-trail">
                   <li data-stage="0"><span class="trail-num">01</span><strong>Capture</strong><em></em></li>

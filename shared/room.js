@@ -2,7 +2,7 @@
   const root = document.documentElement;
 
   function logoMarkup() {
-    return '<img src="assets/tco-logo-web.png" alt="">';
+    return '<img src="/assets/tco-logo-web.png" alt="">';
   }
 
   function ensureBrandMark(scope) {
@@ -72,6 +72,90 @@
     brand.appendChild(pill);
   }
 
+  function defaultState() {
+    const room = document.body.dataset.room || "";
+    const status = document.body.dataset.status || "HELD";
+    const fallback = {
+      room: status === "HELD" ? "no" : "yes",
+      data: "No public data",
+      interaction: status === "HELD" ? "held" : "static",
+      inspectable: "no public room"
+    };
+
+    if (room === "revenuedeskos") {
+      return {
+        room: "yes",
+        data: "Synthetic sample",
+        interaction: "interactive",
+        inspectable: "sample RFP records, draft brief, review queue"
+      };
+    }
+    if (room === "archiveos") {
+      return {
+        room: "yes",
+        data: "Synthetic sample",
+        interaction: "interactive",
+        inspectable: "sample asset board, version resolver, export report"
+      };
+    }
+    if (room === "inventoryos") {
+      return {
+        room: "yes",
+        data: "Synthetic sample",
+        interaction: "interactive",
+        inspectable: "sample item wall, filters, item history"
+      };
+    }
+    if (room === "runneros") {
+      return {
+        room: "yes",
+        data: "Synthetic sample",
+        interaction: "interactive",
+        inspectable: "sample runs, import queue, approved run detail"
+      };
+    }
+    if (room === "churchos") {
+      return {
+        room: "yes",
+        data: "Sanitized snapshot",
+        interaction: "static",
+        inspectable: "sanitized Sunday operations pages"
+      };
+    }
+    if (room === "cookbookos") {
+      return {
+        room: "yes",
+        data: "Concept walkthrough",
+        interaction: "static",
+        inspectable: "source-to-canon recipe walkthrough"
+      };
+    }
+
+    return fallback;
+  }
+
+  function ensureImplementationState(scope) {
+    if (scope.querySelector(".implementation-state")) return;
+    const anchor = scope.querySelector(".room-state");
+    if (!anchor) return;
+    const state = defaultState();
+    const values = {
+      room: document.body.dataset.roomAvailable || state.room,
+      data: document.body.dataset.data || state.data,
+      interaction: document.body.dataset.interaction || state.interaction,
+      inspectable: document.body.dataset.inspectable || state.inspectable
+    };
+    const dl = document.createElement("dl");
+    dl.className = "implementation-state";
+    dl.setAttribute("aria-label", "Implementation state");
+    dl.innerHTML =
+      "<div><dt>Room</dt><dd>" + values.room + "</dd></div>" +
+      "<div><dt>Data</dt><dd>" + values.data + "</dd></div>" +
+      "<div><dt>Interaction</dt><dd>" + values.interaction + "</dd></div>" +
+      "<div><dt>Inspect</dt><dd>" + values.inspectable + "</dd></div>";
+    anchor.insertAdjacentElement("afterend", dl);
+  }
+
   function boot() {
     document.body.classList.add("boh-room");
     // Commit to dark — gallery continuity. Drop any prior light preference.
@@ -88,6 +172,7 @@
     ensureBrandMark(scope);
     ensureBackLink(scope);
     ensureStatusPill(scope);
+    ensureImplementationState(scope);
   }
 
   if (document.readyState === "loading") {

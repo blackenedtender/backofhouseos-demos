@@ -29,11 +29,7 @@ From this folder:
 python -m http.server 4178
 ```
 
-Then open:
-
-```text
-http://localhost:4178
-```
+Open the address printed by the static server.
 
 ## Deploy To Vercel Later
 

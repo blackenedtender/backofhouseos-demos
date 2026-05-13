@@ -12,6 +12,9 @@
       status: "LIVE",
       group: "live",
       route: "/revenuedeskos/",
+      data: "Synthetic sample",
+      interaction: "interactive",
+      inspect: "sample RFP records, draft brief, review queue",
       stages: [
         "An RFP arrives as a long, scattered email thread.",
         "The original message is kept verbatim; nothing rewritten.",
@@ -32,6 +35,9 @@
       status: "LIVE",
       group: "live",
       route: "/archiveos/",
+      data: "Synthetic sample",
+      interaction: "interactive",
+      inspect: "sample asset board, version resolver, export report",
       stages: [
         "A messy folder of sources is dropped in for indexing.",
         "Originals are checksummed and left untouched on disk.",
@@ -52,6 +58,9 @@
       status: "LIVE",
       group: "live",
       route: "/inventoryos/",
+      data: "Synthetic sample",
+      interaction: "interactive",
+      inspect: "sample item wall, filters, item history",
       stages: [
         "An item enters intake from photos and a short note.",
         "Photos and source notes are preserved as the record's basis.",
@@ -69,9 +78,12 @@
       key: "runneros",
       name: "RunnerOS",
       subtitle: "A private archive of effort",
-      status: "LIVE",
+      status: "SNAPSHOT",
       group: "snapshot",
       route: "/runneros/",
+      data: "Synthetic sample",
+      interaction: "interactive",
+      inspect: "sample runs, import queue, approved run detail",
       stages: [
         "A run import enters the queue from an external source.",
         "Raw activity data is preserved as the import record.",
@@ -92,6 +104,9 @@
       status: "SNAPSHOT",
       group: "snapshot",
       route: "/churchos/",
+      data: "Sanitized snapshot",
+      interaction: "static",
+      inspect: "sanitized Sunday operations pages",
       stages: [
         "A new Sunday service week is opened on the planner.",
         "Service items, songbook references, and notes are attached.",
@@ -112,6 +127,9 @@
       status: "CONCEPT",
       group: "snapshot",
       route: "/cookbookos/",
+      data: "Concept walkthrough",
+      interaction: "static",
+      inspect: "source-to-canon recipe walkthrough",
       stages: [
         "A scanned cookbook page enters as a manuscript record.",
         "The page image is preserved as the source of truth.",
@@ -132,6 +150,9 @@
       status: "HELD",
       group: "held",
       route: "",
+      data: "No public data",
+      interaction: "held",
+      inspect: "no public room",
       stages: [
         "A candidate source enters the review queue.",
         "The original document is preserved and frozen.",
@@ -152,6 +173,9 @@
       status: "HELD",
       group: "held",
       route: "",
+      data: "No public data",
+      interaction: "held",
+      inspect: "no public room",
       stages: [
         "A new term is proposed as a candidate definition.",
         "Existing canon and related terms surface as context.",
@@ -172,6 +196,9 @@
       status: "HELD",
       group: "held",
       route: "",
+      data: "No public data",
+      interaction: "held",
+      inspect: "no public room",
       stages: [
         "A role sighting enters the review queue from a feed.",
         "Source URL, company, and posting text are preserved.",
@@ -192,6 +219,9 @@
       status: "HELD",
       group: "held",
       route: "",
+      data: "No public data",
+      interaction: "held",
+      inspect: "no public room",
       stages: [
         "A screenshot or link is captured into the inbox.",
         "The original capture and its source are preserved.",
@@ -221,6 +251,10 @@
   const previewTitle = document.getElementById("preview-title");
   const previewSubtitle = document.getElementById("preview-subtitle");
   const previewStatus = document.getElementById("preview-status");
+  const previewRoom = document.getElementById("preview-room");
+  const previewData = document.getElementById("preview-data");
+  const previewInteraction = document.getElementById("preview-interaction");
+  const previewInspect = document.getElementById("preview-inspect");
   const previewLink = document.getElementById("preview-link");
   const previewHeld = document.getElementById("preview-held");
   const prevAi = document.getElementById("prev-ai");
@@ -247,7 +281,8 @@
       <span class="module-rank">${String(rank).padStart(2, "0")}</span>
       <span class="module-status">${m.status}</span>
       <span class="module-title">${m.name}</span>
-      <span class="module-purpose">${m.subtitle}</span>`;
+      <span class="module-purpose">${m.subtitle}</span>
+      <span class="module-implementation"><span>Data: ${m.data}</span><span>Interaction: ${m.interaction}</span></span>`;
     btn.addEventListener("click", () => runModule(m.key));
     btn.addEventListener("pointerenter", (e) => {
       if (e.pointerType === "mouse" || e.pointerType === "pen") runModule(m.key);
@@ -301,6 +336,10 @@
     previewSubtitle.textContent = data.subtitle;
     previewStatus.textContent = data.status;
     previewStatus.className = `preview-status status-${data.status.toLowerCase()}`;
+    if (previewRoom) previewRoom.textContent = data.route ? "yes" : "no";
+    if (previewData) previewData.textContent = data.data || "No public data";
+    if (previewInteraction) previewInteraction.textContent = data.interaction || "held";
+    if (previewInspect) previewInspect.textContent = data.inspect || "no public room";
 
     trailItems.forEach((li, i) => {
       const em = li.querySelector("em");

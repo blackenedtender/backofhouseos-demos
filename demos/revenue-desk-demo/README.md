@@ -58,11 +58,7 @@ From this folder:
 python -m http.server 4176
 ```
 
-Then open:
-
-```text
-http://localhost:4176
-```
+Open the address printed by the static server.
 
 Opening `index.html` directly may not load `sample-data.json` in some browsers, so a local static server is recommended.
 

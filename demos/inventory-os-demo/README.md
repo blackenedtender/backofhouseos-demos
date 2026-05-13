@@ -47,11 +47,7 @@ From this folder:
 python -m http.server 4175
 ```
 
-Then open:
-
-```text
-http://localhost:4175
-```
+Open the address printed by the static server.
 
 Opening `index.html` directly may not load `sample-inventory.json` in some browsers, so a local static server is recommended.
 

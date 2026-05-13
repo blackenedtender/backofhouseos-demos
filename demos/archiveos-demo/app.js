@@ -16,7 +16,7 @@ const glyphs = {
 const statusClass = (status) => `status-${status.toLowerCase().replace(/\s+/g, "-")}`;
 
 async function loadData() {
-  const response = await fetch("sample-data.json", { cache: "no-store" });
+  const response = await fetch("/archiveos/sample-data.json", { cache: "no-store" });
   if (!response.ok) {
     throw new Error("Unable to load sample-data.json");
   }

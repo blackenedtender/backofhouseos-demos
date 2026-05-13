@@ -4,7 +4,7 @@ const state = {
 };
 
 async function loadRuns() {
-  const response = await fetch("sample-runs.json", { cache: "no-store" });
+  const response = await fetch("/runneros/sample-runs.json", { cache: "no-store" });
   if (!response.ok) {
     throw new Error("Unable to load sample-runs.json");
   }

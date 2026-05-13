@@ -5,7 +5,7 @@ const state = {
 };
 
 async function loadInventory() {
-  const response = await fetch("sample-inventory.json", { cache: "no-store" });
+  const response = await fetch("/inventoryos/sample-inventory.json", { cache: "no-store" });
   if (!response.ok) {
     throw new Error("Unable to load sample-inventory.json");
   }
