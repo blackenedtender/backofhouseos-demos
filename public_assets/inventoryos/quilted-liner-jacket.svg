@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" role="img" aria-labelledby="title desc">
+<title id="title">Quilted liner jacket</title>
+<desc id="desc">Synthetic operator-photographed inventory item preview.</desc>
+<rect width="960" height="640" fill="#080a0a"/>
+<rect x="76" y="64" width="808" height="512" fill="#111514" stroke="rgba(230,223,208,0.16)"/>
+<path d="M116 118H844M116 520H844" stroke="rgba(230,223,208,0.08)"/>
+<rect x="118" y="112" width="164" height="40" fill="rgba(240,234,220,0.045)" stroke="rgba(230,223,208,0.14)"/>
+<text x="134" y="139" fill="#a9a397" font-size="18" font-family="ui-monospace, Menlo, monospace">TAG I-002</text>
+<ellipse cx="480" cy="506" rx="236" ry="30" fill="#000" opacity="0.32"/>
+<path d="M362 172 L430 126 H530 L598 172 L566 244 L538 230 V444 H390 V230 L362 244 Z" fill="#6f8a5f" opacity="0.78" stroke="rgba(240,234,220,0.28)" stroke-width="4"/><path d="M430 126 L480 214 L530 126" fill="none" stroke="rgba(240,234,220,0.42)" stroke-width="4"/><path d="M396 274 H532M396 332 H532" stroke="rgba(7,9,10,0.32)" stroke-width="5"/>
+<text x="118" y="548" fill="#f0eadc" font-size="28" font-weight="600" font-family="Inter, Arial, sans-serif">Quilted liner jacket</text>
+<text x="704" y="548" fill="#9fb9a3" font-size="17" font-family="ui-monospace, Menlo, monospace">SYNTHETIC PHOTO</text>
+</svg>

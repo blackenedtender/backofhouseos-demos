@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" role="img" aria-labelledby="title desc">
+<title id="title">Reaction image cluster</title>
+<desc id="desc">Synthetic archive preview operational artifact preview.</desc>
+<rect width="960" height="640" fill="#0a0d0d"/>
+<path d="M80 120H880M80 200H880M80 280H880M80 360H880M80 440H880M80 520H880M160 80V560M320 80V560M480 80V560M640 80V560M800 80V560" stroke="rgba(230,223,208,0.045)"/>
+<rect x="56" y="56" width="848" height="528" rx="0" fill="rgba(255,252,244,0.025)" stroke="rgba(230,223,208,0.18)"/>
+<text x="86" y="116" fill="#94a39a" font-size="22" letter-spacing="2" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">IMAGE</text>
+<text x="86" y="168" fill="#f0eadc" font-size="43" font-weight="600" font-family="Inter, Arial, sans-serif">Reaction image cluster</text>
+<line x1="86" y1="206" x2="874" y2="206" stroke="rgba(230,223,208,0.18)"/>
+<line x1="86" y1="272" x2="810" y2="272" stroke="rgba(230,223,208,0.12)"/>
+<line x1="86" y1="312" x2="810" y2="312" stroke="rgba(230,223,208,0.12)"/>
+<line x1="86" y1="352" x2="810" y2="352" stroke="rgba(230,223,208,0.12)"/>
+<line x1="86" y1="392" x2="810" y2="392" stroke="rgba(230,223,208,0.12)"/>
+<text x="96" y="260" fill="#e6dfd0" font-size="23" font-family="Inter, Arial, sans-serif">Source preserved untouched</text>
+<text x="96" y="300" fill="#a9a397" font-size="23" font-family="Inter, Arial, sans-serif">versions: 3 / needs review / blocked until read</text>
+<text x="96" y="340" fill="#e6dfd0" font-size="23" font-family="Inter, Arial, sans-serif">review state visible</text>
+<text x="96" y="380" fill="#a9a397" font-size="23" font-family="Inter, Arial, sans-serif">export uses approved copy only</text>
+<rect x="86" y="535" width="250" height="34" fill="rgba(159,185,163,0.08)" stroke="rgba(159,185,163,0.28)"/>
+<text x="104" y="558" fill="#94a39a" font-size="17" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">Synthetic archive preview</text>
+</svg>

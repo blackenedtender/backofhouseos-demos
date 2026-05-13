@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" role="img" aria-labelledby="title desc">
+<title id="title">Vintage enamel pin set</title>
+<desc id="desc">Synthetic operator-photographed inventory item preview.</desc>
+<rect width="960" height="640" fill="#080a0a"/>
+<rect x="76" y="64" width="808" height="512" fill="#111514" stroke="rgba(230,223,208,0.16)"/>
+<path d="M116 118H844M116 520H844" stroke="rgba(230,223,208,0.08)"/>
+<rect x="118" y="112" width="164" height="40" fill="rgba(240,234,220,0.045)" stroke="rgba(230,223,208,0.14)"/>
+<text x="134" y="139" fill="#a9a397" font-size="18" font-family="ui-monospace, Menlo, monospace">TAG I-007</text>
+<ellipse cx="480" cy="506" rx="236" ry="30" fill="#000" opacity="0.32"/>
+<circle cx="380" cy="282" r="58" fill="#b7658f" opacity="0.78"/><circle cx="505" cy="240" r="48" fill="#c4b387" opacity="0.76"/><circle cx="550" cy="360" r="62" fill="#8da5a0" opacity="0.78"/><circle cx="430" cy="390" r="42" fill="#b89c75" opacity="0.82"/><path d="M356 282 H404M505 216 V264M518 340 L582 380" stroke="rgba(7,9,10,0.38)" stroke-width="6"/>
+<text x="118" y="548" fill="#f0eadc" font-size="28" font-weight="600" font-family="Inter, Arial, sans-serif">Vintage enamel pin set</text>
+<text x="704" y="548" fill="#9fb9a3" font-size="17" font-family="ui-monospace, Menlo, monospace">SYNTHETIC PHOTO</text>
+</svg>

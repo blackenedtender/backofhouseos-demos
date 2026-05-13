@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" role="img" aria-labelledby="title desc">
+<title id="title">Commemorative mug</title>
+<desc id="desc">Synthetic operator-photographed inventory item preview.</desc>
+<rect width="960" height="640" fill="#080a0a"/>
+<rect x="76" y="64" width="808" height="512" fill="#111514" stroke="rgba(230,223,208,0.16)"/>
+<path d="M116 118H844M116 520H844" stroke="rgba(230,223,208,0.08)"/>
+<rect x="118" y="112" width="164" height="40" fill="rgba(240,234,220,0.045)" stroke="rgba(230,223,208,0.14)"/>
+<text x="134" y="139" fill="#a9a397" font-size="18" font-family="ui-monospace, Menlo, monospace">TAG I-008</text>
+<ellipse cx="480" cy="506" rx="236" ry="30" fill="#000" opacity="0.32"/>
+<path d="M372 208 H548 V418 Q548 468 498 468 H422 Q372 468 372 418 Z" fill="#7bb0a3" opacity="0.78" stroke="rgba(240,234,220,0.28)" stroke-width="4"/><path d="M548 286 H620 Q668 286 668 338 Q668 390 620 390 H548" fill="none" stroke="#7bb0a3" stroke-width="26" opacity="0.64"/><line x1="394" y1="252" x2="526" y2="252" stroke="rgba(240,234,220,0.26)" stroke-width="4"/>
+<text x="118" y="548" fill="#f0eadc" font-size="28" font-weight="600" font-family="Inter, Arial, sans-serif">Commemorative mug</text>
+<text x="704" y="548" fill="#9fb9a3" font-size="17" font-family="ui-monospace, Menlo, monospace">SYNTHETIC PHOTO</text>
+</svg>
