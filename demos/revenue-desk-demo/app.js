@@ -1,8 +1,36 @@
 const state = {
   data: null,
   status: "all",
-  selected: null
+  selected: null,
+  featured: null
 };
+
+function shortDate(iso) {
+  if (!iso) return "";
+  const d = new Date(String(iso) + "T00:00:00");
+  if (isNaN(d.getTime())) return iso;
+  return d.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+}
+
+function shortMoney(value) {
+  if (!value) return "";
+  const n = Number(String(value).replace(/[^0-9]/g, ""));
+  if (!n) return String(value);
+  if (n >= 1000000) {
+    const m = n / 1000000;
+    return "$" + (Math.round(m * 10) / 10).toString().replace(/\.0$/, "") + "M";
+  }
+  if (n >= 1000) return "$" + Math.round(n / 1000) + "K";
+  return String(value);
+}
+
+function escapeHtml(s) {
+  return String(s == null ? "" : s)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
 
 async function loadData() {
   const response = await fetch("/revenuedeskos/sample-data.json", { cache: "no-store" });
@@ -38,62 +66,92 @@ function renderMetrics() {
   setText("velocity", metrics.response_velocity);
 }
 
+function nextActionLabel(opportunity) {
+  if (opportunity.missing_fields && opportunity.missing_fields.length) {
+    return "Awaiting: " + opportunity.missing_fields.join(", ");
+  }
+  if (opportunity.review_status === "approved") return "Response direction approved";
+  if (opportunity.review_status === "ready for approval") return "Ready for final approval";
+  if (opportunity.review_status === "pending review") return "Awaiting reviewer";
+  return opportunity.review_state || opportunity.review_status;
+}
+
 function renderOpportunities() {
   const grid = document.getElementById("opportunity-grid");
-  grid.innerHTML = filteredOpportunities().map((opportunity) => `
-    <article class="opportunity-card" data-opportunity="${opportunity.id}" tabindex="0">
-      <div>
-        <span class="pill ${statusClass(opportunity.review_status)}">${opportunity.review_status}</span>
-        <h3>${opportunity.opportunity_name}</h3>
-        <p>${opportunity.client_name} / ${opportunity.vertical}</p>
-      </div>
-      <p>${opportunity.generated_brief_summary}</p>
-      <p class="artifact-caption">${opportunity.review_state}</p>
-      <div class="pills">
-        <span class="pill">${opportunity.deal_value}</span>
-        <span class="pill">due ${opportunity.due_date}</span>
-        <span class="pill">${opportunity.checklist_score}% checklist</span>
-      </div>
-    </article>
-  `).join("");
+  const items = filteredOpportunities();
+  if (state.featured && !items.find((o) => o.id === state.featured)) {
+    state.featured = items.length ? items[0].id : null;
+  }
+  grid.innerHTML = items.map((opportunity) => {
+    const isFeatured = opportunity.id === state.featured;
+    const status = escapeHtml(opportunity.review_status);
+    const company = escapeHtml(opportunity.client_name) + " · " + escapeHtml(opportunity.vertical);
+    const meta = shortMoney(opportunity.deal_value) + " · due " + shortDate(opportunity.due_date);
+    const next = escapeHtml(nextActionLabel(opportunity));
+    return `
+      <article class="opportunity-card ${isFeatured ? "is-featured" : ""}" data-opportunity="${opportunity.id}" tabindex="0" aria-pressed="${isFeatured}">
+        <header class="opp-head">
+          <span class="pill ${statusClass(opportunity.review_status)}">${status}</span>
+          <span class="opp-meta" aria-hidden="${!isFeatured}">${escapeHtml(meta)}</span>
+        </header>
+        <h3>${escapeHtml(opportunity.opportunity_name)}</h3>
+        <p class="opp-company">${company}</p>
+        ${isFeatured ? `<p class="opp-summary">${escapeHtml(opportunity.generated_brief_summary)}</p>` : ""}
+        <p class="opp-next"><span class="opp-next-label">Next</span>${next}</p>
+        ${isFeatured ? `<a class="opp-open" href="#record" data-open="${opportunity.id}">Inspect full record →</a>` : ""}
+      </article>
+    `;
+  }).join("");
 }
 
 function renderRecord(opportunity) {
   state.selected = opportunity;
+  state.featured = opportunity.id;
+
+  setText("record-status", opportunity.review_status);
+  const statusEl = document.getElementById("record-status");
+  if (statusEl) statusEl.className = "pill " + statusClass(opportunity.review_status);
+
   setText("record-title", opportunity.opportunity_name);
+  setText("record-company", `${opportunity.client_name} · ${opportunity.vertical}`);
   setText("record-summary", opportunity.generated_brief_summary);
+  setText("record-source", opportunity.source_excerpt);
+  setText("record-next", nextActionLabel(opportunity));
+
   setText("record-client", opportunity.client_name);
   setText("record-value", opportunity.deal_value);
-  setText("record-due", opportunity.due_date);
+  setText("record-due", shortDate(opportunity.due_date));
   setText("record-owner", opportunity.owner);
   setText("record-score", `${opportunity.checklist_score}%`);
 
-  document.getElementById("record-assets").innerHTML = opportunity.requested_assets
-    .map((asset) => `<li>${asset}</li>`)
-    .join("");
-
-  setText("record-source", opportunity.source_excerpt);
-
   document.getElementById("record-fields").innerHTML = opportunity.structured_fields
-    .map((field) => `<li>${field}</li>`)
+    .map((field) => `<li>${escapeHtml(field)}</li>`)
     .join("");
 
   document.getElementById("record-draft").innerHTML = opportunity.draft_brief_fragments
-    .map((fragment) => `<li>${fragment}</li>`)
+    .map((fragment) => `<li>${escapeHtml(fragment)}</li>`)
     .join("");
 
-  setText("record-review-state", `${opportunity.review_state}. ${opportunity.lineage_classification}.`);
-
   document.getElementById("record-reuse").innerHTML = opportunity.reuse_candidates
-    .map((item) => `<li>${item}</li>`)
+    .map((item) => `<li>${escapeHtml(item)}</li>`)
     .join("");
 
   document.getElementById("record-timeline").innerHTML = opportunity.timeline
-    .map((event) => `<li>${event}</li>`)
+    .map((event) => `<li>${escapeHtml(event)}</li>`)
     .join("");
 
-  document.getElementById("rfp-text").value = rfpText(opportunity);
+  const assetsEl = document.getElementById("record-assets");
+  if (assetsEl) {
+    assetsEl.innerHTML = opportunity.requested_assets
+      .map((asset) => `<li>${escapeHtml(asset)}</li>`)
+      .join("");
+  }
+
+  const rfp = document.getElementById("rfp-text");
+  if (rfp) rfp.value = rfpText(opportunity);
+
   renderSampleButtons();
+  renderOpportunities();
 }
 
 function renderSampleButtons() {
@@ -152,12 +210,12 @@ function renderReviewQueue() {
   queue.innerHTML = reviewItems.map((opportunity) => {
     const missing = opportunity.missing_fields.length
       ? opportunity.missing_fields.join(", ")
-      : "final approval only";
+      : "Final approval";
     return `
       <article class="review-item">
-        <span class="pill ${statusClass(opportunity.review_status)}">${opportunity.review_status}</span>
-        <strong>${opportunity.opportunity_name}</strong>
-        <p>${missing}</p>
+        <span class="pill ${statusClass(opportunity.review_status)}">${escapeHtml(opportunity.review_status)}</span>
+        <strong>${escapeHtml(opportunity.opportunity_name)}</strong>
+        <p>${escapeHtml(missing)}</p>
       </article>
     `;
   }).join("");
@@ -186,6 +244,13 @@ function bindEvents() {
   });
 
   document.getElementById("opportunity-grid").addEventListener("click", (event) => {
+    const open = event.target.closest("[data-open]");
+    if (open) {
+      // Let the anchor navigate to #record; just ensure the right opportunity is rendered.
+      const opportunity = state.data.opportunities.find((item) => item.id === open.dataset.open);
+      if (opportunity) renderRecord(opportunity);
+      return;
+    }
     const card = event.target.closest("[data-opportunity]");
     if (!card) return;
     const opportunity = state.data.opportunities.find((item) => item.id === card.dataset.opportunity);
