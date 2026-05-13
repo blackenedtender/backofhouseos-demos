@@ -21,6 +21,44 @@
     <script src="studio.js" defer></script>
   </head>
   <body>
+    <aside class="mode-overlay" id="mode-overlay" role="dialog" aria-modal="true" aria-labelledby="mode-overlay-title" hidden>
+      <div class="mode-sheet">
+        <p class="mode-eyebrow">Pick a reading mode</p>
+        <h2 id="mode-overlay-title">How do you want to explore this?</h2>
+        <p class="mode-intro">Three depths. Choice stays in your browser. Change it from the footer later.</p>
+        <ol class="mode-list">
+          <li>
+            <button type="button" class="mode-choice" data-mode="quick">
+              <span class="mode-num">01</span>
+              <span class="mode-body">
+                <strong>Quick tour</strong>
+                <em>Concise summaries. Best demos first.</em>
+              </span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="mode-choice" data-mode="operator">
+              <span class="mode-num">02</span>
+              <span class="mode-body">
+                <strong>Operator mode</strong>
+                <em>Full workflow context. All the receipts.</em>
+              </span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="mode-choice" data-mode="show">
+              <span class="mode-num">03</span>
+              <span class="mode-body">
+                <strong>Just show me stuff</strong>
+                <em>Minimal text. Fast scrolling.</em>
+              </span>
+            </button>
+          </li>
+        </ol>
+        <button type="button" class="mode-dismiss" data-mode-action="dismiss">Skip — use quick tour</button>
+      </div>
+    </aside>
+
     <div class="studio-shell">
       <header class="studio-header">
         <a class="brand-lockup" href="#ingress" aria-label="The Creative Origin demo gallery home">
@@ -200,6 +238,7 @@
       <footer class="studio-footer">
         <span>© The Creative Origin · Phil Baptiste</span>
         <span>Public demo gallery</span>
+        <button type="button" class="mode-switch" data-mode-action="open" aria-label="Change reading mode">Mode: <span class="mode-switch-label">quick</span> · change</button>
       </footer>
     </div>
   </body>

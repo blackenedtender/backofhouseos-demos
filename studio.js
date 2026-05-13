@@ -393,8 +393,99 @@
     tick();
   }
 
+  // -------------------- Reading mode --------------------
+  const MODE_KEY = "boh-demo-mode";
+  const VALID_MODES = ["quick", "operator", "show"];
+
+  function readStoredMode() {
+    try {
+      const v = window.localStorage.getItem(MODE_KEY);
+      if (VALID_MODES.indexOf(v) !== -1) return v;
+    } catch (_) {}
+    return null;
+  }
+
+  function persistMode(mode) {
+    try { window.localStorage.setItem(MODE_KEY, mode); } catch (_) {}
+  }
+
+  function applyMode(mode) {
+    if (VALID_MODES.indexOf(mode) === -1) mode = "quick";
+    VALID_MODES.forEach((m) => body.classList.toggle("mode-" + m, m === mode));
+    body.dataset.mode = mode;
+    document.querySelectorAll(".mode-switch-label").forEach((el) => {
+      el.textContent = mode;
+    });
+  }
+
+  function openModeOverlay() {
+    const overlay = document.getElementById("mode-overlay");
+    if (!overlay) return;
+    overlay.hidden = false;
+    requestAnimationFrame(() => overlay.classList.add("is-open"));
+    const first = overlay.querySelector("[data-mode]");
+    if (first) first.focus();
+  }
+
+  function closeModeOverlay() {
+    const overlay = document.getElementById("mode-overlay");
+    if (!overlay) return;
+    overlay.classList.remove("is-open");
+    overlay.hidden = true;
+  }
+
+  function wireMode() {
+    const overlay = document.getElementById("mode-overlay");
+    if (overlay) {
+      overlay.addEventListener("click", (event) => {
+        const choice = event.target.closest("[data-mode]");
+        if (choice) {
+          applyMode(choice.dataset.mode);
+          persistMode(choice.dataset.mode);
+          closeModeOverlay();
+          return;
+        }
+        const dismiss = event.target.closest("[data-mode-action='dismiss']");
+        if (dismiss) {
+          applyMode("quick");
+          persistMode("quick");
+          closeModeOverlay();
+          return;
+        }
+        if (event.target === overlay) {
+          applyMode("quick");
+          persistMode("quick");
+          closeModeOverlay();
+        }
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && !overlay.hidden) {
+          applyMode("quick");
+          persistMode("quick");
+          closeModeOverlay();
+        }
+      });
+    }
+    document.querySelectorAll("[data-mode-action='open']").forEach((el) => {
+      el.addEventListener("click", openModeOverlay);
+    });
+  }
+
+  function initMode() {
+    const stored = readStoredMode();
+    if (stored) {
+      applyMode(stored);
+      return;
+    }
+    applyMode("quick");
+    if (REDUCED) return;
+    setTimeout(openModeOverlay, 320);
+  }
+
   // -------------------- Boot --------------------
   function boot() {
+    wireMode();
+    initMode();
     const first = MODULES[0];
     paintModule(first);
     setProgress(0);

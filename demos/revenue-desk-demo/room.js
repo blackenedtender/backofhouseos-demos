@@ -156,6 +156,17 @@
     anchor.insertAdjacentElement("afterend", dl);
   }
 
+  function applyReadingMode() {
+    const valid = ["quick", "operator", "show"];
+    let mode = "quick";
+    try {
+      const v = window.localStorage.getItem("boh-demo-mode");
+      if (valid.indexOf(v) !== -1) mode = v;
+    } catch (_) {}
+    valid.forEach((m) => document.body.classList.toggle("mode-" + m, m === mode));
+    document.body.dataset.mode = mode;
+  }
+
   function boot() {
     document.body.classList.add("boh-room");
     // Commit to dark — gallery continuity. Drop any prior light preference.
@@ -173,6 +184,7 @@
     ensureBackLink(scope);
     ensureStatusPill(scope);
     ensureImplementationState(scope);
+    applyReadingMode();
   }
 
   if (document.readyState === "loading") {

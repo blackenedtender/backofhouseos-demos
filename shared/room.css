@@ -1651,3 +1651,102 @@ body.boh-room main > section:nth-child(4) { animation-delay: 140ms; }
     grid-template-columns: 1fr;
   }
 }
+
+/* -------------------- Reading-mode density (rooms) -------------------- */
+
+/* Quick (default) — keep most content, lighten verbosity */
+body.boh-room.mode-quick .implementation-state {
+  /* keep visible but slightly compressed */
+}
+body.boh-room.mode-quick .proof-loop p,
+body.boh-room.mode-quick .governance-mini {
+  /* let through, just rely on mobile compression */
+}
+
+/* Show — aggressive prune */
+body.boh-room.mode-show .room-state .state-detail,
+body.boh-room.mode-show .implementation-state,
+body.boh-room.mode-show .governance-mini,
+body.boh-room.mode-show .proof-loop,
+body.boh-room.mode-show .hero .lede,
+body.boh-room.mode-show .archive-note,
+body.boh-room.mode-show .boundary-section p,
+body.boh-room.mode-show .pattern-section,
+body.boh-room.mode-show footer {
+  display: none !important;
+}
+
+body.boh-room.mode-show .hero {
+  padding: clamp(24px, 4vw, 36px) 0 clamp(20px, 3vw, 28px) !important;
+}
+
+body.boh-room.mode-show h2 {
+  font-size: clamp(1.1rem, 1.9vw, 1.4rem);
+}
+
+/* Operator — make sure everything is visible */
+body.boh-room.mode-operator .implementation-state,
+body.boh-room.mode-operator .room-state .state-detail,
+body.boh-room.mode-operator .hero .lede {
+  display: revert;
+}
+
+/* -------------------- Mobile compression (rooms <=720px) -------------------- */
+@media (max-width: 720px) {
+  /* Tighter hero rhythm */
+  body.boh-room .hero,
+  body.boh-room .revenue-hero {
+    padding: clamp(24px, 4vw, 36px) 0 clamp(18px, 3vw, 26px) !important;
+    gap: 16px;
+  }
+
+  body.boh-room .hero h1 { margin-bottom: 8px; }
+  body.boh-room .hero .lede { font-size: 0.96rem; line-height: 1.55; }
+
+  /* Room-state badge stacks cleanly */
+  body.boh-room .room-state {
+    gap: 4px 10px;
+    font-size: 0.76rem;
+  }
+  body.boh-room .room-state .state-detail {
+    flex-basis: 100%;
+    font-size: 0.88rem;
+  }
+
+  /* Implementation-state slimmer */
+  body.boh-room .implementation-state {
+    margin-top: 14px;
+  }
+
+  /* Action row tightens */
+  body.boh-room .action-row,
+  body.boh-room .hero-actions {
+    gap: 10px 22px;
+    margin-top: 12px;
+  }
+
+  /* Sections compress padding */
+  body.boh-room main,
+  body.boh-room .main,
+  body.boh-room .workspace { padding: 24px 0 28px !important; }
+
+  body.boh-room .section-heading,
+  body.boh-room .section-header,
+  body.boh-room .section-title { margin: 28px 0 10px; }
+
+  /* Footer slimmer */
+  body.boh-room footer { margin-top: 36px; }
+
+  /* In show mode on mobile, hide the hero aside too */
+  body.boh-room.mode-show .intake-card,
+  body.boh-room.mode-show .today-card,
+  body.boh-room.mode-show .loop-card,
+  body.boh-room.mode-show .hero-panel {
+    display: none;
+  }
+}
+
+@media (max-width: 420px) {
+  body.boh-room h1 { font-size: clamp(1.5rem, 9vw, 2.1rem); }
+  body.boh-room .room-state .state-detail { font-size: 0.86rem; }
+}
