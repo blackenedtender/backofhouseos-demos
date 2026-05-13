@@ -19,7 +19,10 @@
   --gold: #b89a64;
   --warn: #c89172;
 
-  --font: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-display: "Druk Wide", "Druk", "Helvetica Neue Condensed", HelveticaNeue-CondensedBold, "Arial Narrow", Impact, sans-serif;
+  --font-ui: Inter, "Helvetica Neue", Helvetica, Arial, ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "SFMono-Regular", "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  --font: var(--font-ui);
 }
 
 html[data-theme="light"] {
@@ -64,7 +67,9 @@ body.boh-room {
   overflow-x: hidden;
   background: var(--bg);
   color: var(--ink);
-  font-family: var(--font);
+  font-family: var(--font-ui);
+  font-synthesis: none;
+  font-feature-settings: "kern" 1, "ss01" 1, "cv11" 1;
   font-size: 16px;
   line-height: 1.55;
   letter-spacing: 0;
@@ -151,10 +156,12 @@ body.boh-room .room-back {
   padding: 0;
   border: 0;
   color: var(--muted);
-  font-size: 0.84rem;
-  font-weight: 400;
-  letter-spacing: 0;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
   text-transform: none;
+  text-decoration: none;
 }
 
 body.boh-room .room-back:hover,
@@ -235,17 +242,19 @@ body.boh-room .room-identity-text small {
 body.boh-room .brand strong,
 body.boh-room .room-identity-text strong {
   color: var(--paper);
-  font-size: 0.92rem;
+  font-family: var(--font-display);
+  font-size: 0.94rem;
   font-weight: 500;
-  letter-spacing: 0;
+  letter-spacing: 0.005em;
 }
 
 body.boh-room .brand small,
 body.boh-room .room-identity-text small {
   color: var(--dim);
-  font-size: 0.74rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
   font-weight: 400;
-  letter-spacing: 0;
+  letter-spacing: 0.04em;
   text-transform: none;
 }
 
@@ -257,19 +266,23 @@ body.boh-room .room-status {
   border: 0;
   background: transparent;
   color: var(--accent);
-  font-size: 0.74rem;
-  font-weight: 400;
-  letter-spacing: 0.02em;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
   text-transform: none;
 }
 
-body.boh-room[data-status="SEALED"] .room-status,
-body.boh-room[data-status="REVIEW"] .room-status {
+body.boh-room[data-status="SNAPSHOT"] .room-status,
+body.boh-room[data-status="CONCEPT"]  .room-status,
+body.boh-room[data-status="SEALED"]   .room-status,
+body.boh-room[data-status="REVIEW"]   .room-status {
   color: var(--gold);
 }
 
-body.boh-room[data-status="STANDBY"] .room-status,
-body.boh-room[data-status="ARCHIVE"] .room-status {
+body.boh-room[data-status="HELD"]     .room-status,
+body.boh-room[data-status="STANDBY"]  .room-status,
+body.boh-room[data-status="ARCHIVE"]  .room-status {
   color: var(--dim);
 }
 
@@ -297,9 +310,10 @@ body.boh-room .side-nav a {
   border: 0;
   background: transparent !important;
   color: var(--muted);
-  font-size: 0.84rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
   font-weight: 400;
-  letter-spacing: 0;
+  letter-spacing: 0.02em;
   text-decoration: none;
   box-shadow: none !important;
 }
@@ -350,13 +364,12 @@ body.boh-room .workspace {
   padding: 56px 0 36px !important;
 }
 
-/* Typography */
+/* Typography parity with studio.css: Druk display, Inter UI, JetBrains mono */
 body.boh-room h1,
 body.boh-room h2,
 body.boh-room h3,
 body.boh-room p {
   margin-top: 0;
-  font-family: var(--font);
   letter-spacing: 0;
 }
 
@@ -364,24 +377,27 @@ body.boh-room h1 {
   max-width: 22ch;
   margin-bottom: 18px;
   color: var(--paper);
-  font-size: clamp(1.75rem, 4.6vw, 3rem);
-  font-weight: 500;
-  line-height: 1.05;
-  letter-spacing: -0.012em;
+  font-family: var(--font-display);
+  font-size: clamp(1.65rem, 4.2vw, 2.8rem);
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
 }
 
 body.boh-room h2 {
   max-width: 32ch;
   margin-bottom: 10px;
   color: var(--paper);
-  font-size: clamp(1.2rem, 2vw, 1.55rem);
-  font-weight: 500;
-  line-height: 1.18;
-  letter-spacing: -0.005em;
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2.2vw, 1.65rem);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.014em;
 }
 
 body.boh-room h3 {
   margin-bottom: 6px;
+  font-family: var(--font-ui);
   color: var(--paper);
   font-size: 0.95rem;
   font-weight: 600;
@@ -418,27 +434,69 @@ body.boh-room .sidebar .brand > span:first-child,
 body.boh-room .sidebar .brand > span:last-child {
   margin: 0 0 14px;
   color: var(--muted);
-  font-size: 0.78rem;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
   font-weight: 400;
-  letter-spacing: 0;
+  letter-spacing: 0.02em;
   text-transform: none;
 }
 
 body.boh-room .sidebar .brand strong {
   color: var(--paper);
-  font-size: 0.92rem;
+  font-family: var(--font-display);
+  font-size: 0.94rem;
   font-weight: 500;
+}
+
+/* Room state badge — status + data + concrete what-to-inspect */
+body.boh-room .room-state {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 12px;
+  margin: 0 0 18px;
+  max-width: 64ch;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+}
+
+body.boh-room .room-state .state-tag {
+  color: var(--accent);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+body.boh-room .room-state.is-snapshot .state-tag,
+body.boh-room .room-state.is-concept  .state-tag { color: var(--gold); }
+body.boh-room .room-state.is-held     .state-tag { color: var(--dim); }
+
+body.boh-room .room-state .state-sep {
+  color: var(--line-strong);
+  margin: 0 2px;
+}
+
+body.boh-room .room-state .state-detail {
+  color: var(--muted);
+  font-family: var(--font-ui);
+  font-size: 0.86rem;
+  letter-spacing: 0;
+  flex-basis: 100%;
+  max-width: 64ch;
 }
 
 /* Hero — no boxed aside, just text */
 body.boh-room .hero,
 body.boh-room .revenue-hero {
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(240px, 0.85fr);
+  grid-template-columns: minmax(0, 1.2fr) minmax(220px, 0.8fr);
   align-items: end;
-  gap: clamp(28px, 5vw, 56px);
+  gap: clamp(24px, 4vw, 48px);
   min-height: 0 !important;
-  padding: clamp(48px, 6vw, 76px) 0 clamp(36px, 4vw, 56px) !important;
+  padding: clamp(40px, 5vw, 64px) 0 clamp(32px, 4vw, 48px) !important;
   background: transparent !important;
   border: 0 !important;
   border-radius: 0 !important;
@@ -448,22 +506,38 @@ body.boh-room .revenue-hero {
 body.boh-room .hero-copy,
 body.boh-room .stack {
   display: grid;
-  gap: 14px;
+  gap: 12px;
   min-width: 0;
+  max-width: 64ch;
 }
 
 body.boh-room .hero h1 { margin-bottom: 2px; }
-body.boh-room .hero .lede { margin-top: 4px; }
+body.boh-room .hero .lede { margin-top: 2px; max-width: 58ch; }
+
+/* Hide the legacy theme toggle if anything still injects it */
+body.boh-room .theme-toggle-group,
+body.boh-room .product-theme-toggle {
+  display: none !important;
+}
 
 body.boh-room .action-row,
 body.boh-room .hero-actions,
 body.boh-room .button-row,
-body.boh-room .sample-buttons,
 body.boh-room .pills {
   display: flex;
   flex-wrap: wrap;
-  gap: 22px;
-  margin-top: 18px;
+  align-items: center;
+  gap: 12px 24px;
+  margin-top: 14px;
+  row-gap: 8px;
+}
+
+body.boh-room .sample-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 18px;
+  margin-top: 10px;
 }
 
 /* Hero asides — type, no box */
@@ -701,16 +775,19 @@ body.boh-room .text-action {
   position: relative;
   display: inline-flex;
   align-items: center;
-  min-height: 32px;
+  min-height: 36px;
   padding: 4px 0;
+  margin: 0;
   border: 0 !important;
   border-radius: 0 !important;
   background: transparent !important;
   color: var(--paper) !important;
-  font-size: 0.92rem;
+  font-family: var(--font-ui);
+  font-size: 0.94rem;
   font-weight: 500;
   letter-spacing: 0;
   text-decoration: none;
+  white-space: nowrap;
   box-shadow: none !important;
   cursor: pointer;
 }
@@ -1149,9 +1226,10 @@ body.boh-room footer {
   padding: 16px 0 0;
   border-top: 1px solid var(--line);
   color: var(--dim) !important;
-  font-size: 0.76rem;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
   font-weight: 400;
-  letter-spacing: 0;
+  letter-spacing: 0.02em;
   text-align: left;
 }
 

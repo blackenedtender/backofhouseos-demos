@@ -21,14 +21,15 @@
     <link rel="stylesheet" href="styles.css">
     <script src="room.js" defer></script>
   </head>
-  <body class="boh-room" data-room="churchos" data-status="SEALED">
+  <body class="boh-room" data-room="churchos" data-status="SNAPSHOT">
     <div class="room-shell">
       <header class="room-top">
-        <a class="room-identity" href="index.html" aria-label="ChurchOS room home">
+        <a class="room-back" href="https://demos.philbap.com/" aria-label="Open canonical site demos.philbap.com"><span class="room-back-arrow" aria-hidden="true">←</span><span class="room-back-label">Demo Gallery</span></a>
+<a class="room-identity" href="index.html" aria-label="ChurchOS room home">
           <span class="brand-mark" aria-hidden="true"></span>
           <span class="room-identity-text">
             <strong>ChurchOS</strong>
-            <small>Community operations layer</small>
+            <small>Sunday operations</small>
           </span>
         </a>
         <nav class="room-nav" aria-label="ChurchOS sections">
@@ -49,7 +50,8 @@
           <div class="hero-copy">
             <p class="eyebrow">Review Queue</p>
             <h1>Human intent is recorded before anything moves</h1>
-            <p class="lede">This static queue shows the approval lane without changing state. It models review-first intake, candidate songs, and reference archive records.</p>
+            <p class="room-state is-snapshot"><span class="state-tag">SNAPSHOT</span><span class="state-sep" aria-hidden="true">·</span><span class="state-data">Sanitized snapshot</span><span class="state-detail">Review queue · demo items</span></p>
+<p class="lede">This static queue shows the approval lane without changing state. It models review-first intake, candidate songs, and reference archive records.</p>
           </div>
           <aside class="today-card" aria-label="Review Queue state">
             <span>Surface</span>

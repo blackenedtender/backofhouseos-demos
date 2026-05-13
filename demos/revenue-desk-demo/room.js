@@ -1,16 +1,5 @@
 (function () {
-  const storageKey = "boh-demo-theme";
-  const modes = ["light", "dark"];
   const root = document.documentElement;
-
-  function applyTheme(mode) {
-    const next = modes.includes(mode) ? mode : "dark";
-    root.dataset.theme = next;
-    try { localStorage.setItem(storageKey, next); } catch (_) { /* no-op */ }
-    document.querySelectorAll("[data-theme-choice]").forEach((button) => {
-      button.setAttribute("aria-pressed", String(button.dataset.themeChoice === next));
-    });
-  }
 
   function logoMarkup() {
     return '<img src="assets/tco-logo-web.png" alt="">';
@@ -34,19 +23,35 @@
   }
 
   function ensureBackLink(scope) {
-    if (scope.querySelector(".room-back")) return;
+    const onCanonical = /(^|\.)philbap\.com$/i.test(location.hostname);
+    const canonicalHref = "https://demos.philbap.com/";
+    const existing = scope.querySelector(".room-back");
+    if (existing) {
+      // Refine an HTML-rendered anchor: tighten href + label for the host.
+      if (onCanonical) {
+        existing.classList.remove("is-canonical-pointer");
+        existing.setAttribute("href", "/");
+        existing.setAttribute("aria-label", "Back to the Demo Gallery");
+        const labelEl = existing.querySelector(".room-back-label");
+        if (labelEl) labelEl.textContent = "Demo Gallery";
+      } else {
+        existing.classList.add("is-canonical-pointer");
+        existing.setAttribute("href", canonicalHref);
+        existing.setAttribute("aria-label", "Open canonical site demos.philbap.com");
+        const labelEl = existing.querySelector(".room-back-label");
+        if (labelEl) labelEl.textContent = "demos.philbap.com";
+      }
+      return;
+    }
     const target = scope.querySelector(".room-top, .topbar, .shell-header");
     if (!target) return;
     const back = document.createElement("a");
     back.className = "room-back";
-    const onCanonical = /(^|\.)philbap\.com$/i.test(location.hostname);
-    back.href = onCanonical ? "/" : "https://demos.philbap.com/";
+    back.href = onCanonical ? "/" : canonicalHref;
     if (!onCanonical) back.classList.add("is-canonical-pointer");
     back.setAttribute(
       "aria-label",
-      onCanonical
-        ? "Back to the Demo Gallery"
-        : "Open canonical site demos.philbap.com"
+      onCanonical ? "Back to the Demo Gallery" : "Open canonical site demos.philbap.com"
     );
     const label = onCanonical ? "Demo Gallery" : "demos.philbap.com";
     back.innerHTML =
@@ -67,38 +72,15 @@
     brand.appendChild(pill);
   }
 
-  function installThemeControls(scope) {
-    if (scope.querySelector(".product-theme-toggle")) return;
-    const controls = document.createElement("div");
-    controls.className = "product-theme-toggle";
-    controls.setAttribute("role", "group");
-    controls.setAttribute("aria-label", "Theme");
-    controls.innerHTML = modes
-      .map((mode) => `<button type="button" data-theme-choice="${mode}">${mode}</button>`)
-      .join("");
-    controls.addEventListener("click", (event) => {
-      const button = event.target.closest("[data-theme-choice]");
-      if (button) applyTheme(button.dataset.themeChoice);
-    });
-
-    const target =
-      scope.querySelector(".room-top .room-nav") ||
-      scope.querySelector(".room-top") ||
-      scope.querySelector(".topbar .nav") ||
-      scope.querySelector(".shell-header .nav") ||
-      scope.querySelector(".workspace-top") ||
-      scope.querySelector(".sidebar") ||
-      scope.querySelector(".topbar") ||
-      scope.querySelector(".shell-header");
-
-    if (target) target.appendChild(controls);
-  }
-
   function boot() {
     document.body.classList.add("boh-room");
+    // Commit to dark — gallery continuity. Drop any prior light preference.
+    root.dataset.theme = "dark";
+
     document
       .querySelectorAll(
-        ".boh-detail-band,.boh-freshness-band,.theme-dock,.tco-logo-lockup,.notebook-bottom-nav,.notebook-status-strip"
+        ".boh-detail-band,.boh-freshness-band,.theme-dock,.tco-logo-lockup," +
+        ".notebook-bottom-nav,.notebook-status-strip,.product-theme-toggle,.theme-toggle-group"
       )
       .forEach((node) => node.remove());
 
@@ -106,11 +88,6 @@
     ensureBrandMark(scope);
     ensureBackLink(scope);
     ensureStatusPill(scope);
-    installThemeControls(scope);
-
-    let stored = null;
-    try { stored = localStorage.getItem(storageKey); } catch (_) { /* no-op */ }
-    applyTheme(stored || "dark");
   }
 
   if (document.readyState === "loading") {

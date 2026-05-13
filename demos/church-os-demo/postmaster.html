@@ -21,14 +21,15 @@
     <link rel="stylesheet" href="styles.css">
     <script src="room.js" defer></script>
   </head>
-  <body class="boh-room" data-room="churchos" data-status="SEALED">
+  <body class="boh-room" data-room="churchos" data-status="SNAPSHOT">
     <div class="room-shell">
       <header class="room-top">
-        <a class="room-identity" href="index.html" aria-label="ChurchOS room home">
+        <a class="room-back" href="https://demos.philbap.com/" aria-label="Open canonical site demos.philbap.com"><span class="room-back-arrow" aria-hidden="true">←</span><span class="room-back-label">Demo Gallery</span></a>
+<a class="room-identity" href="index.html" aria-label="ChurchOS room home">
           <span class="brand-mark" aria-hidden="true"></span>
           <span class="room-identity-text">
             <strong>ChurchOS</strong>
-            <small>Community operations layer</small>
+            <small>Sunday operations</small>
           </span>
         </a>
         <nav class="room-nav" aria-label="ChurchOS sections">
@@ -49,7 +50,8 @@
           <div class="hero-copy">
             <p class="eyebrow">Postmaster</p>
             <h1>Communication trail without live sending</h1>
-            <p class="lede">The real runtime can send governed email through configured production credentials. This demo shows the concept only, with no provider calls and no credentials.</p>
+            <p class="room-state is-snapshot"><span class="state-tag">SNAPSHOT</span><span class="state-sep" aria-hidden="true">·</span><span class="state-data">Sanitized snapshot</span><span class="state-detail">Postmaster · disabled in demo</span></p>
+<p class="lede">The real runtime can send governed email through configured production credentials. This demo shows the concept only, with no provider calls and no credentials.</p>
           </div>
           <aside class="today-card" aria-label="Postmaster state">
             <span>Surface</span>
